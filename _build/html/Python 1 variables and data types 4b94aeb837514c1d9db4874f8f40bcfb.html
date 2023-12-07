@@ -1,0 +1,1396 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Python 1: variables and data types &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Python 1 variables and data types 4b94aeb837514c1d9db4874f8f40bcfb';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/low-angle-cute-shiba-inu-dog.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/low-angle-cute-shiba-inu-dog.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">資料與變數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testfile.html">Here’s my sample title</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPython 1 variables and data types 4b94aeb837514c1d9db4874f8f40bcfb.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Python 1 variables and data types 4b94aeb837514c1d9db4874f8f40bcfb.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python 1: variables and data types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python 1: variables and data types</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">資料與變數</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python"><strong>Python的基本資料型態</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Python的資料 = 物件</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">什麼是<strong>變數</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別操作與運算</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>布林</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>整數與浮點數</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>不同資料型別之間的運算</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Python 主要資料型別</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">dict</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">set</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">進階主題</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">資料型別的可變與不可變</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">資料型態統整</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-1-variables-and-data-types">
+<h1>Python 1: variables and data types<a class="headerlink" href="#python-1-variables-and-data-types" title="Permalink to this heading">#</a></h1>
+<aside>
+💡 情境：
+list → to-do list
+tuple → questionnaire
+dict → menu
+set → categories
+</aside>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>資料與變數<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="python">
+<h2><strong>Python的基本資料型態</strong><a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
+<p>Python常用的資料型態基本上就如下表列這幾種。</p>
+<p>其中bool、int、float、str是最基本的資料型態。</p>
+<p>而list, tuple, dict, set可以理解成用不同方式來組織**”物件”**的資料型態，各有各的特點和使用情境。</p>
+<p>後面會說明list, tuple, dict, set的使用方式。</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bool</p></td>
+<td><p>True, False</p></td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
+<td><p>42, 19, 112</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+<td><p>3.14, 0.13</p></td>
+</tr>
+<tr class="row-odd"><td><p>str</p></td>
+<td><p>‘Hi’, “Hello”, ‘’’Bye!’’’, “””Bye!”””</p></td>
+</tr>
+<tr class="row-even"><td><p>list</p></td>
+<td><p>[‘a’, ‘b’, ‘c’, ‘d’, ‘a’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>tuple</p></td>
+<td><p>(‘a’, ‘b’)</p></td>
+</tr>
+<tr class="row-even"><td><p>dict</p></td>
+<td><p>{‘a’: 1, ‘b’: 2}</p></td>
+</tr>
+<tr class="row-odd"><td><p>set</p></td>
+<td><p>{‘a’, ‘b’, ‘c’}</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;type()&quot; -&gt; function ; &quot;True&quot; -&gt; function input (or argument)</span>
+<span class="c1"># type() 可以用來檢查資料型別</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">bool</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">int</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="nb">float</span>
+
+<span class="o">...</span> <span class="c1"># 以下忽略</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2><strong>Python的資料 = 物件</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>如果把電腦的記憶體想像成很多排架子的倉庫，每排架子裡有很多個格子，</p>
+<p>我們可以把一個物件當作是一個盒子，佔用了倉庫中某些格子的位置。</p>
+<p>[img]</p>
+<p>也就是說，物件佔用記憶體的一部分位置，儲存了以下元素：</p>
+<ul class="simple">
+<li><p>物件的id，也就是唯一識別碼，指出了在倉庫中的位置。</p></li>
+<li><p>物件的型態，說明物件可以做什麼。</p></li>
+<li><p>物件的值，也就是物件的內容。</p></li>
+</ul>
+<p>[img]</p>
+</section>
+<section id="id3">
+<h2>什麼是<strong>變數</strong><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p><strong>概念</strong></p>
+<p>變數(variable)是物件的名稱，可以想像是盒子的標籤。</p>
+<p>[img]</p>
+<p><strong>變數名稱的規則</strong></p>
+<ul>
+<li><p>a-z, A-Z, 0-9, _</p></li>
+<li><p>區分大小寫，apple ≠ APPLE ≠ Apple</p></li>
+<li><p>開頭不能使用數字。</p></li>
+<li><p>以底線開頭的變數有特殊意義。</p></li>
+<li><p>不能是python保留字。</p>
+<ul>
+<li><p>[link] <a class="reference external" href="https://realpython.com/python-keywords/">Python Keywords: An Introduction – Real Python</a></p></li>
+<li><p>在程式中查看：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="s2">&quot;keywords&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>變數的賦值</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">Hello</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>基礎資料型別操作與運算<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h1>
+<section id="id5">
+<h2><strong>布林</strong><a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>可以透過bool()將其他資料轉換為布林型態。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mf">100.001</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">True</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">False</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2><strong>整數與浮點數</strong><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>可以透過int()和float()做資料型別轉換。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p><strong>運算子</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>運算子</p></th>
+<th class="head"><p>說明</p></th>
+<th class="head"><p>範例</p></th>
+<th class="head"><p>結果</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>+</p></td>
+<td><p>加法</p></td>
+<td><p>1+1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>減法</p></td>
+<td><p>100 - 1</p></td>
+<td><p>99</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>乘法</p></td>
+<td><p>3 * 2</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>/</p></td>
+<td><p>除法</p></td>
+<td><p>9 / 2</p></td>
+<td><p>4.5</p></td>
+</tr>
+<tr class="row-even"><td><p>//</p></td>
+<td><p>取商數</p></td>
+<td><p>9 // 2</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>%</p></td>
+<td><p>取餘數</p></td>
+<td><p>9 % 2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>**</p></td>
+<td><p>次方</p></td>
+<td><p>2 ** 3</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h2><strong>字串</strong><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>可以透過str()來將資料轉換為字串。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mf">42.0</span><span class="p">)</span>
+<span class="go">&#39;42.0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;True&#39;</span>
+</pre></div>
+</div>
+<p><strong>‘’轉譯</strong></p>
+<p>\n代表換行；\t代表tab；\則代表\</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\n</span><span class="s1">bc&#39;</span><span class="p">)</span>
+<span class="go">a</span>
+<span class="go">bc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\t</span><span class="s1">bc&#39;</span><span class="p">)</span>
+<span class="go">a    bc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\\</span><span class="s1">bc&#39;</span><span class="p">)</span>
+<span class="go">a\bc</span>
+</pre></div>
+</div>
+<p>原始字串r’’會取消\轉譯，常用於表示window作業系統的路徑。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\nbc&#39;</span><span class="p">)</span>
+<span class="go">a\nbc</span>
+</pre></div>
+</div>
+<p><strong>f-strings</strong></p>
+<p>f-strings可以將變數值帶入字串，或是用來格式化。</p>
+<p>[link] <a class="reference external" href="https://builtin.com/data-science/python-f-string">Guide to String Formatting in Python Using F-strings | Built In</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hi, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+<span class="go">Hi, Curtis!</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">=</span> <span class="mf">12.3456789</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">12.35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">1234.56789%</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">,%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">1,234.56789%</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">,.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">1,234.57%</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">last_name</span> <span class="o">=</span> <span class="s1">&#39;Lu&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">first_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">last_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="go">CurtisLu</span>
+</pre></div>
+</div>
+<p><strong>字串的切片</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;a&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;z&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;ab&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+<span class="go">&#39;yz&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;ace&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;zyxwvutsrqponmlkjihgfedcba&#39;</span>
+</pre></div>
+</div>
+<p><strong>判斷字串是否包含字串</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="s1">&#39;apple&#39;</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><strong>字串的加法與乘法運算</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="s1">&#39;2&#39;</span>
+<span class="go">&#39;12&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="go">&#39;11111&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="s1">&#39;2&#39;</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="go">&#39;122222&#39;</span>
+</pre></div>
+</div>
+<p><strong>字串的拆分(.split())</strong></p>
+<p>這邊用到一個新的物件操作方法，即在一個字串型別的變數後面加上”.”然後用呼叫方法名稱，例如一個拆分字串的方法”.split()”，其中括弧內也可以輸入引數(argument)來指定該方法的使用邏輯：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;National Taiwan University&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[&#39;National&#39;, &#39;Taiwan&#39;, &#39;University&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">[&#39;N&#39;, &#39;tion&#39;, &#39;l T&#39;, &#39;iw&#39;, &#39;n University&#39;]</span>
+</pre></div>
+</div>
+<p><strong>字串的剝除str.strip()</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;    Curtis Lu    &#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="go">&#39;Curtis Lu&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;    Curtis Lu....!!!    &#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; .!&#39;</span><span class="p">)</span>
+<span class="go">&#39;Curtis Lu&#39;</span>
+</pre></div>
+</div>
+<p><strong>其他字串操作</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;curtis lu&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="go">&#39;Curtis lu&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="go">&#39;Curtis Lu&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;CURTIS LU&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;curtis lu&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
+<span class="go">&#39;CURTIS LU&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2><strong>不同資料型別之間的運算</strong><a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mf">2.0</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="o">+</span> <span class="mf">2.0</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">TypeError</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id9">
+<h1>Python 主要資料型別<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h1>
+<section id="list">
+<h2>list<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h2>
+<p>是一種集合了多個元素且元素之間具有順序的資料型態。</p>
+<p>list中的元素可以放任何物件，bool, int, float, str都可以，甚至是 list自己本身，所以當然就還包括dict, tuple, set……其他任何物件。</p>
+<p><strong>建立list</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 以下兩種皆可</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># list中的list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p><strong>切片(slice)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;a&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;c&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="go">[&#39;b&#39;, &#39;c&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[&#39;a&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">IndexError</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[&#39;c&#39;, &#39;b&#39;, &#39;a&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p><strong>利用切片為list賦值</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[1, &#39;b&#39;, &#39;c&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="c1"># (2, 3) or [2, 3] or {2, 3} 皆可</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+<p><strong>取得list中元素的位置(.index())</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="go">ValueError</span>
+</pre></div>
+</div>
+<p><strong>在尾端加入元素(.append())</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>  <span class="c1"># 直接會改變list的內容 且不回傳結果</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
+</pre></div>
+</div>
+<p><strong>刪除list中的元素(.remove())</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="c1"># 直接會改變list的內容 且不回傳結果</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</span>
+
+<span class="go"># 另外一種方式</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># 會取出最後一個元素回傳並從list中刪除</span>
+<span class="go">&#39;e&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">&#39;b&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;c&#39;, &#39;d&#39;]</span>
+
+<span class="go"># 還有另外一種方式</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># del 事實上並非是list方法，而是python內建方法，會將物件和名稱分開。</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;c&#39;]</span>
+</pre></div>
+</div>
+<p><strong>檢查元素是否存在(in)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">a_list</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;d&#39;</span> <span class="ow">in</span> <span class="n">a_list</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p><strong>list中元素的排序</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># 直接會改變list的內容 且不回傳結果</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 降冪排列</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;e&#39;, &#39;d&#39;, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="c1"># 只會回傳資料的「副本」</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;b&#39;,&#39;d&#39;,&#39;a&#39;,&#39;c&#39;,&#39;e&#39;]</span>
+</pre></div>
+</div>
+<p><strong>取得list的長度</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p><strong>list的加法與乘法運算</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">+</span> <span class="n">d_list</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</span>
+
+<span class="go"># 補充：用append的話，argument會被當作元素加到list最尾端</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d_list</span><span class="p">)</span> <span class="c1"># 直接會改變list的內容且不回傳結果</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, [&#39;d&#39;, &#39;e&#39;, &#39;f&#39;]]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_list</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+
+</pre></div>
+</div>
+<p><strong>list的其他方法</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># .reverse()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1"># 直接會改變list的順序 且不回傳結果</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+
+<span class="c1"># .extend()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">d_list</span><span class="p">)</span> <span class="c1"># 直接會改變list的內容 且不回傳結果</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">]</span>
+
+<span class="c1"># .clear()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># 直接會改變list的內容 且不回傳結果</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="p">[]</span>
+
+<span class="c1"># .count()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+</section>
+<section id="tuple">
+<h2>tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h2>
+<p>tuple是</p>
+<p><strong>建立tuple</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p><strong>切片(slice)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="go">(2, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">(1,)</span>
+</pre></div>
+</div>
+<p><strong>tuple unpacking</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Frieren&#39;</span><span class="p">,</span> <span class="s1">&#39;Fern&#39;</span><span class="p">,</span> <span class="s1">&#39;Stark&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">name</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">&#39;Frieren&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">&#39;Fern&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">&#39;Stark&#39;</span>
+</pre></div>
+</div>
+<p><strong>檢查元素是否存在(in)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="n">a_tuple</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p><strong>取得tuple的長度</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">a_tuple</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p><strong>tuple的加法與乘法運算</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">+</span> <span class="n">b_tuple</span>
+<span class="go">(1, 2, 3, 4, 5, 6)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_tuple</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">(1, 2, 3, 1, 2, 3)</span>
+
+</pre></div>
+</div>
+<p><strong>tuple與list的差異</strong></p>
+<p>不能切片後賦值。</p>
+<p>不能新增元素，沒有類似.append()或.insert()方法，要增加元素只能新建一個tuple。</p>
+<p>沒有sort方法。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 不能切片後賦值</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+<span class="ne">TypeError</span>
+
+<span class="c1"># 不能新增元素，沒有append()方法，要增加元素只能新建一個tuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a_tuple</span><span class="p">)</span> <span class="c1"># 物件的唯一識別碼</span>
+<span class="mi">4414453632</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_tuple</span> <span class="o">=</span> <span class="n">a_tuple</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span><span class="p">,)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a_tuple</span><span class="p">)</span>
+<span class="mi">4415677888</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="mi">4415648320</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="mi">4415648320</span>
+
+<span class="c1"># 沒有sort方法，要排序tuple中的元素的話，可以用sorted內建函數，但回傳的是一個list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">a_tuple</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+</pre></div>
+</div>
+</section>
+<section id="dict">
+<h2>dict<a class="headerlink" href="#dict" title="Permalink to this heading">#</a></h2>
+<p>dict是dictionary的略稱，字典這種資料型態的組成是一群成對的key與value。</p>
+<p>key在字典裡不能重複，通常會使用字串或tuple來當作key。至於value則沒有什麼限制。</p>
+<p>dict跟後面等等會介紹的set一樣，都是沒有順序的，不能使用切片。</p>
+<p><strong>建立dict</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>dict的基本用法</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="go">KeyError</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span> <span class="c1"># 不會回傳任何東西</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;missing&#39;</span><span class="p">)</span>
+<span class="go">&#39;missing&#39;</span>
+</pre></div>
+</div>
+<p><strong>dict新增項目</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+<span class="go">{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+<span class="go">{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4, &#39;e&#39;: 5}</span>
+</pre></div>
+</div>
+<p><strong>dict刪除項目</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="go"># 方法1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+<span class="go">{&#39;b&#39;: 2, &#39;c&#39;: 3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="go">KeyError</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;Nothing happened&#39;</span><span class="p">)</span>
+<span class="go">&#39;Nothing happened&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+<span class="go">{&#39;b&#39;: 2, &#39;c&#39;: 3}</span>
+
+<span class="go"># 方法2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a_dict</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+<span class="go">{&#39;c&#39;: 3}</span>
+</pre></div>
+</div>
+<p><strong>dict中的key值不能重複</strong></p>
+<p>當要新增項目時，dict中對應的key值若已經存在，會以新的為準。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;ni&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;san&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="s1">&#39;shi&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">b_dict</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+<span class="go">{&#39;a&#39;: 1, &#39;b&#39;: &#39;ni&#39;, &#39;c&#39;: &#39;san&#39;, &#39;d&#39;: &#39;shi&#39;}</span>
+</pre></div>
+</div>
+<p><strong>取得dict的內容</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="go"># 取得key的list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+
+<span class="go"># 取得value的list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="go">[1, 2, 3]</span>
+
+<span class="go"># 取得key跟value的list，注意到其中是一個一個tuple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="go">[(&#39;a&#39;, 1), (&#39;b&#39;, 2), (&#39;c&#39;, 3)]</span>
+</pre></div>
+</div>
+<p><strong>取得dict長度</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 指的是key的數量</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
+<span class="mi">3</span>
+</pre></div>
+</div>
+<p><strong>檢查key是否存在</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;c&#39;</span> <span class="ow">in</span> <span class="n">a_dict</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</section>
+<section id="set">
+<h2>set<a class="headerlink" href="#set" title="Permalink to this heading">#</a></h2>
+<p>set是具有不重複元素的一種資料型別。</p>
+<p>操作跟數學上的集合很像。</p>
+<p>set沒有順序的概念，因此不支援切片。</p>
+<p><strong>建立set</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>加入元素至set</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">{1,2,3,4}</span>
+
+<span class="go"># .add()已經存在的元素不會改變set。</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> 
+<span class="go">{1,2,3,4}</span>
+</pre></div>
+</div>
+<p><strong>刪除set中的元素</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">{2, 3}</span>
+</pre></div>
+</div>
+<p><strong>取得set的長度</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p><strong>set的運算</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+
+<span class="go"># 交集</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+<span class="go">{3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">{3}</span>
+
+<span class="go"># 聯集</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+<span class="go">{1, 2, 3, 4, 5}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">{1, 2, 3, 4, 5}</span>
+
+<span class="go"># 差集</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+<span class="go">{1, 2}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">{1, 2}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span>
+<span class="go">{4, 5}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">{4, 5}</span>
+
+<span class="go"># 取互斥的元素</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
+<span class="go">{1, 2, 4, 5}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">{1, 2, 4, 5}</span>
+
+<span class="go"># 判斷是否為子集合</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">False</span>
+
+<span class="go"># 判斷是否為真子集</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+<span class="go">False</span>
+
+<span class="go"># 判斷是否為超集合</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">isiperset</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">False</span>
+
+<span class="go"># 判斷是否為真超集</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id10">
+<h1>進階主題<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h1>
+<section id="id11">
+<h2>資料型別的可變與不可變<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<p><strong>資料型態與是否可變</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>example</p></th>
+<th class="head"><p>immutable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bool</p></td>
+<td><p>True, False</p></td>
+<td><p>immutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
+<td><p>42, 19, 112</p></td>
+<td><p>immutable</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+<td><p>3.14, 0.13</p></td>
+<td><p>immutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>str</p></td>
+<td><p>‘Hi’, “Hello”, ‘’’Bye!’’’, “””Bye!”””</p></td>
+<td><p>immutable</p></td>
+</tr>
+<tr class="row-even"><td><p>list</p></td>
+<td><p>[‘a’, ‘b’, ‘c’, ‘d’, ‘a’]</p></td>
+<td><p>mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>tuple</p></td>
+<td><p>(‘a’, ‘b’)</p></td>
+<td><p>immutable</p></td>
+</tr>
+<tr class="row-even"><td><p>dict</p></td>
+<td><p>{‘a’: 1, ‘b’: 2}</p></td>
+<td><p>mutable</p></td>
+</tr>
+<tr class="row-odd"><td><p>set</p></td>
+<td><p>{‘a’, ‘b’, ‘c’}</p></td>
+<td><p>mutable</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>不可變</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">29</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">29</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;K&#39;</span>
+<span class="go">TypeError</span>
+</pre></div>
+</div>
+<p><strong>可變</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">[&#39;a&#39;, 2, 3]</span>
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h2>資料型態統整<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<p>參考資料</p>
+<p>introducing python: modern computing in simple packages</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Python 1: variables and data types</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">資料與變數</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python"><strong>Python的基本資料型態</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Python的資料 = 物件</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">什麼是<strong>變數</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別操作與運算</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>布林</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>整數與浮點數</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>不同資料型別之間的運算</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Python 主要資料型別</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">dict</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">set</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">進階主題</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">資料型別的可變與不可變</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">資料型態統整</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
