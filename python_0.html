@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Here’s my sample title" href="testfile.html" />
-    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <link rel="next" title="Python - 資料型態與變數(2)" href="python_1.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,11 +169,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Python - variables and data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="testfile.html">Here’s my sample title</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">Python - 資料型態與變數(2)</a></li>
+
 </ul>
 
     </div>
@@ -377,7 +375,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings"><strong>f-strings</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串的切片</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">字串的切片</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">判斷字串是否包含字串</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">字串的加法與乘法運算</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split">字串的拆分.split()</a></li>
@@ -443,7 +441,10 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># type() 是一個可以用來檢查資料型別的function。</span>
 <span class="c1"># 所謂function就是丟input進去，會有output跑出來。</span>
-<span class="c1"># 其中&quot;type&quot;是這個function的名稱，&quot;True&quot;是這個function的input，而function跑出來的output會列在下方。</span>
+<span class="c1"># &quot;type&quot;是這個function的名稱，</span>
+<span class="c1"># &quot;True&quot;是這個function的input，而function跑出來的output會列在下方。</span>
+
+
 <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -509,6 +510,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用變數</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">my_number</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -536,7 +538,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4350853896
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4305552136
 type:  &lt;class &#39;bool&#39;&gt;
 value:  True
 </pre></div>
@@ -570,13 +572,8 @@ break               for                 not
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
@@ -593,13 +590,8 @@ break               for                 not
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -618,6 +610,7 @@ break               for                 not
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 以下這些都是True</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">100.001</span><span class="p">))</span>
@@ -639,6 +632,7 @@ True
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># False</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
 </pre></div>
@@ -791,8 +785,8 @@ False
 </div>
 <section id="id5">
 <h3>“&quot;轉譯<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
-<p>在python中””是一個特殊的符號，後面接不同字母代表不同意思：</p>
-<p>“\n”代表換行；”\t”代表”tab”；”\”則代表”&quot;</p>
+<p>在python中”&quot;是一個特殊的符號，後面接不同字母代表不同意思：</p>
+<p>“\n”代表換行；”\t”代表tab；”\”則代表”&quot;</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\n</span><span class="s1">bc&#39;</span><span class="p">)</span>
@@ -830,7 +824,7 @@ bc
 </div>
 </div>
 </div>
-<p>在字串前多加一個r，會取消””轉譯。</p>
+<p>在字串前多加一個r，會取消”&quot;轉譯。</p>
 <p>這種字串稱作原始字串，常用於表示window作業系統的路徑。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -902,7 +896,7 @@ bc
 <section id="id6">
 <h3>字串的其他基本用法<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <section id="id7">
-<h4><strong>字串的切片</strong><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<h4>字串的切片<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
@@ -1083,20 +1077,20 @@ CURTIS LU
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="markdown-notebooks.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
       </div>
     </a>
     <a class="right-next"
-       href="testfile.html"
+       href="python_1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Here’s my sample title</p>
+        <p class="prev-next-title">Python - 資料型態與變數(2)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1123,7 +1117,7 @@ CURTIS LU
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings"><strong>f-strings</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串的切片</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">字串的切片</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">判斷字串是否包含字串</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">字串的加法與乘法運算</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split">字串的拆分.split()</a></li>
