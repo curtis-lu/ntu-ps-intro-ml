@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>python - variables and data types &#8212; My sample book</title>
+    <title>Python - variables and data types &#8212; My sample book</title>
   
   
   
@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">python - variables and data types</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python - variables and data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testfile.html">Here’s my sample title</a></li>
 </ul>
 
@@ -228,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -245,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython_0.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml/issues/new?title=Issue%20on%20page%20%2Fpython_0.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -359,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>python - variables and data types</h1>
+    <h1>Python - variables and data types</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -370,6 +370,23 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python"><strong>Python的基本資料型態</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Python的資料 = 物件</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別：<strong>布林</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">基礎資料型別： <strong>整數與浮點數</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別：<strong>字串</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings"><strong>f-strings</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串的切片</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">判斷字串是否包含字串</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">字串的加法與乘法運算</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split">字串的拆分.split()</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#str-strip">字串的剝除str.strip()</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">其他字串操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -382,13 +399,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-variables-and-data-types">
-<h1>python - variables and data types<a class="headerlink" href="#python-variables-and-data-types" title="Permalink to this heading">#</a></h1>
+<h1>Python - variables and data types<a class="headerlink" href="#python-variables-and-data-types" title="Permalink to this heading">#</a></h1>
 <section id="python">
 <h2><strong>Python的基本資料型態</strong><a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
-<p>Python常用的資料型態基本上就如下表列這幾種。</p>
-<p>其中bool、int、float、str是最基本的資料型態。</p>
-<p>而list, tuple, dict, set可以理解成用不同方式來組織**”物件”**的資料型態，各有各的特點和使用情境。</p>
-<p>後面會說明list, tuple, dict, set的使用方式。</p>
+<p>Python常用的資料型態基本上就如下表列這幾種：</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>type</p></th>
@@ -422,10 +436,14 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<p>其中bool、int、float、str是最基本的資料型態。</p>
+<p>而list, tuple, dict, set可以理解成用不同方式來組織<strong>物件</strong>的資料型態，各有各的特點和使用情境。</p>
+<p>後面會說明list, tuple, dict, set的使用方式。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;type()&quot; -&gt; function ; &quot;True&quot; -&gt; function input (or argument)</span>
-<span class="c1"># type() 可以用來檢查資料型別</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># type() 是一個可以用來檢查資料型別的function。</span>
+<span class="c1"># 所謂function就是丟input進去，會有output跑出來。</span>
+<span class="c1"># 其中&quot;type&quot;是這個function的名稱，&quot;True&quot;是這個function的input，而function跑出來的output會列在下方。</span>
 <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -460,18 +478,75 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="id1">
+<h2><strong>Python的資料 = 物件</strong><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>在python中，所有資料都是「<strong>物件(object)</strong>」。</p>
+<p>物件佔用記憶體的一部分位置，儲存了以下元素：</p>
+<ul class="simple">
+<li><p>物件的<strong>id</strong>，也就是唯一識別碼，指出了在倉庫中的位置。</p></li>
+<li><p>物件的<strong>型態(type)</strong>，說明物件可以做什麼。</p></li>
+<li><p>物件的<strong>值</strong>，也就是物件的內容。</p></li>
+</ul>
+<p>如果把電腦的記憶體想像成很多排架子的倉庫，每排架子裡有很多個格子，</p>
+<img src="./rack.jpg" width="50%" />
+<p><a href="https://www.freepik.com/free-ai-image/futuristic-library-with-shelves-symmetry-generated-by-ai_41283616.htm#fromView=search&term=warehouse&page=1&position=9&track=ais_ai_generated&regularType=ai&uuid=65da5c56-20aa-4bd1-8206-2c73a350cecc">Image By vecstock</a></p>
+<p>我們可以把一個物件當作是一個盒子，佔用了倉庫中某些格子的位置。</p>
+<p>有些盒子比較大，佔用比較多格子，有些盒子比較小，只佔用一些格子。</p>
+<p><strong>變數(variable)</strong> 則是物件的名稱，可以想像是盒子的標籤。</p>
+<p>標籤貼著盒子，幫助我們利用標籤去找出我們要的資料。</p>
+<img src="./mail-package-with-label.jpg" width="30%" height="30%" />
+<p><a href="https://www.freepik.com/free-photo/mail-package-with-label_859014.htm#query=Rectangle%20carton%20box%20with%20tags&position=3&from_view=search&track=ais&uuid=af514f95-961e-46ba-909d-cffeb7c9ebc6">Image by kstudio</a> on Freepik</p>
+<p>例如我想把一串數字用一個簡單的名字來命名，其中”=”代表賦值：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_number</span> <span class="o">=</span> <span class="mi">20221130</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>然後就可以呼叫變數名稱來使用它：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用變數</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20221130
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>變數名稱的規則</strong></p>
 <ul class="simple">
 <li><p>a-z, A-Z, 0-9, _</p></li>
 <li><p>區分大小寫，apple ≠ APPLE ≠ Apple</p></li>
 <li><p>開頭不能使用數字。</p></li>
 <li><p>以底線開頭的變數有特殊意義。</p></li>
-<li><p>不能是python保留字。（可參考<a class="reference external" href="https://realpython.com/python-keywords/">Python Keywords: An Introduction – Real Python</a>）</p></li>
+<li><p>不能是python保留字。</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 以下為python保留字</span>
-<span class="n">help</span><span class="p">(</span><span class="s2">&quot;keywords&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;id: &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;value: &quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4350853896
+type:  &lt;class &#39;bool&#39;&gt;
+value:  True
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下為python保留字，也可參考：<a class="reference external" href="https://realpython.com/python-keywords/">Python Keywords: An Introduction – Real Python</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="s2">&quot;keywords&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -491,6 +566,489 @@ break               for                 not
 </div>
 </div>
 </div>
+<p>python的合法賦值方法：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+0
+0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>基礎資料型別：<strong>布林</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>bool型態就只有兩種：True &amp; False，可以透過bool()將其他資料轉換為布林型態。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 以下這些都是True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">100.001</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>布林邏輯運算使用and和or關鍵字。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+True
+False
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>基礎資料型別： <strong>整數與浮點數</strong><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>可以透過int()和float()做資料型別轉換。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>python的運算子</strong>如下列表：</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>運算子</p></th>
+<th class="head"><p>說明</p></th>
+<th class="head"><p>範例</p></th>
+<th class="head"><p>結果</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>+</p></td>
+<td><p>加法</p></td>
+<td><p>1+1</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>減法</p></td>
+<td><p>100 - 1</p></td>
+<td><p>99</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>乘法</p></td>
+<td><p>3 * 2</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>/</p></td>
+<td><p>除法</p></td>
+<td><p>9 / 2</p></td>
+<td><p>4.5</p></td>
+</tr>
+<tr class="row-even"><td><p>//</p></td>
+<td><p>取商數</p></td>
+<td><p>9 // 2</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>%</p></td>
+<td><p>取餘數</p></td>
+<td><p>9 % 2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>**</p></td>
+<td><p>次方</p></td>
+<td><p>2 ** 3</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h2>基礎資料型別：<strong>字串</strong><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>可以透過str()來將資料轉換為字串。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mf">42.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;42.0&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;True&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id5">
+<h3>“&quot;轉譯<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<p>在python中””是一個特殊的符號，後面接不同字母代表不同意思：</p>
+<p>“\n”代表換行；”\t”代表”tab”；”\”則代表”&quot;</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\n</span><span class="s1">bc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+bc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\t</span><span class="s1">bc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a	bc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\\</span><span class="s1">bc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a\bc
+</pre></div>
+</div>
+</div>
+</div>
+<p>在字串前多加一個r，會取消””轉譯。</p>
+<p>這種字串稱作原始字串，常用於表示window作業系統的路徑。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a\nbc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a\nbc
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="f-strings">
+<h3><strong>f-strings</strong><a class="headerlink" href="#f-strings" title="Permalink to this heading">#</a></h3>
+<p>f-strings可以將變數值帶入字串，或是用來格式化。</p>
+<p>使用方法是在字串前加一個字母f，然後想要置換的東西要用”{}”包起來。</p>
+<p>可參考：<a class="reference external" href="https://builtin.com/data-science/python-f-string">Guide to String Formatting in Python Using F-strings | Built In</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hi, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi, Curtis!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mf">12.3456789</span>
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">,%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">,.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.35
+1234.567890%
+1,234.567890%
+1,234.57%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># {} 內也可以做運算</span>
+
+<span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s1">&#39;Lu&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">first_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">last_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CurtisLu
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>字串的其他基本用法<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<section id="id7">
+<h4><strong>字串的切片</strong><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+z
+ab
+yz
+ace
+zyxwvutsrqponmlkjihgfedcba
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h4>判斷字串是否包含字串<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="s1">&#39;apple&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h4>字串的加法與乘法運算<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">+</span> <span class="s1">&#39;2&#39;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+11111
+122222
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="split">
+<h4>字串的拆分.split()<a class="headerlink" href="#split" title="Permalink to this heading">#</a></h4>
+<p>這邊用到一個新的物件操作方法，即在一個字串型別的變數後面加上”.”然後用呼叫方法名稱。</p>
+<p>例如一個拆分字串的方法”.split()”：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;National Taiwan University&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;National&#39;, &#39;Taiwan&#39;, &#39;University&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>其中括弧內也可以輸入引數(argument)來指定該方法的使用邏輯：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;N&#39;, &#39;tion&#39;, &#39;l T&#39;, &#39;iw&#39;, &#39;n University&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="str-strip">
+<h4>字串的剝除str.strip()<a class="headerlink" href="#str-strip" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;    Curtis Lu    &#39;</span>
+<span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Curtis Lu&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;    Curtis Lu....!!!    &#39;</span>
+<span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; .!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Curtis Lu&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id10">
+<h4>其他字串操作<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;curtis lu&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">swapcase</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Curtis lu
+Curtis Lu
+CURTIS LU
+curtis lu
+CURTIS LU
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 </section>
 
@@ -558,6 +1116,23 @@ break               for                 not
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python"><strong>Python的基本資料型態</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Python的資料 = 物件</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別：<strong>布林</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">基礎資料型別： <strong>整數與浮點數</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別：<strong>字串</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings"><strong>f-strings</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串的切片</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">判斷字串是否包含字串</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">字串的加法與乘法運算</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split">字串的拆分.split()</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#str-strip">字串的剝除str.strip()</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">其他字串操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
