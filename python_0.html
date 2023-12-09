@@ -153,8 +153,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/low-angle-cute-shiba-inu-dog.jpg" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/low-angle-cute-shiba-inu-dog.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/shiba_inu.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/shiba_inu.jpeg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
   
 </a></div>
@@ -272,7 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/python_0.ipynb" target="_blank"
+      <li><a href="_sources/python_0.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -282,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -368,13 +368,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python"><strong>Python的基本資料型態</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Python的資料 = 物件</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別：<strong>布林</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別: <strong>布林</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">基礎資料型別： <strong>整數與浮點數</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別：<strong>字串</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings"><strong>f-strings</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">字串的切片</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串的切片</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">判斷字串是否包含字串</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">字串的加法與乘法運算</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split">字串的拆分.split()</a></li>
@@ -443,7 +443,6 @@ document.write(`
 <span class="c1"># &quot;type&quot;是這個function的名稱，</span>
 <span class="c1"># &quot;True&quot;是這個function的input，而function跑出來的output會列在下方。</span>
 
-
 <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -489,14 +488,22 @@ document.write(`
 <li><p>物件的<strong>值</strong>，也就是物件的內容。</p></li>
 </ul>
 <p>如果把電腦的記憶體想像成很多排架子的倉庫，每排架子裡有很多個格子，</p>
-<img src="./rack.jpg" width="50%" />
-<p><a href="https://www.freepik.com/free-ai-image/futuristic-library-with-shelves-symmetry-generated-by-ai_41283616.htm#fromView=search&term=warehouse&page=1&position=9&track=ais_ai_generated&regularType=ai&uuid=65da5c56-20aa-4bd1-8206-2c73a350cecc">Image By vecstock</a></p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="_images/rack.jpg"><img alt="_images/rack.jpg" src="_images/rack.jpg" style="width: 300.0px; height: 171.29999999999998px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text"><a href="https://www.freepik.com/free-ai-image/futuristic-library-with-shelves-symmetry-generated-by-ai_41283616.htm#fromView=search&term=warehouse&page=1&position=9&track=ais_ai_generated&regularType=ai&uuid=65da5c56-20aa-4bd1-8206-2c73a350cecc">Image By vecstock</a></span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>我們可以把一個物件當作是一個盒子，佔用了倉庫中某些格子的位置。</p>
 <p>有些盒子比較大，佔用比較多格子，有些盒子比較小，只佔用一些格子。</p>
 <p><strong>變數(variable)</strong> 則是物件的名稱，可以想像是盒子的標籤。</p>
 <p>標籤貼著盒子，幫助我們利用標籤去找出我們要的資料。</p>
-<img src="./mail-package-with-label.jpg" width="30%" height="30%" />
-<p><a href="https://www.freepik.com/free-photo/mail-package-with-label_859014.htm#query=Rectangle%20carton%20box%20with%20tags&position=3&from_view=search&track=ais&uuid=af514f95-961e-46ba-909d-cffeb7c9ebc6">Image by kstudio</a> on Freepik</p>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="_images/package_with_tag.jpg"><img alt="_images/package_with_tag.jpg" src="_images/package_with_tag.jpg" style="width: 180.0px; height: 180.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text"><a href="https://www.freepik.com/free-photo/mail-package-with-label_859014.htm#query=Rectangle%20carton%20box%20with%20tags&position=3&from_view=search&track=ais&uuid=af514f95-961e-46ba-909d-cffeb7c9ebc6">Image by kstudio</a> on Freepik</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>例如我想把一串數字用一個簡單的名字來命名，其中”=”代表賦值：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -508,9 +515,7 @@ document.write(`
 <p>然後就可以呼叫變數名稱來使用它：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用變數</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">my_number</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_number</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -537,7 +542,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4346561288
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4349625096
 type:  &lt;class &#39;bool&#39;&gt;
 value:  True
 </pre></div>
@@ -604,7 +609,7 @@ break               for                 not
 </div>
 </section>
 <section id="id2">
-<h2>基礎資料型別：<strong>布林</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>基礎資料型別: <strong>布林</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>bool型態就只有兩種：True &amp; False，可以透過bool()將其他資料轉換為布林型態。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,7 +762,8 @@ False
 </section>
 <section id="id4">
 <h2>基礎資料型別：<strong>字串</strong><a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
-<p>可以透過str()來將資料轉換為字串。</p>
+<p>用’’、””、’’’’’’、””””””括起來的資料就是str。
+也可以透過str()來將資料轉換為字串。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mf">42.0</span><span class="p">)</span>
@@ -859,6 +865,7 @@ bc
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mf">12.3456789</span>
+
 <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s1">,%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -881,6 +888,7 @@ bc
 
 <span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
 <span class="n">last_name</span> <span class="o">=</span> <span class="s1">&#39;Lu&#39;</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">first_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">last_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -895,7 +903,7 @@ bc
 <section id="id6">
 <h3>字串的其他基本用法<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <section id="id7">
-<h4>字串的切片<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<h4><strong>字串的切片</strong><a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
@@ -973,10 +981,12 @@ zyxwvutsrqponmlkjihgfedcba
 </div>
 </div>
 </div>
-<p>其中括弧內也可以輸入引數(argument)來指定該方法的使用邏輯：</p>
+<p>其中括弧內也可以輸入引數(argument)來指定要使用的切割字元（不輸入的話預設就是一個空白鍵）：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;National Taiwan University&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1110,13 +1120,13 @@ CURTIS LU
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python"><strong>Python的基本資料型態</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Python的資料 = 物件</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別：<strong>布林</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別: <strong>布林</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">基礎資料型別： <strong>整數與浮點數</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別：<strong>字串</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings"><strong>f-strings</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">字串的切片</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>字串的切片</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">判斷字串是否包含字串</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">字串的加法與乘法運算</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split">字串的拆分.split()</a></li>

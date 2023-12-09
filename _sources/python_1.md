@@ -16,7 +16,7 @@ kernelspec:
 
 ## list
 
-是一種集合了多個元素且元素之間具有順序的資料型態。
+list是一種集合了多個元素且元素之間具有順序的資料型態。
 
 list中的元素可以放任何物件，bool, int, float, str都可以，甚至是 list自己本身，所以當然就還包括dict, tuple, set……其他任何物件。
 
@@ -43,11 +43,18 @@ a_list = ['a', 'b', 'c', [1, 2, 3]]
 
 ```{code-cell}
 a_list = ['a','b','c']
+
 print(a_list[0])
 print(a_list[-1])
 print(a_list[1:])
 print(a_list[0:1])
 print(a_list[::-1])
+```
+
+```{code-cell}
+a_list = ['a','b','c']
+
+# print(a_list[3]) -> 會報錯：IndexError
 ```
 
 ```{code-cell}
@@ -60,6 +67,7 @@ print(a_list[3][2])
 
 ```{code-cell}
 a_list = ['a','b','c']
+
 a_list[0] = 1
 print(a_list)
 
@@ -67,16 +75,17 @@ a_list[1:] = 2, 3 # (2, 3) or [2, 3] or {2, 3} 皆可
 print(a_list)
 ```
 
-**取得list中元素的位置(.index())**
+**取得list中元素的位置.index()**
 
 ```{code-cell}
 a_list = ['a','b','c']
+
 print(a_list.index('a'))
 
-print(a_list.index('d'))
+# print(a_list.index('d')) -> 會報錯：IndexError
 ```
 
-**在尾端加入元素(.append())**
+**在尾端加入元素.append()**
 
 ```{code-cell}
 a_list = ['a','b','c']
@@ -85,37 +94,28 @@ a_list.append('d')  # 直接會改變list的內容 且不回傳結果
 print(a_list)
 ```
 
-**刪除list中的元素(.remove())**
+**刪除list中的元素.remove()**
 
 ```{code-cell}
 a_list = ['a','b','c', 'd', 'e']
 
 a_list.remove('a') # 直接會改變list的內容 且不回傳結果
+print(a_list)
 ```
 
 ```{code-cell}
 # 另外一種方式
 a_list.pop() # 會取出最後一個元素回傳並從list中刪除
-```
-
-```{code-cell}
 print(a_list)
-```
 
-```{code-cell}
-a_list.pop(0)
-```
-
-```{code-cell}
+a_list.pop(0) # ()中可以指定要pop的位置
 print(a_list)
 ```
 
 ```{code-cell}
 # 還有另外一種方式
 del a_list[1] # del 事實上並非是list方法，而是python內建方法，會將物件和名稱分開。
-```
 
-```{code-cell}
 print(a_list)
 ```
 
@@ -137,21 +137,18 @@ a_list = ['a','b','c']
 
 ```{code-cell}
 a_list = ['b','d','a','c','e']
+
 a_list.sort() # 直接會改變list的內容 且不回傳結果
 print(a_list)
-```
 
-```{code-cell}
 a_list.sort(reverse=True) # 降冪排列
 print(a_list)
 ```
 
 ```{code-cell}
 a_list = ['b','d','a','c','e']
-sorted(a_list) # 只會回傳資料的「副本」
-```
 
-```{code-cell}
+sorted(a_list) # 只會回傳資料的「副本」
 print(a_list)
 ```
 
@@ -190,6 +187,7 @@ print(a_list * 2)
 ```{code-cell}
 # .reverse()
 a_list = ['a','b','c']
+
 a_list.reverse() # 直接會改變list的順序 且不回傳結果
 print(a_list)
 ```
@@ -198,12 +196,14 @@ print(a_list)
 # .extend()
 a_list = ['a','b','c']
 d_list = ['d','e','f']
+
 a_list.extend(d_list) # 直接會改變list的內容 且不回傳結果
 ```
 
 ```{code-cell}
 # .clear()
 a_list = ['a','b','c']
+
 a_list.clear() # 直接會改變list的內容 且不回傳結果
 print(a_list)
 ```
@@ -211,10 +211,14 @@ print(a_list)
 ```{code-cell}
 # .count()
 a_list = ['a','b','c','a']
+
 a_list.count('a')
 ```
 
 ## tuple
+
+tuple也是一種集合了多個元素且元素之間具有順序的資料型態。
+但跟list有一些**使用上**的差別。
 
 **建立tuple**
 
@@ -236,8 +240,11 @@ print(a_tuple[0:1])
 
 **tuple unpacking**
 
+以下這種做法可以拆解tuple，把元素賦值到不同變數中：
+
 ```{code-cell}
 name = ('Frieren', 'Fern', 'Stark')
+
 a, b, c = name
 
 print(a)
@@ -291,6 +298,7 @@ a_tuple = (1,2,3)
 ```{code-cell}
 # 不能新增元素，沒有append()方法，要增加元素只能新建一個tuple
 a_tuple = (1,2,3)
+
 print(id(a_tuple)) # 物件的唯一識別碼
 
 a_tuple = a_tuple + (4,)
@@ -306,6 +314,7 @@ print(id(a_list))
 ```{code-cell}
 # 沒有sort方法，要排序tuple中的元素的話，可以用sorted內建函數，但回傳的是一個list
 a_tuple = (4,5,3,1,2)
+
 print(sorted(a_tuple))
 ```
 
