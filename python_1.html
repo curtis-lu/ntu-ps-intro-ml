@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python - 資料型態與變數(3)" href="python_2.html" />
     <link rel="prev" title="Python - 資料型態與變數(1)" href="python_0.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -152,8 +153,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/shiba_inu.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/shiba_inu.jpeg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/shiba_inu2.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/shiba_inu2.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
   
 </a></div>
@@ -170,6 +171,8 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python_0.html">Python - 資料型態與變數(1)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Python - 資料型態與變數(2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">Python - 資料型態與變數(3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">進階主題</a></li>
 </ul>
 
     </div>
@@ -365,8 +368,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slice">list slice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-index">list index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">list 元素操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">list 操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">list的其他方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-slice">tuple slice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">tuple 元素操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">tuple 操作</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplelist">tuple與list的差異</a></li>
 </ul>
             </nav>
         </div>
@@ -404,9 +420,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>切片(slice)</strong></p>
+<section id="list-slice">
+<h3>list slice<a class="headerlink" href="#list-slice" title="Permalink to this heading">#</a></h3>
+<p><strong>切片slice</strong></p>
 <p>需注意切片是從0開始。</p>
-<p>超過index會報錯：IndexError。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
@@ -429,11 +446,23 @@ c
 </div>
 </div>
 </div>
+<p>超過index會報錯：IndexError。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 
-<span class="c1"># print(a_list[3]) -&gt; 會報錯：IndexError</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="ne">IndexError</span>: list index out of range
 </pre></div>
 </div>
 </div>
@@ -472,14 +501,18 @@ c
 </div>
 </div>
 </div>
+</section>
+<section id="list-index">
+<h3>list index<a class="headerlink" href="#list-index" title="Permalink to this heading">#</a></h3>
 <p><strong>取得list中元素的位置.index()</strong></p>
+<p>如果元素不存在也會報錯：IndexError。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
 
-<span class="c1"># print(a_list.index(&#39;d&#39;)) -&gt; 會報錯：IndexError</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -487,8 +520,21 @@ c
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
+
+<span class="ne">ValueError</span>: &#39;d&#39; is not in list
+</pre></div>
 </div>
 </div>
+</div>
+</section>
+<section id="id1">
+<h3>list 元素操作<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p><strong>在尾端加入元素.append()</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,6 +667,9 @@ c
 </div>
 </div>
 </div>
+</section>
+<section id="id2">
+<h3>list 操作<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p><strong>取得list的長度</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -681,11 +730,13 @@ c
 </div>
 </div>
 </div>
-<p><strong>list的其他方法</strong></p>
+</section>
+<section id="id3">
+<h3>list的其他方法<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>.reverse() 反序一個list</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .reverse()</span>
-<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 
 <span class="n">a_list</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1"># 直接會改變list的順序 且不回傳結果</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
@@ -698,10 +749,10 @@ c
 </div>
 </div>
 </div>
+<p>.extend() 一個list延展至另一個list</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .extend()</span>
-<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="n">d_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
 
 <span class="n">a_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">d_list</span><span class="p">)</span> <span class="c1"># 直接會改變list的內容 且不回傳結果</span>
@@ -709,10 +760,10 @@ c
 </div>
 </div>
 </div>
+<p>.clear() 清除一個list的內容</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .clear()</span>
-<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
 
 <span class="n">a_list</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># 直接會改變list的內容 且不回傳結果</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
@@ -725,10 +776,10 @@ c
 </div>
 </div>
 </div>
+<p>.count() 計算指定元素的數量</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .count()</span>
-<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
 
 <span class="n">a_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 </pre></div>
@@ -740,6 +791,7 @@ c
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="tuple">
 <h2>tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h2>
@@ -755,6 +807,8 @@ c
 </div>
 </div>
 </div>
+<section id="tuple-slice">
+<h3>tuple slice<a class="headerlink" href="#tuple-slice" title="Permalink to this heading">#</a></h3>
 <p><strong>切片(slice)</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -774,6 +828,9 @@ c
 </div>
 </div>
 </div>
+</section>
+<section id="id4">
+<h3>tuple 元素操作<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p><strong>tuple unpacking</strong></p>
 <p>以下這種做法可以拆解tuple，把元素賦值到不同變數中：</p>
 <div class="cell docutils container">
@@ -811,6 +868,9 @@ Stark
 </div>
 </div>
 </div>
+</section>
+<section id="id5">
+<h3>tuple 操作<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p><strong>取得tuple的長度</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -844,22 +904,49 @@ Stark
 </div>
 </div>
 </div>
-<p><strong>tuple與list的差異</strong></p>
-<p>不能切片後賦值。</p>
-<p>不能新增元素，沒有類似.append()或.insert()方法，要增加元素只能新建一個tuple。</p>
-<p>沒有sort方法。</p>
+</section>
+</section>
+<section id="tuplelist">
+<h2>tuple與list的差異<a class="headerlink" href="#tuplelist" title="Permalink to this heading">#</a></h2>
+<p>tuple不能切片後賦值， 會報錯：TypeError。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 不能切片後賦值</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list 可以切片後賦值</span>
 <span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
-
-<span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># a_tuple[0] = &#39;a&#39; -&gt; 會報錯：TypeError</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, 2, 3]
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tuple不行</span>
+<span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># tuple不行</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>tuple不能新增元素，沒有類似.append()或.insert()方法，要增加元素只能新建一個tuple。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 不能新增元素，沒有append()方法，要增加元素只能新建一個tuple</span>
@@ -879,14 +966,15 @@ Stark
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4392652480
-4392784800
-4392686464
-4392686464
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4425014656
+4424891536
+4424928256
+4424928256
 </pre></div>
 </div>
 </div>
 </div>
+<p>tuple沒有sort方法。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 沒有sort方法，要排序tuple中的元素的話，可以用sorted內建函數，但回傳的是一個list</span>
@@ -944,6 +1032,15 @@ Stark
         <p class="prev-next-title">Python - 資料型態與變數(1)</p>
       </div>
     </a>
+    <a class="right-next"
+       href="python_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python - 資料型態與變數(3)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -959,8 +1056,21 @@ Stark
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slice">list slice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-index">list index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">list 元素操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">list 操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">list的其他方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-slice">tuple slice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">tuple 元素操作</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">tuple 操作</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplelist">tuple與list的差異</a></li>
 </ul>
   </nav></div>
 
