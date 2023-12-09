@@ -1,3 +1,17 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Python - 資料型態與變數(3)
 
 ## dict
@@ -15,53 +29,78 @@ a_dict = {'a': 1, 'b': 2, 'c':3}
 a_dict = dict(a=1, b=2, c=3)
 ```
 
-**dict的基本用法**
+### dict的基本用法
+
+ **dict的基本用法**
 
 ```{code-cell}
 a_dict['a']
-1
-a_dict.get('a')
-1
-a_dict['d']
-KeyError
-a_dict.get('d') # 不會回傳任何東西
-a_dict.get('d', 'missing')
-'missing'
 ```
+
+```{code-cell}
+a_dict.get('a')
+```
+
+```{code-cell}
+a_dict['d']
+```
+
+```{code-cell}
+a_dict.get('d') # 不會回傳任何東西
+```
+
+```{code-cell}
+a_dict.get('d', 'missing')
+```
+
+### dict 新增與刪除項目
 
 **dict新增項目**
 
 ```{code-cell}
 a_dict = {'a': 1, 'b': 2, 'c':3}
+
 a_dict['d'] = 4
 print(a_dict)
-{'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
 a_dict.update({'e': 5})
 print(a_dict)
-{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
 ```
 
 **dict刪除項目**
 
 ```{code-cell}
 a_dict = {'a': 1, 'b': 2, 'c':3}
+```
 
-# 方法1
+方法1
+
+```{code-cell}
 a_dict.pop('a')
-1
-print(a_dict)
-{'b': 2, 'c': 3}
-a_dict.pop('d')
-KeyError
-a_dict.pop('d', 'Nothing happened')
-'Nothing happened'
-print(a_dict)
-{'b': 2, 'c': 3}
+```
 
-# 方法2
-del a_dict['b']
+```{code-cell}
 print(a_dict)
-{'c': 3}
+```
+
+```{code-cell}
+a_dict.pop('d')
+```
+
+```{code-cell}
+a_dict.pop('d', 'Nothing happened')
+```
+
+```{code-cell}
+print(a_dict)
+```
+
+方法2
+
+```{code-cell}
+del a_dict['b']
+
+print(a_dict)
 ```
 
 **dict中的key值不能重複**
@@ -71,44 +110,49 @@ print(a_dict)
 ```{code-cell}
 a_dict = {'a': 1, 'b': 2, 'c':3}
 b_dict = {'b': 'ni', 'c': 'san', 'd': 'shi'}
+
 a_dict.update(b_dict)
 print(a_dict)
-{'a': 1, 'b': 'ni', 'c': 'san', 'd': 'shi'}
 ```
+
+### dict 操作
 
 **取得dict的內容**
 
 ```{code-cell}
 a_dict = {'a': 1, 'b': 2, 'c':3}
+```
 
+```{code-cell}
 # 取得key的list
 list(a_dict.keys())
-['a', 'b', 'c']
+```
 
+```{code-cell}
 # 取得value的list
 list(a_dict.values())
-[1, 2, 3]
+```
 
+```{code-cell}
 # 取得key跟value的list，注意到其中是一個一個tuple
 list(a_dict.items())
-[('a', 1), ('b', 2), ('c', 3)]
 ```
 
 **取得dict長度**
 
 ```{code-cell}
-# 指的是key的數量
 a_dict = {'a': 1, 'b': 2, 'c':3}
+
+# 長度指的是key的數量
 len(a_dict)
-3
 ```
 
 **檢查key是否存在**
 
 ```{code-cell}
 a_dict = {'a': 1, 'b': 2, 'c':3}
+
 'c' in a_dict
-True
 ```
 
 ## set
@@ -126,18 +170,20 @@ a = {1,2,3}
 a = set([1,2,3])
 ```
 
+### set元素操作
+
 **加入元素至set**
 
 ```{code-cell}
 a = {1,2,3}
 a.add(4)
 print(a)
-{1,2,3,4}
+```
 
-# .add()已經存在的元素不會改變set。
-a.add(1) 
-print(a) 
-{1,2,3,4}
+.add()已經存在的元素不會改變set。
+```{code-cell}
+a.add(1)
+print(a)
 ```
 
 **刪除set中的元素**
@@ -145,16 +191,18 @@ print(a)
 ```{code-cell}
 a = {1,2,3}
 a.remove(1)
+
 print(a)
-{2, 3}
 ```
+
+### set 操作
 
 **取得set的長度**
 
 ```{code-cell}
 a = {1,2,3}
+
 len(a)
-3
 ```
 
 **set的運算**
@@ -163,108 +211,86 @@ len(a)
 a = {1,2,3}
 b = {3,4,5}
 c = {1,2,3,4,5}
+```
 
-# 交集
+交集
+
+```{code-cell}
 a & b
-{3}
+```
+
+```{code-cell}
 a.intersection(b)
-{3}
+```
 
-# 聯集
+聯集
+
+```{code-cell}
 a | b
-{1, 2, 3, 4, 5}
+```
+
+```{code-cell}
 a.union(b)
-{1, 2, 3, 4, 5}
+```
 
-# 差集
+差集
+
+取差集的順序會有影響。
+
+```{code-cell}
 a - b
-{1, 2}
+```
+
+```{code-cell}
 a.difference(b)
-{1, 2}
+```
 
+```{code-cell}
 b - a
-{4, 5}
+```
+
+```{code-cell}
 b.difference(a)
-{4, 5}
+```
 
-# 取互斥的元素
+取互斥的元素
+
+```{code-cell}
 a ^ b
-{1, 2, 4, 5}
+```
+
+```{code-cell}
 a.symmetric_difference(b)
-{1, 2, 4, 5}
+```
 
-# 判斷是否為子集合
+判斷是否為子集合
+
+```{code-cell}
 a <= b
-False
+```
+
+```{code-cell}
 a.issubset(b)
-False
+```
 
-# 判斷是否為真子集
+判斷是否為真子集
+
+```{code-cell}
 a < b
-False
+```
 
-# 判斷是否為超集合
+判斷是否為超集合
+
+```{code-cell}
 a >= b
-False
+```
+
+```{code-cell}
 a.isiperset(b)
-False
+```
 
-# 判斷是否為真超集
+判斷是否為真超集
+
+```{code-cell}
 a > b
-False
 ```
-
-## 進階主題
-
-### 資料型別的可變與不可變
-
-**資料型態與是否可變**
-
-| type | example | immutable |
-| --- | --- | --- |
-| bool | True, False | immutable |
-| int | 42, 19, 112 | immutable |
-| float | 3.14, 0.13 | immutable |
-| str | 'Hi', "Hello", '''Bye!''', """Bye!""" | immutable |
-| list | ['a', 'b', 'c', 'd', 'a'] | mutable |
-| tuple | ('a', 'b') | immutable |
-| dict | {'a': 1, 'b': 2} | mutable |
-| set | {'a', 'b', 'c'} | mutable |
-
-**不可變**
-
-```{code-cell}
-x = 5
-print(x)
-5
-y = x
-print(y)
-5
-x = 29
-print(x)
-29
-print(y)
-5
-```
-
-```{code-cell}
-name = 'Curtis'
-name[0] = 'K'
-TypeError
-```
-
-**可變**
-
-```{code-cell}
-x = [1, 2, 3]
-y = x
-x[0] = 'a'
-print(y)
-['a', 2, 3]
-```
-
-### 資料型態統整
-
-參考資料
-
-introducing python: modern computing in simple packages

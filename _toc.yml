@@ -6,3 +6,5 @@ root: intro
 chapters:
 - file: python_0
 - file: python_1
+- file: python_2
+- file: python_3

@@ -35,11 +35,11 @@ a_list = list(['a','b','c'])
 a_list = ['a', 'b', 'c', [1, 2, 3]]
 ```
 
-**切片(slice)**
+### list slice
+
+**切片slice**
 
 需注意切片是從0開始。
-
-超過index會報錯：IndexError。
 
 ```{code-cell}
 a_list = ['a','b','c']
@@ -51,10 +51,12 @@ print(a_list[0:1])
 print(a_list[::-1])
 ```
 
+超過index會報錯：IndexError。
+
 ```{code-cell}
 a_list = ['a','b','c']
 
-# print(a_list[3]) -> 會報錯：IndexError
+print(a_list[3])
 ```
 
 ```{code-cell}
@@ -75,15 +77,21 @@ a_list[1:] = 2, 3 # (2, 3) or [2, 3] or {2, 3} 皆可
 print(a_list)
 ```
 
+### list index
+
 **取得list中元素的位置.index()**
+
+如果元素不存在也會報錯：IndexError。
 
 ```{code-cell}
 a_list = ['a','b','c']
 
 print(a_list.index('a'))
 
-# print(a_list.index('d')) -> 會報錯：IndexError
+print(a_list.index('d'))
 ```
+
+### list 元素操作
 
 **在尾端加入元素.append()**
 
@@ -152,6 +160,8 @@ sorted(a_list) # 只會回傳資料的「副本」
 print(a_list)
 ```
 
+### list 操作
+
 **取得list的長度**
 
 ```{code-cell}
@@ -182,34 +192,38 @@ a_list = ['a','b','c']
 print(a_list * 2)
 ```
 
-**list的其他方法**
+### list的其他方法
+
+.reverse() 反序一個list
 
 ```{code-cell}
-# .reverse()
 a_list = ['a','b','c']
 
 a_list.reverse() # 直接會改變list的順序 且不回傳結果
 print(a_list)
 ```
 
+.extend() 一個list延展至另一個list
+
 ```{code-cell}
-# .extend()
 a_list = ['a','b','c']
 d_list = ['d','e','f']
 
 a_list.extend(d_list) # 直接會改變list的內容 且不回傳結果
 ```
 
+.clear() 清除一個list的內容
+
 ```{code-cell}
-# .clear()
 a_list = ['a','b','c']
 
 a_list.clear() # 直接會改變list的內容 且不回傳結果
 print(a_list)
 ```
 
+.count() 計算指定元素的數量
+
 ```{code-cell}
-# .count()
 a_list = ['a','b','c','a']
 
 a_list.count('a')
@@ -228,6 +242,8 @@ a_tuple = tuple([1,2,3])
 a_tuple = 1, 2, 3
 ```
 
+### tuple slice
+
 **切片(slice)**
 
 ```{code-cell}
@@ -237,6 +253,8 @@ print(a_tuple[0])
 print(a_tuple[1:])
 print(a_tuple[0:1])
 ```
+
+### tuple 元素操作
 
 **tuple unpacking**
 
@@ -260,6 +278,8 @@ a_tuple = (1,2,3)
 4 in a_tuple
 ```
 
+### tuple 操作
+
 **取得tuple的長度**
 
 ```{code-cell}
@@ -278,22 +298,25 @@ print(a_tuple + b_tuple)
 print(a_tuple * 2)
 ```
 
-**tuple與list的差異**
+## tuple與list的差異
 
-不能切片後賦值。
-
-不能新增元素，沒有類似.append()或.insert()方法，要增加元素只能新建一個tuple。
-
-沒有sort方法。
+tuple不能切片後賦值， 會報錯：TypeError。
 
 ```{code-cell}
-# 不能切片後賦值
+# list 可以切片後賦值
 a_list = [1,2,3]
 a_list[0] = 'a'
-
-a_tuple = (1,2,3)
-# a_tuple[0] = 'a' -> 會報錯：TypeError
+print(a_list)
 ```
+
+```{code-cell}
+# tuple不行
+a_tuple = (1,2,3)
+
+a_tuple[0] = 'a'
+```
+
+tuple不能新增元素，沒有類似.append()或.insert()方法，要增加元素只能新建一個tuple。
 
 ```{code-cell}
 # 不能新增元素，沒有append()方法，要增加元素只能新建一個tuple
@@ -310,6 +333,8 @@ print(id(a_list))
 a_list.append(4)
 print(id(a_list))
 ```
+
+tuple沒有sort方法。
 
 ```{code-cell}
 # 沒有sort方法，要排序tuple中的元素的話，可以用sorted內建函數，但回傳的是一個list
