@@ -12,9 +12,9 @@ kernelspec:
   name: python3
 ---
 
-# Python - 資料型態與變數(3)
+# 2.資料型態：dict與set
 
-## dict
+## 群集資料型別：dict
 
 dict是dictionary的略稱，字典這種資料型態的組成是一群成對的key與value。
 
@@ -155,7 +155,17 @@ a_dict = {'a': 1, 'b': 2, 'c':3}
 'c' in a_dict
 ```
 
-## set
+**用{\*\*a, \*\*b}結合dict**
+
+```{code-cell}
+dict_1 = {'a': 'apple', 'b': 'beach', 'c': 'cat'}
+dict_2 = {'d': 'dog', 'e': 'egg', 'f': 'flower'}
+
+dict_all = {**dict_1, **dict_2}
+print(dict_all)
+```
+
+## 群集資料型別：set
 
 set是具有不重複元素的一種資料型別。
 

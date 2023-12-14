@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Python - 資料型態與變數(2) &#8212; My sample book</title>
+    <title>1.資料型態：list與tuple &#8212; My sample book</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python - 資料型態與變數(3)" href="python_2.html" />
-    <link rel="prev" title="Python - 資料型態與變數(1)" href="python_0.html" />
+    <link rel="next" title="2.資料型態：dict與set" href="python_2.html" />
+    <link rel="prev" title="0.資料型態：bool, int, float, str" href="python_0.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,11 +168,12 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_0.html">Python - 資料型態與變數(1)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python - 資料型態與變數(2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_2.html">Python - 資料型態與變數(3)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_3.html">進階主題</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
 </ul>
 
     </div>
@@ -358,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python - 資料型態與變數(2)</h1>
+    <h1>1.資料型態：list與tuple</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,7 +369,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">群集資料型別：list</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slice">list slice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-index">list index</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">list 元素操作</a></li>
@@ -376,7 +377,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">list的其他方法</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">群集資料型別：tuple</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-slice">tuple slice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">tuple 元素操作</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">tuple 操作</a></li>
@@ -394,10 +395,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-2">
-<h1>Python - 資料型態與變數(2)<a class="headerlink" href="#python-2" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="listtuple">
+<h1>1.資料型態：list與tuple<a class="headerlink" href="#listtuple" title="Permalink to this heading">#</a></h1>
 <section id="list">
-<h2>list<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h2>
+<h2>群集資料型別：list<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h2>
 <p>list是一種集合了多個元素且元素之間具有順序的資料型態。</p>
 <p>list中的元素可以放任何物件，bool, int, float, str都可以，甚至是 list自己本身，所以當然就還包括dict, tuple, set……其他任何物件。</p>
 <p><strong>建立list</strong></p>
@@ -794,7 +795,7 @@ c
 </section>
 </section>
 <section id="tuple">
-<h2>tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h2>
+<h2>群集資料型別：tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h2>
 <p>tuple也是一種集合了多個元素且元素之間具有順序的資料型態。
 但跟list有一些<strong>使用上</strong>的差別。</p>
 <p><strong>建立tuple</strong></p>
@@ -966,10 +967,10 @@ Stark
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4422856896
-4422792464
-4422710592
-4422710592
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4465886784
+4465785040
+4465806016
+4465806016
 </pre></div>
 </div>
 </div>
@@ -1029,7 +1030,7 @@ Stark
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python - 資料型態與變數(1)</p>
+        <p class="prev-next-title">0.資料型態：bool, int, float, str</p>
       </div>
     </a>
     <a class="right-next"
@@ -1037,7 +1038,7 @@ Stark
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python - 資料型態與變數(3)</p>
+        <p class="prev-next-title">2.資料型態：dict與set</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1056,7 +1057,7 @@ Stark
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">list</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">群集資料型別：list</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slice">list slice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-index">list index</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">list 元素操作</a></li>
@@ -1064,7 +1065,7 @@ Stark
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">list的其他方法</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">tuple</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">群集資料型別：tuple</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-slice">tuple slice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">tuple 元素操作</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">tuple 操作</a></li>

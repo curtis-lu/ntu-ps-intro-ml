@@ -12,9 +12,9 @@ kernelspec:
   name: python3
 ---
 
-# Python - 資料型態與變數(2)
+# 1.資料型態：list與tuple
 
-## list
+## 群集資料型別：list
 
 list是一種集合了多個元素且元素之間具有順序的資料型態。
 
@@ -229,7 +229,7 @@ a_list = ['a','b','c','a']
 a_list.count('a')
 ```
 
-## tuple
+## 群集資料型別：tuple
 
 tuple也是一種集合了多個元素且元素之間具有順序的資料型態。
 但跟list有一些**使用上**的差別。
