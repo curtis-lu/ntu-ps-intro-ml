@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Python - 資料型態與變數(1)
+# 0.資料型態：bool, int, float, str
 
 ## Python的基本資料型態
 
@@ -52,6 +52,7 @@ type(42)
 type(3.14)
 ```
 
+(python_0_topic_2) =
 ## Python的資料 = 物件
 
 在python中，所有資料都是「**物件(object)**」。
@@ -61,6 +62,12 @@ type(3.14)
 - 物件的**id**，也就是唯一識別碼，指出了在倉庫中的位置。
 - 物件的**型態(type)**，說明物件可以做什麼。
 - 物件的**值**，也就是物件的內容。
+
+```{code-cell}
+print("id: ", id(True))
+print("type: ", type(True))
+print("value: ", True)
+```
 
 如果把電腦的記憶體想像成很多排架子的倉庫，每排架子裡有很多個格子，
 
@@ -101,17 +108,11 @@ print(my_number)
 
 **變數名稱的規則**
 
-- a-z, A-Z, 0-9, _
-- 區分大小寫，apple ≠ APPLE ≠ Apple
+- 只能使用以下這幾種字元： a-z, A-Z, 0-9, _ 。
+- 區分大小寫，apple ≠ APPLE ≠ Apple 。
 - 開頭不能使用數字。
 - 以底線開頭的變數有特殊意義。
 - 不能是python保留字。
-
-```{code-cell}
-print("id: ", id(True))
-print("type: ", type(True))
-print("value: ", True)
-```
 
 以下為python保留字，也可參考：[Python Keywords: An Introduction – Real Python](https://realpython.com/python-keywords/)
 

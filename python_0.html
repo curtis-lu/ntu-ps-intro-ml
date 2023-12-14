@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Python - 資料型態與變數(1) &#8212; My sample book</title>
+    <title>0.資料型態：bool, int, float, str &#8212; My sample book</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python - 資料型態與變數(2)" href="python_1.html" />
+    <link rel="next" title="1.資料型態：list與tuple" href="python_1.html" />
     <link rel="prev" title="Welcome to the mini course of causal machine learning!" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,11 +168,12 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python - 資料型態與變數(1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_1.html">Python - 資料型態與變數(2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_2.html">Python - 資料型態與變數(3)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_3.html">進階主題</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
 </ul>
 
     </div>
@@ -358,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python - 資料型態與變數(1)</h1>
+    <h1>0.資料型態：bool, int, float, str</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,8 +398,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-1">
-<h1>Python - 資料型態與變數(1)<a class="headerlink" href="#python-1" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="bool-int-float-str">
+<h1>0.資料型態：bool, int, float, str<a class="headerlink" href="#bool-int-float-str" title="Permalink to this heading">#</a></h1>
 <section id="python">
 <h2>Python的基本資料型態<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
 <p>Python常用的資料型態基本上就如下表列這幾種：</p>
@@ -479,6 +480,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>(python_0_topic_2) =</p>
 </section>
 <section id="id1">
 <h2>Python的資料 = 物件<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
@@ -489,6 +491,22 @@ document.write(`
 <li><p>物件的<strong>型態(type)</strong>，說明物件可以做什麼。</p></li>
 <li><p>物件的<strong>值</strong>，也就是物件的內容。</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;id: &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;value: &quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4383490824
+type:  &lt;class &#39;bool&#39;&gt;
+value:  True
+</pre></div>
+</div>
+</div>
+</div>
 <p>如果把電腦的記憶體想像成很多排架子的倉庫，每排架子裡有很多個格子，</p>
 <figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="_images/rack.jpg"><img alt="_images/rack.jpg" src="_images/rack.jpg" style="width: 300.0px; height: 171.29999999999998px;" /></a>
@@ -529,28 +547,12 @@ document.write(`
 </div>
 <p><strong>變數名稱的規則</strong></p>
 <ul class="simple">
-<li><p>a-z, A-Z, 0-9, _</p></li>
-<li><p>區分大小寫，apple ≠ APPLE ≠ Apple</p></li>
+<li><p>只能使用以下這幾種字元： a-z, A-Z, 0-9, _ 。</p></li>
+<li><p>區分大小寫，apple ≠ APPLE ≠ Apple 。</p></li>
 <li><p>開頭不能使用數字。</p></li>
 <li><p>以底線開頭的變數有特殊意義。</p></li>
 <li><p>不能是python保留字。</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;id: &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;value: &quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4348117768
-type:  &lt;class &#39;bool&#39;&gt;
-value:  True
-</pre></div>
-</div>
-</div>
-</div>
 <p>以下為python保留字，也可參考：<a class="reference external" href="https://realpython.com/python-keywords/">Python Keywords: An Introduction – Real Python</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1101,7 +1103,7 @@ CURTIS LU
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python - 資料型態與變數(2)</p>
+        <p class="prev-next-title">1.資料型態：list與tuple</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

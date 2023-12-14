@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Python - 資料型態與變數(3) &#8212; My sample book</title>
+    <title>2.資料型態：dict與set &#8212; My sample book</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="進階主題" href="python_3.html" />
-    <link rel="prev" title="Python - 資料型態與變數(2)" href="python_1.html" />
+    <link rel="next" title="3.資料型態：進階主題" href="python_3.html" />
+    <link rel="prev" title="1.資料型態：list與tuple" href="python_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,11 +168,12 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_0.html">Python - 資料型態與變數(1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_1.html">Python - 資料型態與變數(2)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python - 資料型態與變數(3)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_3.html">進階主題</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.資料型態：dict與set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
 </ul>
 
     </div>
@@ -358,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python - 資料型態與變數(3)</h1>
+    <h1>2.資料型態：dict與set</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,13 +369,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">dict</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">群集資料型別：dict</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">dict的基本用法</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">dict 新增與刪除項目</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">dict 操作</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">set</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">群集資料型別：set</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">set元素操作</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">set 操作</a></li>
 </ul>
@@ -390,10 +391,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-3">
-<h1>Python - 資料型態與變數(3)<a class="headerlink" href="#python-3" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="dictset">
+<h1>2.資料型態：dict與set<a class="headerlink" href="#dictset" title="Permalink to this heading">#</a></h1>
 <section id="dict">
-<h2>dict<a class="headerlink" href="#dict" title="Permalink to this heading">#</a></h2>
+<h2>群集資料型別：dict<a class="headerlink" href="#dict" title="Permalink to this heading">#</a></h2>
 <p>dict是dictionary的略稱，字典這種資料型態的組成是一群成對的key與value。</p>
 <p>key在字典裡不能重複，通常會使用字串或tuple來當作key。至於value則沒有什麼限制。</p>
 <p>dict跟後面等等會介紹的set一樣，都是沒有順序的，不能使用切片。</p>
@@ -680,10 +681,27 @@ document.write(`
 </div>
 </div>
 </div>
+<p><strong>用{**a, **b}結合dict</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;beach&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;cat&#39;</span><span class="p">}</span>
+<span class="n">dict_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="s1">&#39;egg&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="s1">&#39;flower&#39;</span><span class="p">}</span>
+
+<span class="n">dict_all</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">dict_1</span><span class="p">,</span> <span class="o">**</span><span class="n">dict_2</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict_all</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: &#39;apple&#39;, &#39;b&#39;: &#39;beach&#39;, &#39;c&#39;: &#39;cat&#39;, &#39;d&#39;: &#39;dog&#39;, &#39;e&#39;: &#39;egg&#39;, &#39;f&#39;: &#39;flower&#39;}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="set">
-<h2>set<a class="headerlink" href="#set" title="Permalink to this heading">#</a></h2>
+<h2>群集資料型別：set<a class="headerlink" href="#set" title="Permalink to this heading">#</a></h2>
 <p>set是具有不重複元素的一種資料型別。</p>
 <p>操作跟數學上的集合很像。</p>
 <p>set沒有順序的概念，因此不支援切片。</p>
@@ -956,7 +974,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">42</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">43</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="o">.</span><span class="n">isiperset</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
 <span class="ne">AttributeError</span>: &#39;set&#39; object has no attribute &#39;isiperset&#39;
@@ -1017,7 +1035,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python - 資料型態與變數(2)</p>
+        <p class="prev-next-title">1.資料型態：list與tuple</p>
       </div>
     </a>
     <a class="right-next"
@@ -1025,7 +1043,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">進階主題</p>
+        <p class="prev-next-title">3.資料型態：進階主題</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1044,13 +1062,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">dict</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">群集資料型別：dict</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">dict的基本用法</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">dict 新增與刪除項目</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">dict 操作</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">set</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">群集資料型別：set</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">set元素操作</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">set 操作</a></li>
 </ul>

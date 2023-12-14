@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>進階主題 &#8212; My sample book</title>
+    <title>3.資料型態：進階主題 &#8212; My sample book</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Python - 資料型態與變數(3)" href="python_2.html" />
+    <link rel="prev" title="2.資料型態：dict與set" href="python_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,11 +167,12 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python_0.html">Python - 資料型態與變數(1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_1.html">Python - 資料型態與變數(2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_2.html">Python - 資料型態與變數(3)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">進階主題</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3.資料型態：進階主題</a></li>
 </ul>
 
     </div>
@@ -357,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>進階主題</h1>
+    <h1>3.資料型態：進階主題</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,7 +369,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">資料型別的可變與不可變</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">資料型態統整</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">日期與時間</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">文字轉日期</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">日期轉文字</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">格式列表</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -381,9 +387,17 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>進階主題<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1>3.資料型態：進階主題<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="id2">
 <h2>資料型別的可變與不可變<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>之前講到在python中所有資料都是物件，而變數是物件的標籤。（請參考<span class="xref myst">0.資料型態：bool, int, float, str</span>。）</p>
+<p>我們將資料賦值到一個變數的這個過程就叫做<strong>實例化(initialization)</strong>。</p>
+<p>例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+</pre></div>
+</div>
+<p>我們把一個float物件實例化為pi這個變數，並把3.1415926賦值給該變數。</p>
+<p>而所謂資料型態的可變或不可變，就是指當資料實例化後，它的值能不能夠被改變。</p>
 <p><strong>資料型態與是否可變</strong></p>
 <table class="table">
 <thead>
@@ -427,58 +441,13 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p><strong>不可變</strong></p>
+<p><strong>可變的資料型態</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="mi">29</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-5
-29
-5
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
-<span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;K&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Curtis&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;K&#39;</span>
-
-<span class="ne">TypeError</span>: &#39;str&#39; object does not support item assignment
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>可變</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -488,11 +457,272 @@ document.write(`
 </div>
 </div>
 </div>
+<p><strong>不可變的資料型態</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span> <span class="c1"># tuple為不可變的資料型態</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span> <span class="c1"># tuple為不可變的資料型態</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>知道資料型態可不可變，so what?</p>
+<p>事實上這決定了一些程式的行為，例如：</p>
+<p>請先看以下這段code：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>我們知道list是可變的，請猜猜看print(y)的話會輸出什麼？</p>
+<p>答案是：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>發現到雖然我們改變的是x，但y的內容也一併被改變了！</p>
+<p>這是因為x和y都僅僅是一個list物件的標籤而已，</p>
+<p>x和y都指向一開始值為[1,2,3]的list物件，</p>
+<p>而list是可變的，</p>
+<p>所以當我們改變list的內容時，</p>
+<p>另一個貼著這個list的標籤y也就被影響了。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x 和 y 指向同一個物件。</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4351099712
+4351099712
+</pre></div>
+</div>
+</div>
+</div>
+<p>最後，list是可變的，而tuple是不可變的，</p>
+<p>這也是為什麼對list做以下操作是合法的，對tuple卻不行。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># indexing後賦值</span>
+<span class="n">a_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;a&#39;</span>
+<span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id3">
-<h2>資料型態統整<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>參考資料</p>
-<p>introducing python: modern computing in simple packages</p>
+<h2>日期與時間<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>python內建的時間與日期處理，需要引入一個datetime”模組”。</p>
+<p>所謂模組可以想像是一個函式庫，讓我們可以快速取用各種工具，就不用「自己造輪子了」。</p>
+<p>要取用函式庫需要先做引入(import)的動作：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下語法會產生出一個datetime物件指出現在的時間，該物件儲存了年月日時分秒與毫秒。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-14 23:52:59.555694
+</pre></div>
+</div>
+</div>
+</div>
+<p>datetime物件的相關操作方法：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023
+12
+14
+23
+52
+59
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>其他建立datetime物件的方法：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birthday</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">birthday</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-30 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>日期的運算需要利用datetime模組中另一個物件timedelta：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">sign_on_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">save_dt</span> <span class="o">=</span> <span class="n">sign_on_dt</span>  <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">save_dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-07-30 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id4">
+<h3>文字轉日期<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>常用的操作是把文字字串轉成日期型態再去做運算</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="s1">&#39;20231212&#39;</span>
+<span class="n">the_big_day</span> <span class="o">=</span> <span class="s1">&#39;20200520&#39;</span>
+
+<span class="n">today_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">the_big_day_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">the_big_day</span> <span class="p">,</span> <span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">days_together</span> <span class="o">=</span> <span class="n">today_dt</span> <span class="o">-</span> <span class="n">the_big_day_dt</span> 
+
+<span class="nb">type</span><span class="p">(</span><span class="n">days_together</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">days_together</span><span class="o">.</span><span class="n">days</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1301
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>日期轉文字<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20231214
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>格式列表<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>format</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>例子</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>%y</p></td>
+<td><p>補零后，以十進制數表示的，不帶世纪的年份。</p></td>
+<td><p>00, 01, …, 99</p></td>
+</tr>
+<tr class="row-odd"><td><p>%Y</p></td>
+<td><p>十進制數表示的帶世纪的年份。</p></td>
+<td><p>0001, 0002, …, 2013, 2014, …, 9998, 9999</p></td>
+</tr>
+<tr class="row-even"><td><p>%m</p></td>
+<td><p>以零填充的並以十進位數字表示的月份。</p></td>
+<td><p>01, 02, …, 12</p></td>
+</tr>
+<tr class="row-odd"><td><p>%d</p></td>
+<td><p>補零后，以十進制數顯示的月份中的一天。</p></td>
+<td><p>01, 02, …, 31</p></td>
+</tr>
+<tr class="row-even"><td><p>%H</p></td>
+<td><p>以補零后的十進制数表示的小時（24 小時制）。</p></td>
+<td><p>00, 01, …, 23</p></td>
+</tr>
+<tr class="row-odd"><td><p>%I</p></td>
+<td><p>以補零后的十進制數表示的小時（12 小時制）。</p></td>
+<td><p>01, 02, …, 12</p></td>
+</tr>
+<tr class="row-even"><td><p>%M</p></td>
+<td><p>補零后，以十進制數顯示的分鐘。</p></td>
+<td><p>00, 01, …, 59</p></td>
+</tr>
+<tr class="row-odd"><td><p>%S</p></td>
+<td><p>補零后，以十進制數顯示的秒。</p></td>
+<td><p>00, 01, …, 59</p></td>
+</tr>
+<tr class="row-even"><td><p>%w</p></td>
+<td><p>以十進制數顯示的工作日，其中0表示星期日，6表示星期六。</p></td>
+<td><p>0, 1, …, 6</p></td>
+</tr>
+<tr class="row-odd"><td><p>%W</p></td>
+<td><p>以補零后的十進制數表示的一年中的週序號（星期一作為每週的第一天）。 在新的一年中第一個星期一之前的所有日子都被視為是在第 0 週。</p></td>
+<td><p>00, 01, …, 53</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 
@@ -532,7 +762,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python - 資料型態與變數(3)</p>
+        <p class="prev-next-title">2.資料型態：dict與set</p>
       </div>
     </a>
 </div>
@@ -551,7 +781,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">資料型別的可變與不可變</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">資料型態統整</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">日期與時間</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">文字轉日期</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">日期轉文字</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">格式列表</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
