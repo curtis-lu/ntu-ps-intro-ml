@@ -14,25 +14,20 @@ kernelspec:
 
 # 4.流程控制
 
-之前的內容主要在介紹python的資料型態和相關操作，接下來介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。
+之前的內容主要在介紹python的資料型態和相關操作，
+接下來介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。
 
 ## if, elif, else
 
 ### 基本結構
 
 if 陳述式的最簡單結構如下方。
-
-當if陳述句的條件判斷為True的話就會做if區塊指定的事情，
-
-如果不為True，就接著判斷elif敘述，
-
-如果都不為True就會跑到else敘述，做else區塊的事情。
-
-if, elif, else句子的最後方都需要冒號。
-
-冒號下面的區塊必須縮排(indentation)，且必須有相同的格數。通常是用4個空格，而非tab鍵。
-
-Python利用縮排來判斷程式結構，所以不能弄亂縮排的格數。
+- 當if陳述句的條件判斷為True的話就會做if區塊指定的事情，
+- 如果不為True，就接著判斷elif敘述，由上而下照順序判斷。
+- 如果都不為True就會跑到else敘述，做else區塊的事情。
+- if, elif, else句子的最後方都需要冒號。
+- 冒號下面的區塊必須縮排(indentation)，且必須有相同的格數。通常是用4個空格，而非tab鍵。
+- Python利用縮排來判斷程式結構，所以不能弄亂縮排的格數。
 
 ```{code-cell}
 score = 88
@@ -71,8 +66,8 @@ if score >= 70:
 
 ### 條件判斷的形式
 
-陳述句中的條件判斷可以放很多種形式，不只```>=```, ```==```等比較運算子。
-
+陳述句中的條件判斷可以放很多種形式，
+不只```>=```, ```==```等比較運算子。
 基本上只要能產生布林值的都可以：
 
 **布林值本身：**
@@ -89,7 +84,7 @@ if score >= 70:
 
 **成員運算子**
 
-```in``` ,  ```not in``` 
+```in``` ,  ```not in```
 
 使用方式如下：
 
@@ -115,23 +110,15 @@ if 'f' not in a_set:
 
 **以下東西都會被視為False：**
 
-布林值 False
-
-空值 None
-
-整數 0
-
-浮點數 0.0
-
-空字串 ‘’
-
-空list []
-
-空tuple ()
-
-空dict {}
-
-空set set()
+- 布林值 False
+- 空值 None
+- 整數 0
+- 浮點數 0.0
+- 空字串 ‘’
+- 空list []
+- 空tuple ()
+- 空dict {}
+- 空set set()
 
 ```{code-cell}
 a_list = []
@@ -142,21 +129,20 @@ else:
     print('the list is empty')
 ```
 
-### ****Conditional**** expression
+### Conditional expression
 
 通常用在變數賦值，而非流程控制。語法結構如下：
 
 ```{code-cell}
-age = '18'
+age = 18
 
-is_can_vote = True if age>=18 else False
+is_can_vote = True if age >= 18 else False
 print(is_can_vote)
 ```
 
 ## for loop
 
 在python中，很多東西都可以拿來迭代：
-
 list, tuple, set, dict, range, enumerate, zip等等這些東西統稱為**可迭代物(iterable)**。
 
 ### 以list做迭代
@@ -179,15 +165,13 @@ for weekday in weekdays:
     print(weekday)
 ```
 
- tuple, set跟list做迭代的方式很像，就不贅述了。
+tuple, set跟list做迭代的方式很像，就不贅述了。
 
 特別值得一提的是，依資料結構的不同特性，會適合不同的使用情境。
 
-list有順序，但可變。
-
-tuple有順序，但不可變。
-
-set無順序，且元素不重複。
+- list有順序，但可變。
+- tuple有順序，但不可變。
+- set無順序，且元素不重複。
 
 ### 以dict做迭代
 
@@ -234,14 +218,13 @@ for idx, e in enumerate(a_set):
 
 a_dict = {'a':1, 'b':2, 'c':3}
 
-for idx, (k, v) in enumerate(a_set):
+for idx, (k, v) in enumerate(a_dict):
     print(idx, k, v)
 ```
 
 ### **以range做迭代**
 
 range是一個專門用來做迭代的iterable，可以很方便地去迭代一個等差數列。
-
 最簡單的使用方法如下，第一個參數是start，第二個參數是end：
 
 ```{code-cell}
@@ -249,7 +232,7 @@ for i in range(1, 10):
     print(i)
 ```
 
-注意到，不會print出10，因為range的序列不會包含最後一個元素。
+注意到，不會print出10，因為range的序列不會包含end(第二個參數)。
 
 參數也可以省略start，但start的預設值就會是0
 
@@ -296,7 +279,7 @@ for l, s in zip(longer, shorter):
 
 ## break, continue 陳述式
 
-### **break**
+**break**
 
 當你想要迴圈符合某個條件時，就馬上跳出迴圈，就可以使用break。
 
@@ -325,6 +308,9 @@ for i in range(0,5):
 ## while loop
 
 當條件為True時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。
+千萬要記得設定好停止條件，
+例如下方的```count <= 5```以及```count += 1```，
+否則會導致無限迴圈。
 
 ```{code-cell}
 count = 0
@@ -335,7 +321,10 @@ while count <= 5:
 
 **while loop中的else子句**
 
-while loop中的else子句只有在loop正常結束完成時，才會執行：
+while loop中的else子句只有在loop正常結束完成時，才會執行。
+例如以下程式，會去判斷```numbers```中是否有不被3整除的數字，
+若有的話就會因為```break```而停止程式，
+若沒有的話就會執行最後的```else```。
 
 ```{code-cell}
 numbers = [3,6,9,12,15]
@@ -351,7 +340,8 @@ else:
     print('finished')
 ```
 
-這邊else的概念跟if, else中的else，有點不一樣，可以把這邊的else當作break的檢查器，只有當迴圈正常結束，沒有呼叫break時才會執行。
+這邊```else```的概念跟```if, else```中的```else```，有點不一樣，
+可以把這邊的```else```當作```break```的檢查器，只有當迴圈正常結束，沒有呼叫```break```時才會執行。
 
 ## try, except, finally陳述句
 

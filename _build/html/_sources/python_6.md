@@ -17,7 +17,6 @@ kernelspec:
 ## 生成式(comprehension)
 
 建立list, dict, set時，有一個十分常用的技巧稱作生成式(comprehension)。
-
 生成式的語法比起使用迴圈簡潔許多，執行速度也比使用迴圈快。
 
 ### list comprehension
@@ -71,7 +70,7 @@ values = [1, 2, 3]
 
 a_dict = {k: v for k, v in zip(keys, values)}
 
-print(a_dict) 
+print(a_dict)
 ```
 
 或是當你想要交換key跟value的對應關係時：
@@ -109,7 +108,7 @@ def my_timer(func):
         result = func(*args, **kwargs)
         end = datetime.now()
         print(f'{func.__name__} ends at {end}')
-        print(f'total execution time: {end - start}'
+        print(f'total execution time: {end - start}')
         return result
     return wrapper
 ```
@@ -131,15 +130,22 @@ def lazy_square(number):
 lazy_square(99)
 ```
 
-裝飾器的使用時機在於當想一次對多個function添加一些行為時，如果不使用裝飾器的話就必須一個一個function去修改程式碼。除了很麻煩以外，其實也容易造成錯誤。
+裝飾器的使用時機在於當想一次對多個function添加一些行為時，
+如果不使用裝飾器的話就必須一個一個function去修改程式碼。
+除了很麻煩以外，也容易造成錯誤。
 
-以上就是裝飾器的基本用法，但這樣的做法會有個小問題。請看以下程式：
+以上就是裝飾器的基本用法，但這樣的做法會有個小問題。
+
+請看以下程式：
 
 ```{code-cell}
 help(lazy_square)
 ```
 
-印出的結果是裝飾器中的wrapper()的名稱。要解決這個問題必須使用python標準函式庫中的一個套件```functools```，在內層的wrapper上面加上一個裝飾器```@functools.wraps()```：
+印出的結果是裝飾器中的wrapper()的名稱。
+
+要解決這個問題必須使用python標準函式庫中的一個套件```functools```，
+在內層的wrapper上面加上一個裝飾器```@functools.wraps()```：
 
 ```{code-cell}
 from datetime import datetime
@@ -177,14 +183,15 @@ help(lazy_square)
 
 ## 名稱空間
 
-我們知道變數名稱是一個標籤，貼在盒子（物件）上面，當我們呼叫變數時，python會去取用盒子裡面的資料。
+我們知道變數名稱是一個標籤，貼在盒子（物件）上面，
+當我們呼叫變數時，python會去取用盒子裡面的資料。
 
 但是如果有多個一樣的變數名稱呢？到底要取用哪個物件就會造成混淆。
 
-Python透過名稱空間（namespace）去界定變數名稱的搜尋範圍，不同名稱空間有不同優先順序，在哪個空間先找到變數名稱，就去取用該變數名稱對應到的物件。
+Python透過名稱空間（namespace）去界定變數名稱的搜尋範圍，
+不同名稱空間有不同優先順序，在哪個空間先找到變數名稱，就去取用該變數名稱對應到的物件。
 
 名稱空間依序如下：
-
 - local
 - enclosing
 - global
@@ -206,15 +213,14 @@ dir(__builtins__)
 
 **global namespace**
 
-global namespace包含了在主程式中定義的變數名稱，所謂主程式可以先理解成就是正在使用中的
-
-jupyter notebook。
+global namespace包含了在主程式中定義的變數名稱，所謂主程式可以先理解成就是正在使用中的jupyter notebook。
 
 ****The Local and Enclosing Namespaces****
 
 至於local namespace就是function在執行時內部的變數名稱空間。
 
-而enclosing namespace則是指當function是多層的時候，例如雙層的function，外層function的namespace就是所謂的enclosing namespace。
+而enclosing namespace則是指當function是多層的時候，
+例如雙層的function，外層function的namespace就是所謂的enclosing namespace。
 
 請看下方釋例說明：
 
@@ -233,10 +239,10 @@ enclosing()
 ```
 
 當我們呼叫outer()時，python會為outer建立新的namespace。
-
 當outer內部呼叫inner()時，python也會為inner建立另一個獨立的namespace。
 
-此時outer的namespace稱作enclosing namespace，而inner的namespace則是local namespace。
+此時outer的namespace稱作enclosing namespace，
+而inner的namespace則是local namespace。
 
 ### 範例
 
@@ -294,9 +300,10 @@ f()
 
 **範例四**
 
-無法修改超出名稱空間範圍的變數。 
+無法修改超出名稱空間範圍的變數。
 
-例如我們定義了一個revise_x的function，裡面重新對x賦值，但這邊的賦值行為只在local namespace中生效，並不會影響到global namespace。
+例如我們定義了一個revise_x的function，裡面重新對x賦值，
+但這邊的賦值行為只在local namespace中生效，並不會影響到global namespace。
 
 ```{code-cell}
 x = 1
@@ -333,9 +340,7 @@ print('global:', x)
 ### 統整
 
 在取用變數時，python會從local → enclosing → global → build-in逐層搜尋變數名稱。
-
 如果變數名稱都搜尋不到的話，就會丟出```NameError```，說明變數並不存在。
-
 在修改變數時，變數只在local namespace中作用，並不會影響到外面的namespace。
 
 參考：
