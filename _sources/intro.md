@@ -1,14 +1,14 @@
-# 面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
+# A Layman’s Guide to Data Science
 
-本書主題涵蓋
-
-- Python基礎
-- Pandas基礎
-- 其他實用工具
+Topics covered by this book：
+- Python basics
+- Pandas basics
+- useful knowledge for data scientist
     - shell
     - git & github
-    - Markdown
     - IDE & virtual environment
+    - Markdown
+    - software engineering principles in python
 
 ```{tableofcontents}
 ```

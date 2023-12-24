@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
+                    A Layman’s Guide to Data Science
                 </a>
             </li>
         </ul>
@@ -403,7 +403,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>4.流程控制<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>之前的內容主要在介紹python的資料型態和相關操作，
-接下來介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。</p>
+接下來介紹的內容是讓程式動起來的基礎：
+邏輯判斷以及流程控制。</p>
 <section id="if-elif-else">
 <h2>if, elif, else<a class="headerlink" href="#if-elif-else" title="Permalink to this heading">#</a></h2>
 <section id="id2">
@@ -488,7 +489,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code></p>
 <p><strong>成員運算子</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">in</span></code> ,  <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p>
-<p>使用方式如下：</p>
+<p>成員運算子的使用方式如下：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;I am a sentence&#39;</span>
@@ -497,13 +498,28 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is an o&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is no o&#39;</span><span class="p">)</span>
-
-<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no o
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="mi">4</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is a 4&#39;</span><span class="p">)</span>
-
-<span class="n">a_set</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_set</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="s1">&#39;f&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">a_set</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is no f&#39;</span><span class="p">)</span>
@@ -511,8 +527,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no o
-There is no f
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no f
 </pre></div>
 </div>
 </div>
@@ -701,13 +716,13 @@ c 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 a
-1 b
-2 c
+1 c
+2 b
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_dict</span><span class="p">):</span>
@@ -850,7 +865,7 @@ c c
 <section id="break-continue">
 <h2>break, continue 陳述式<a class="headerlink" href="#break-continue" title="Permalink to this heading">#</a></h2>
 <p><strong>break</strong></p>
-<p>當你想要迴圈符合某個條件時，就馬上跳出迴圈，就可以使用break。</p>
+<p>當你想要迴圈符合某個條件時，馬上跳出迴圈，就可以使用<code class="docutils literal notranslate"><span class="pre">break</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
@@ -972,7 +987,7 @@ c c
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span> <span class="c1"># ZeroDivisionError: division by zero</span>

@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
+                    A Layman’s Guide to Data Science
                 </a>
             </li>
         </ul>
@@ -404,7 +404,7 @@ document.write(`
 <section id="list-comprehension">
 <h3>list comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this heading">#</a></h3>
 <p>例如想建立一個內含1~10數字元素的list，該怎麼做？</p>
-<p>可能想到的做法是先建立一個空的list，然後利用range()來append每個元素進去：</p>
+<p>可能想到的做法是先建立一個空的list，然後利用<code class="docutils literal notranslate"><span class="pre">range()</span></code>來append每個元素進去：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -567,11 +567,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square starts at 2023-12-24 12:01:52.628562
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square starts at 2023-12-25 00:14:02.064743
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square ends at 2023-12-24 12:01:53.133621
-total execution time: 0:00:00.505059
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square ends at 2023-12-25 00:14:02.569801
+total execution time: 0:00:00.505058
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9801
@@ -598,7 +598,7 @@ wrapper(*args, **kwargs)
 </div>
 </div>
 </div>
-<p>印出的結果是裝飾器中的wrapper()的名稱。</p>
+<p>印出的結果是裝飾器中的<code class="docutils literal notranslate"><span class="pre">wrapper()</span></code>的名稱。</p>
 <p>要解決這個問題必須使用python標準函式庫中的一個套件<code class="docutils literal notranslate"><span class="pre">functools</span></code>，
 在內層的wrapper上面加上一個裝飾器<code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps()</span></code>：</p>
 <div class="cell docutils container">
@@ -843,7 +843,7 @@ lazy_square(number)
 <p>在定義變數時，要小心不要使用到這些變數名稱，否則會覆蓋掉。</p>
 <p><strong>global namespace</strong></p>
 <p>global namespace包含了在主程式中定義的變數名稱，所謂主程式可以先理解成就是正在使用中的jupyter notebook。</p>
-<p><strong><strong>The Local and Enclosing Namespaces</strong></strong></p>
+<p><strong>The Local and Enclosing Namespaces</strong></p>
 <p>至於local namespace就是function在執行時內部的變數名稱空間。</p>
 <p>而enclosing namespace則是指當function是多層的時候，
 例如雙層的function，外層function的namespace就是所謂的enclosing namespace。</p>
@@ -877,8 +877,8 @@ lazy_square(number)
 </div>
 </div>
 </div>
-<p>當我們呼叫outer()時，python會為outer建立新的namespace。
-當outer內部呼叫inner()時，python也會為inner建立另一個獨立的namespace。</p>
+<p>當我們呼叫<code class="docutils literal notranslate"><span class="pre">outer()</span></code>時，python會為outer建立新的namespace。
+當outer內部呼叫<code class="docutils literal notranslate"><span class="pre">inner()</span></code>時，python也會為inner建立另一個獨立的namespace。</p>
 <p>此時outer的namespace稱作enclosing namespace，
 而inner的namespace則是local namespace。</p>
 </section>
@@ -907,7 +907,7 @@ lazy_square(number)
 </div>
 </div>
 <p><strong>範例二</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">x</span></code> 定義了兩次，一個定義在global namespace中，另一個則是在f()裡面，所以是enclosing namespace。</p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> 定義了兩次，一個定義在global namespace中，另一個則是在<code class="docutils literal notranslate"><span class="pre">f()</span></code>裡面，所以是enclosing namespace。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span>
@@ -930,7 +930,7 @@ lazy_square(number)
 </div>
 </div>
 <p><strong>範例三</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">x</span></code> 定義了三次，一個在global namespace、一個在enclosing namespace，最後一個則是在g()裡面，所以是local namespace。</p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> 定義了三次，一個在global namespace、一個在enclosing namespace，最後一個則是在<code class="docutils literal notranslate"><span class="pre">g()</span></code>裡面，所以是local namespace。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span>

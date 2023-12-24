@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
+                    A Layman’s Guide to Data Science
                 </a>
             </li>
         </ul>
@@ -394,14 +394,14 @@ document.write(`
 <h1>3.資料型態：進階主題<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="id2">
 <h2>資料型別的可變與不可變<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<p>之前講到在python中所有資料都是物件，而變數是物件的標籤。（請參考<span class="xref myst">0.資料型態：bool, int, float, str</span>。）</p>
-<p>我們將資料賦值到一個變數的這個過程就叫做<strong>實例化(initialization)</strong>。</p>
-<p>例如：</p>
+<p>之前講到在python中所有資料都是物件，而變數是物件的標籤。(請參考：<span class="xref myst">0.資料型態：bool, int, float, str</span>。)</p>
+<p>我們將資料賦值到一個變數的這個過程就叫做<strong>實例化(initialization)</strong>。
+例如：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415926</span>
 </pre></div>
 </div>
-<p>我們把一個float物件實例化為pi這個變數，並把3.1415926賦值給該變數。</p>
-<p>而所謂資料型態的可變或不可變，就是指當資料實例化後，它的值能不能夠被改變。</p>
+<p>我們把一個float物件實例化為pi這個變數，並把3.1415926賦值給該變數。
+而所謂資料型態的可變或不可變，就是指當資料實例化後，它的值能不能夠被改變。</p>
 <p><strong>資料型態與是否可變</strong></p>
 <table class="table">
 <thead>
@@ -482,8 +482,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>知道資料型態可不可變，so what?</p>
-<p>事實上這決定了一些程式的行為，例如：</p>
+<p>知道資料型態可不可變，so what?
+事實上這決定了一些程式的行為。</p>
 <p>請先看以下這段code：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -496,8 +496,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>我們知道list是可變的，請猜猜看print(y)的話會輸出什麼？</p>
-<p>答案是：</p>
+<p>我們知道list是可變的，請猜猜看print(y)的話會輸出什麼？
+答案是：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -511,11 +511,11 @@ document.write(`
 </div>
 </div>
 <p>發現到雖然我們改變的是x，但y的內容也一併被改變了！</p>
-<p>這是因為x和y都僅僅是一個list物件的標籤而已，</p>
-<p>x和y都指向一開始值為[1,2,3]的list物件，</p>
-<p>而list是可變的，</p>
-<p>所以當我們改變list的內容時，</p>
-<p>另一個貼著這個list的標籤y也就被影響了。</p>
+<p>這是因為x和y都僅僅是一個list物件的標籤而已，
+x和y都指向一開始值為[1,2,3]的list物件，
+而list是可變的，
+所以當我們改變list的內容時，
+另一個貼著這個list的標籤y也就被影響了。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x 和 y 指向同一個物件。</span>
@@ -526,8 +526,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4391216512
-4391216512
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4414084160
+4414084160
 </pre></div>
 </div>
 </div>
@@ -548,8 +548,8 @@ document.write(`
 </section>
 <section id="id3">
 <h2>日期與時間<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>python內建的時間與日期處理，需要引入一個datetime”模組”。</p>
-<p>所謂模組可以想像是一個函式庫，讓我們可以快速取用各種工具，就不用「自己造輪子了」。</p>
+<p>python內建的時間與日期處理，需要引入一個datetime”模組”。
+所謂模組可以想像是一個函式庫，讓我們可以快速取用各種工具，就不用「自己造輪子了」。</p>
 <p>要取用函式庫需要先做引入(import)的動作：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -569,7 +569,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-24 12:01:49.712425
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-25 00:13:59.145149
 </pre></div>
 </div>
 </div>
@@ -590,11 +590,11 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023
 12
-24
-12
-1
-49
-6
+25
+0
+13
+59
+0
 </pre></div>
 </div>
 </div>
@@ -668,7 +668,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20231224
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20231225
 </pre></div>
 </div>
 </div>
