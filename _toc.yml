@@ -10,3 +10,6 @@ parts:
     - file: python_1
     - file: python_2
     - file: python_3
+    - file: python_4
+    - file: python_5
+    - file: python_6
