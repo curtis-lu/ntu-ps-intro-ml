@@ -23,7 +23,7 @@ kernelspec:
 
 例如想建立一個內含1~10數字元素的list，該怎麼做？
 
-可能想到的做法是先建立一個空的list，然後利用range()來append每個元素進去：
+可能想到的做法是先建立一個空的list，然後利用```range()```來append每個元素進去：
 
 ```{code-cell}
 a_list = []
@@ -142,7 +142,7 @@ lazy_square(99)
 help(lazy_square)
 ```
 
-印出的結果是裝飾器中的wrapper()的名稱。
+印出的結果是裝飾器中的```wrapper()```的名稱。
 
 要解決這個問題必須使用python標準函式庫中的一個套件```functools```，
 在內層的wrapper上面加上一個裝飾器```@functools.wraps()```：
@@ -215,7 +215,7 @@ dir(__builtins__)
 
 global namespace包含了在主程式中定義的變數名稱，所謂主程式可以先理解成就是正在使用中的jupyter notebook。
 
-****The Local and Enclosing Namespaces****
+**The Local and Enclosing Namespaces**
 
 至於local namespace就是function在執行時內部的變數名稱空間。
 
@@ -238,8 +238,8 @@ def outer():
 enclosing()
 ```
 
-當我們呼叫outer()時，python會為outer建立新的namespace。
-當outer內部呼叫inner()時，python也會為inner建立另一個獨立的namespace。
+當我們呼叫```outer()```時，python會為outer建立新的namespace。
+當outer內部呼叫```inner()```時，python也會為inner建立另一個獨立的namespace。
 
 此時outer的namespace稱作enclosing namespace，
 而inner的namespace則是local namespace。
@@ -265,7 +265,7 @@ f()
 
 **範例二**
 
-```x``` 定義了兩次，一個定義在global namespace中，另一個則是在f()裡面，所以是enclosing namespace。
+```x``` 定義了兩次，一個定義在global namespace中，另一個則是在```f()```裡面，所以是enclosing namespace。
 
 ```{code-cell}
 x = 'global'
@@ -282,7 +282,7 @@ f()
 
 **範例三**
 
-```x``` 定義了三次，一個在global namespace、一個在enclosing namespace，最後一個則是在g()裡面，所以是local namespace。
+```x``` 定義了三次，一個在global namespace、一個在enclosing namespace，最後一個則是在```g()```裡面，所以是local namespace。
 
 ```{code-cell}
 x = 'global'

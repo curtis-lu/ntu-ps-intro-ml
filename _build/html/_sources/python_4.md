@@ -15,7 +15,8 @@ kernelspec:
 # 4.流程控制
 
 之前的內容主要在介紹python的資料型態和相關操作，
-接下來介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。
+接下來介紹的內容是讓程式動起來的基礎：
+邏輯判斷以及流程控制。
 
 ## if, elif, else
 
@@ -86,7 +87,7 @@ if score >= 70:
 
 ```in``` ,  ```not in```
 
-使用方式如下：
+成員運算子的使用方式如下：
 
 ```{code-cell}
 sentence = 'I am a sentence'
@@ -95,12 +96,16 @@ if 'o' in sentence:
     print('There is an o')
 else:
     print('There is no o')
+```
 
+```{code-cell}
 a_list = [1, 2, 3, 5, 6]
 
 if 4 in a_list:
     print('There is a 4')
+```
 
+```{code-cell}
 a_set = ['a', 'b', 'c', 'd', 'e']
 
 if 'f' not in a_set:
@@ -281,7 +286,7 @@ for l, s in zip(longer, shorter):
 
 **break**
 
-當你想要迴圈符合某個條件時，就馬上跳出迴圈，就可以使用break。
+當你想要迴圈符合某個條件時，馬上跳出迴圈，就可以使用```break```。
 
 ```{code-cell}
 for i in range(0,5):

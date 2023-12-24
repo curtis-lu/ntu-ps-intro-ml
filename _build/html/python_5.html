@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
+                    A Layman’s Guide to Data Science
                 </a>
             </li>
         </ul>
@@ -487,10 +487,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>任意引數：args &amp; kwargs</strong></p>
+<p><strong>任意引數：<code class="docutils literal notranslate"><span class="pre">*args</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">＊*kwargs</span></code></strong></p>
 <p>當想要function可以傳入不固定的參數數量時，可以使用可變動參數。</p>
 <p>其中<code class="docutils literal notranslate"><span class="pre">*args</span></code>代表位置引數，<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>代表關鍵字引數。</p>
-<p><strong>args用法範例如下：</strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">*args</span></code>用法範例如下：</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -521,7 +521,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>kwargs用法範例如下：</strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>用法範例如下：</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -615,7 +615,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>由上面的例子可以看到，*args是傳入一個tuple，**kwargs則是傳入一個dict。</p>
+<p>由上面的例子可以看到，<code class="docutils literal notranslate"><span class="pre">*args</span></code>是傳入一個tuple，<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>則是傳入一個dict。</p>
 </section>
 <section id="default-parameter">
 <h3><strong>參數預設值(default parameter)</strong><a class="headerlink" href="#default-parameter" title="Permalink to this heading">#</a></h3>
@@ -679,7 +679,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>執行第一次，輸出了一個具有單一元素’a’的list，符合預期：</p>
+<p>執行第一次，輸出了一個具有單一元素<code class="docutils literal notranslate"><span class="pre">’a’</span></code>的list，符合預期：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">append_element</span><span class="p">(</span><span class="n">e</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
@@ -694,7 +694,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 <p>但執行第二次時，理論上沒有傳入一個list的話，
 我們預期這個function應該是先產生一個空的list然後再append元素。
-但實際上的結果是保留了上一次append進去的元素’a’：</p>
+但實際上的結果是保留了上一次append進去的元素<code class="docutils literal notranslate"><span class="pre">’a’</span></code>：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">append_element</span><span class="p">(</span><span class="n">e</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
@@ -708,9 +708,9 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <p>之所以會這樣的原因是，function的預設值在定義階段就會被創建，後續使用時不會再重新創建。
-所以第一次執行function時，mylist就已經被建立，後續重新呼叫function並不會再重新創建。
+所以第一次執行function時，<code class="docutils literal notranslate"><span class="pre">mylist</span></code>就已經被建立，後續重新呼叫function並不會再重新創建。
 又因為list是一種可變物件，可以不斷把東西塞進去。</p>
-<p>可以看到以下程式，每次呼叫時，mylist的id都一樣，代表物件沒有被重新創建。</p>
+<p>可以看到以下程式，每次呼叫時，<code class="docutils literal notranslate"><span class="pre">mylist</span></code>的id都一樣，代表物件沒有被重新創建。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">mylist</span><span class="o">=</span><span class="p">[]):</span>
@@ -723,7 +723,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4490811904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4491862656
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;]
@@ -739,7 +739,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4490811904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4491862656
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;]
@@ -747,7 +747,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>解決方法是用None代替空的可變物件。</p>
+<p>解決方法是用<code class="docutils literal notranslate"><span class="pre">None</span></code>代替空的可變物件。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">mylist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -808,7 +808,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <section id="id4">
 <h3>特殊參數<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p><strong>僅限位置參數 (Positional-Only Parameters)</strong></p>
-<p>只要在參數中加入”\/”就可以限制”\/”前的引數都必須是位置引數。</p>
+<p>只要在參數中加入”/”就可以限制”/”前的引數都必須是位置引數。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pos_only_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
@@ -900,7 +900,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>此外，args後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。</p>
+<p>此外，<code class="docutils literal notranslate"><span class="pre">*args</span></code>後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
@@ -1066,15 +1066,17 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>事實上， <strong>型別提示(type hint)</strong> 只是提示，python並不會對type hint做任何事，所以即使用錯了型別也不會報錯。</p>
-<p>但其實有套件可以替我們做檢查（例如mypy），檢查的方式例如，明明myvar的type hint是str型別，但卻在程式某個地方對myvar使用了.append()方法等等。</p>
+<p>事實上 <strong>型別提示(type hint)</strong> 只是提示，python不會對type hint做任何事，所以即使用錯了型別也不會報錯。</p>
+<p>雖然python不強制，但其實有套件可以替我們做檢查（例如mypy）。
+檢查的方式例如，明明<code class="docutils literal notranslate"><span class="pre">myvar</span></code>的type hint是<code class="docutils literal notranslate"><span class="pre">str</span></code>型別，
+但卻在程式某個地方對<code class="docutils literal notranslate"><span class="pre">myvar</span></code>使用了<code class="docutils literal notranslate"><span class="pre">.append()</span></code>方法等等。</p>
 <p>總而言之，使用**型別提示(type hint)**可以讓程式更可讀也更好維護。</p>
 </section>
 <section id="type-hint">
 <h3><strong>在函式定義中使用型別提示(type hint)</strong><a class="headerlink" href="#type-hint" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>直接在參數後面寫入資料型別</p></li>
-<li><p>‘ -&gt; ‘ 後面代表的是return的資料型別。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> 後面代表的是return的資料型別。</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1103,7 +1105,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 好的文件同時也是為了避免未來的自己或是你的同事，陷入痛苦的困惑當中。</p>
 <section id="id8">
 <h3>為程式加入註解<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
-<p>‘#’ 是註解符號，符號後面的文字會忽略，不執行。</p>
+<p><code class="docutils literal notranslate"><span class="pre">'#'</span></code> 是註解符號，符號後面的文字會忽略，不執行。</p>
 <p>以下範例來自&lt;精通無瑕程式碼&gt;：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

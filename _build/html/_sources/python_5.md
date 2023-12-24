@@ -68,13 +68,13 @@ my_sum(1, 2, c=3)
 my_sum(a=1, 2, 3)
 ```
 
-**任意引數：args & kwargs**
+**任意引數：```*args``` & ```＊*kwargs```**
 
 當想要function可以傳入不固定的參數數量時，可以使用可變動參數。
 
 其中```*args```代表位置引數，```**kwargs```代表關鍵字引數。
 
-**args用法範例如下：**
+**```*args```用法範例如下：**
 
 ```{code-cell}
 def my_sum(*args):
@@ -90,7 +90,7 @@ my_sum(1,2,3,4,5)
 my_sum(1,2,3,4,5,6,7,8,9,10)
 ```
 
-**kwargs用法範例如下：**
+**```**kwargs```用法範例如下：**
 
 ```{code-cell}
 def my_func(**kwargs):
@@ -123,7 +123,7 @@ my_func(1, 2, c=3)
 my_func(1, 2, 3, d=4, e=5)
 ```
 
-由上面的例子可以看到，*args是傳入一個tuple，**kwargs則是傳入一個dict。
+由上面的例子可以看到，```*args```是傳入一個tuple，```**kwargs```則是傳入一個dict。
 
 ### **參數預設值(default parameter)**
 
@@ -161,7 +161,7 @@ def append_element(e, mylist=[]):
     return mylist
 ```
 
-執行第一次，輸出了一個具有單一元素’a’的list，符合預期：
+執行第一次，輸出了一個具有單一元素```’a’```的list，符合預期：
 
 ```{code-cell}
 append_element(e='a')
@@ -169,17 +169,17 @@ append_element(e='a')
 
 但執行第二次時，理論上沒有傳入一個list的話，
 我們預期這個function應該是先產生一個空的list然後再append元素。
-但實際上的結果是保留了上一次append進去的元素’a’：
+但實際上的結果是保留了上一次append進去的元素```’a’```：
 
 ```{code-cell}
 append_element(e='b')
 ```
 
 之所以會這樣的原因是，function的預設值在定義階段就會被創建，後續使用時不會再重新創建。
-所以第一次執行function時，mylist就已經被建立，後續重新呼叫function並不會再重新創建。
+所以第一次執行function時，```mylist```就已經被建立，後續重新呼叫function並不會再重新創建。
 又因為list是一種可變物件，可以不斷把東西塞進去。
 
-可以看到以下程式，每次呼叫時，mylist的id都一樣，代表物件沒有被重新創建。
+可以看到以下程式，每次呼叫時，```mylist```的id都一樣，代表物件沒有被重新創建。
 
 ```{code-cell}
 def append_element(e, mylist=[]):
@@ -196,7 +196,7 @@ append_element(e='a')
 append_element(e='b')
 ```
 
-解決方法是用None代替空的可變物件。
+解決方法是用```None```代替空的可變物件。
 
 ```{code-cell}
 def append_element(e, mylist=None):
@@ -219,7 +219,7 @@ append_element(e='b')
 
 **僅限位置參數 (Positional-Only Parameters)**
 
-只要在參數中加入"\\/"就可以限制"\\/"前的引數都必須是位置引數。
+只要在參數中加入"\/"就可以限制"\/"前的引數都必須是位置引數。
 
 ```{code-cell}
 def pos_only_func(a, b, c, /):
@@ -262,7 +262,7 @@ def combined_func(a, b, c, /, d, e, *, f, g):
 combined_func(1, 2, 3, 4, e=5, f=6, g=7)
 ```
 
-此外，args後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。
+此外，```*args```後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。
 
 ```{code-cell}
 def example_func(*args, c, d):
@@ -360,16 +360,18 @@ a_list: list[str] = ['a','b','c'] # python 3.9以上支援
 a_set: set[int] = {1, 2} # python 3.9以上支援
 ```
 
-事實上， **型別提示(type hint)** 只是提示，python並不會對type hint做任何事，所以即使用錯了型別也不會報錯。
+事實上 **型別提示(type hint)** 只是提示，python不會對type hint做任何事，所以即使用錯了型別也不會報錯。
 
-但其實有套件可以替我們做檢查（例如mypy），檢查的方式例如，明明myvar的type hint是str型別，但卻在程式某個地方對myvar使用了.append()方法等等。
+雖然python不強制，但其實有套件可以替我們做檢查（例如mypy）。
+檢查的方式例如，明明```myvar```的type hint是```str```型別，
+但卻在程式某個地方對```myvar```使用了```.append()```方法等等。
 
 總而言之，使用**型別提示(type hint)**可以讓程式更可讀也更好維護。
 
 ### **在函式定義中使用型別提示(type hint)**
 
 1. 直接在參數後面寫入資料型別
-2. ' -> ' 後面代表的是return的資料型別。
+2. ``` -> ``` 後面代表的是return的資料型別。
 
 ```{code-cell}
 def lucky_number(name: str, birthday: str = '19000101') -> int:
@@ -398,7 +400,7 @@ def lucky_number(name: str, birthday: str = '19000101') -> int:
 
 ### 為程式加入註解
 
-'#' 是註解符號，符號後面的文字會忽略，不執行。
+```'#'``` 是註解符號，符號後面的文字會忽略，不執行。
 
 以下範例來自<精通無瑕程式碼>：
 
