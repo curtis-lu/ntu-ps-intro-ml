@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to the mini course of causal machine learning!
+                    面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
                 </a>
             </li>
         </ul>
@@ -373,8 +373,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>定義function</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>使用function</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">定義function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">使用function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter"><strong>參數預設值(default parameter)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊參數</a></li>
 </ul>
@@ -410,11 +410,11 @@ document.write(`
 <section id="id1">
 <h2>function<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>所謂function是接收一些輸入，然後做一些事情，最後吐出輸出。</p>
-<p>自定義一個function，對於資料分析來說也是很實用的。</p>
-<p>不僅在資料處理與分析的過程中，可以避免一直重複複製貼上同一段語法。</p>
-<p>再者也可以有效地組織你的程式，讓程式的結構更清楚，更好維護。</p>
+<p>自定義function，對於資料分析來說非常實用。
+不僅在資料處理與分析的過程中，可以避免一直重複複製貼上同一段語法。
+也可以有效地組織你的程式，讓程式的結構更清楚，更好維護。</p>
 <section id="id2">
-<h3><strong>定義function</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>定義function<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>要使用<code class="docutils literal notranslate"><span class="pre">def</span></code>關鍵字</p></li>
 <li><p>為function命名</p></li>
@@ -434,7 +434,7 @@ document.write(`
 </div>
 </section>
 <section id="id3">
-<h3><strong>使用function</strong><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>使用function<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>實際呼叫function時，只要在function的<code class="docutils literal notranslate"><span class="pre">()</span></code>中放入function需要的輸入，就可以執行了。</p></li>
 <li><p>呼叫時傳入的東西稱作<strong>引數(argument)</strong>，在定義時則稱作<strong>參數(parameter)</strong>。</p></li>
@@ -487,10 +487,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>**任意引數：*args &amp; <strong>kwargs</strong></p>
+<p><strong>任意引數：args &amp; kwargs</strong></p>
 <p>當想要function可以傳入不固定的參數數量時，可以使用可變動參數。</p>
 <p>其中<code class="docutils literal notranslate"><span class="pre">*args</span></code>代表位置引數，<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>代表關鍵字引數。</p>
-<p>*<strong>args用法範例如下：</strong></p>
+<p><strong>args用法範例如下：</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -521,12 +521,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>**<strong>kwargs用法範例如下：</strong></p>
+<p><strong>kwargs用法範例如下：</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">None</span>
 
 <span class="n">my_func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -534,10 +534,20 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span>
-         <span class="o">^</span>
-<span class="ne">SyntaxError</span>: &#39;(&#39; was never closed
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">my_func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nn">Cell In[7], line 2,</span> in <span class="ni">my_func</span><span class="nt">(**kwargs)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="kc">None</span>
+
+<span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 1)
 </pre></div>
 </div>
 </div>
@@ -550,11 +560,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">my_func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;my_func&#39; is not defined
+<span class="nn">Cell In[7], line 2,</span> in <span class="ni">my_func</span><span class="nt">(**kwargs)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="kc">None</span>
+
+<span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 1)
 </pre></div>
 </div>
 </div>
@@ -651,8 +667,9 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>注意，可變物件作為參數預設值可能會產生問題。</p>
-<p>例如以下程式，假設我們希望這個function當沒有指定list時就初始化一個空的list，然後就把元素append進去：</p>
+<p><strong>可變物件作為參數預設值</strong></p>
+<p>以可變物件作為參數預設值可能會產生問題。
+例如以下程式，假設我們希望這個function當沒有指定list時就初始化一個空的list，然後就把元素append進去：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">mylist</span><span class="o">=</span><span class="p">[]):</span>
@@ -675,7 +692,9 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>但執行第二次時，理論上沒有傳入一個list的話，我們預期這個function應該是先產生一個空的list然後再append元素。但實際上的結果是保留了上一次append進去的元素’a’：</p>
+<p>但執行第二次時，理論上沒有傳入一個list的話，
+我們預期這個function應該是先產生一個空的list然後再append元素。
+但實際上的結果是保留了上一次append進去的元素’a’：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">append_element</span><span class="p">(</span><span class="n">e</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
@@ -688,9 +707,9 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>之所以會這樣的原因是，function的預設值在定義階段就會被創建，後續使用時不會再重新創建。</p>
-<p>所以第一次執行function時，mylist就已經被建立，後續重新呼叫function並不會再重新創建。</p>
-<p>又因為list是一種可變物件，可以不斷把東西塞進去。</p>
+<p>之所以會這樣的原因是，function的預設值在定義階段就會被創建，後續使用時不會再重新創建。
+所以第一次執行function時，mylist就已經被建立，後續重新呼叫function並不會再重新創建。
+又因為list是一種可變物件，可以不斷把東西塞進去。</p>
 <p>可以看到以下程式，每次呼叫時，mylist的id都一樣，代表物件沒有被重新創建。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,7 +723,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4488447488
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4490811904
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;]
@@ -720,7 +739,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4488447488
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4490811904
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;]
@@ -789,7 +808,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <section id="id4">
 <h3>特殊參數<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p><strong>僅限位置參數 (Positional-Only Parameters)</strong></p>
-<p>只要在參數中加入”/”就可以限制**”/”前的引數都必須是位置引數**。</p>
+<p>只要在參數中加入”\/”就可以限制”\/”前的引數都必須是位置引數。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pos_only_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
@@ -825,7 +844,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <p><strong>僅限關鍵字引數 (Keyword-Only Arguments)</strong></p>
-<p>只要在參數中加入”<em>”就可以限制**”</em>”後的引數都必須是關鍵字引數**。</p>
+<p>只要在參數中加入”*” 就可以限制 “*”後的引數都必須是關鍵字引數。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kwd_only_func</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
@@ -881,7 +900,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>此外，*args後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。</p>
+<p>此外，args後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
@@ -1020,12 +1039,12 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <h2>定義function的好習慣<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <section id="dynamic-types-static-type">
 <h3><strong>動態型別(dynamic types)與靜態型別(static type)</strong><a class="headerlink" href="#dynamic-types-static-type" title="Permalink to this heading">#</a></h3>
-<p>在python中，變數的資料型別是<strong>動態型別(dynamic types)</strong>，意思是：</p>
+<p>在python中，變數的資料型別是 <strong>動態型別(dynamic types)</strong> ，意思是：</p>
 <ol class="arabic simple">
 <li><p>定義變數時不需要宣告變數的資料型別，而是直接賦值就可以了，而且，</p></li>
 <li><p>如果要改變型別只要重新賦值即可。</p></li>
 </ol>
-<p>相反地，所謂<strong>靜態型別(static type)</strong>，就是指變數賦值前必須先宣告好資料型別，而且一旦宣告後，除非重新宣告其他型別，否則用其他型別資料賦值就會產生錯誤。</p>
+<p>相反地，所謂 <strong>靜態型別(static type)</strong> ，就是指變數賦值前必須先宣告好資料型別，而且一旦宣告後，除非重新宣告其他型別，否則用其他型別資料賦值就會產生錯誤。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myvar</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1036,7 +1055,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <p>這樣感覺起來似乎動態型別方便多了！不必像靜態型別一樣有許多限制。事實上，限制帶來的是穩定性與可預測性，比較能夠避免程式出現意料之外的錯誤。</p>
-<p>因此，雖然python是動態型別，但仍創造了所謂**型別提示(type hint)**的功能。使用方式如下：</p>
+<p>因此，雖然python是動態型別，但仍創造了所謂 <strong>型別提示(type hint)</strong> 的功能。使用方式如下：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_student</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1047,7 +1066,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>事實上，**型別提示(type hint)**只是提示，python並不會對type hint做任何事，所以即使用錯了型別也不會報錯。</p>
+<p>事實上， <strong>型別提示(type hint)</strong> 只是提示，python並不會對type hint做任何事，所以即使用錯了型別也不會報錯。</p>
 <p>但其實有套件可以替我們做檢查（例如mypy），檢查的方式例如，明明myvar的type hint是str型別，但卻在程式某個地方對myvar使用了.append()方法等等。</p>
 <p>總而言之，使用**型別提示(type hint)**可以讓程式更可讀也更好維護。</p>
 </section>
@@ -1079,9 +1098,9 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <div><p>“Code is more often read than written.”</p>
 <p>— <em>Guido van Rossum</em></p>
 </div></blockquote>
-<p>程式的易讀性是python哲學中非常重要的一部分，程式有好的文件才會有人願意使用。</p>
-<p>例如<code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>的文件都非常優秀，讓使用者可以找到清楚的說明與範例。</p>
-<p>好的文件同時也是為了避免未來的自己或是你的同事，陷入痛苦的困惑當中。</p>
+<p>程式的易讀性是python哲學中非常重要的一部分，程式有好的文件才會有人願意使用。
+例如<code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>的文件都非常優秀，讓使用者可以找到清楚的說明與範例。
+好的文件同時也是為了避免未來的自己或是你的同事，陷入痛苦的困惑當中。</p>
 <section id="id8">
 <h3>為程式加入註解<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>‘#’ 是註解符號，符號後面的文字會忽略，不執行。</p>
@@ -1113,8 +1132,8 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>以上程式片段對於不熟悉正規表達式的人，會很難以理解程式碼的作用。</p>
-<p>但加上一些註解後就可以消除困惑：</p>
+<p>以上程式片段對於不熟悉正規表達式的人，會很難以理解程式碼的作用。
+但加上一些註解後就可以消除困惑：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -1173,7 +1192,8 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 </div>
-<p>因為很多東西都是顯而易見的，有意義的變數名稱就已經可以說明許多事情，就不必要再做行內註解。（行內註解意思是在同一行程式碼的後面直接加上註解）</p>
+<p>因為很多東西都是顯而易見的，有意義的變數名稱就已經可以說明許多事情，就不必要再做行內註解。
+（行內註解意思是在同一行程式碼的後面直接加上註解）</p>
 <p>而且該知道的常識也沒必要註解，例如大家都知道for迴圈就是為了逐個計算，就不必註解for迴圈的功能。</p>
 </section>
 <section id="docstring">
@@ -1222,7 +1242,8 @@ None
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://realpython.com/defining-your-own-python-function/#function-calls-and-definition">Defining Your Own Python Function – Real Python</a></p>
+<p>參考資源：
+<a class="reference external" href="https://realpython.com/defining-your-own-python-function/#function-calls-and-definition">Defining Your Own Python Function – Real Python</a></p>
 </section>
 </section>
 </section>
@@ -1291,8 +1312,8 @@ None
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>定義function</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>使用function</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">定義function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">使用function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter"><strong>參數預設值(default parameter)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊參數</a></li>
 </ul>

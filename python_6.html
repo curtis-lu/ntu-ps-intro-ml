@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to the mini course of causal machine learning!
+                    面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
                 </a>
             </li>
         </ul>
@@ -399,8 +399,8 @@ document.write(`
 <h1>6.進階主題<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="comprehension">
 <h2>生成式(comprehension)<a class="headerlink" href="#comprehension" title="Permalink to this heading">#</a></h2>
-<p>建立list, dict, set時，有一個十分常用的技巧稱作生成式(comprehension)。</p>
-<p>生成式的語法比起使用迴圈簡潔許多，執行速度也比使用迴圈快。</p>
+<p>建立list, dict, set時，有一個十分常用的技巧稱作生成式(comprehension)。
+生成式的語法比起使用迴圈簡潔許多，執行速度也比使用迴圈快。</p>
 <section id="list-comprehension">
 <h3>list comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this heading">#</a></h3>
 <p>例如想建立一個內含1~10數字元素的list，該怎麼做？</p>
@@ -479,7 +479,7 @@ document.write(`
 
 <span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)}</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -539,17 +539,9 @@ document.write(`
         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> ends at </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;total execution time: </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;total execution time: </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">wrapper</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;total execution time: </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span>
-         <span class="o">^</span>
-<span class="ne">SyntaxError</span>: &#39;(&#39; was never closed
 </pre></div>
 </div>
 </div>
@@ -566,20 +558,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">time</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nd">@my_timer</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">lazy_square</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">number</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="ne">NameError</span>: name &#39;my_timer&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>使用該function時就會被添加該function原本沒有的功能：</p>
 <div class="cell docutils container">
@@ -589,18 +567,23 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">lazy_square</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;lazy_square&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square starts at 2023-12-24 12:01:52.628562
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square ends at 2023-12-24 12:01:53.133621
+total execution time: 0:00:00.505059
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9801
 </pre></div>
 </div>
 </div>
 </div>
-<p>裝飾器的使用時機在於當想一次對多個function添加一些行為時，如果不使用裝飾器的話就必須一個一個function去修改程式碼。除了很麻煩以外，其實也容易造成錯誤。</p>
-<p>以上就是裝飾器的基本用法，但這樣的做法會有個小問題。請看以下程式：</p>
+<p>裝飾器的使用時機在於當想一次對多個function添加一些行為時，
+如果不使用裝飾器的話就必須一個一個function去修改程式碼。
+除了很麻煩以外，也容易造成錯誤。</p>
+<p>以上就是裝飾器的基本用法，但這樣的做法會有個小問題。</p>
+<p>請看以下程式：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">lazy_square</span><span class="p">)</span>
@@ -608,17 +591,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">help</span><span class="p">(</span><span class="n">lazy_square</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function wrapper in module __main__:
 
-<span class="ne">NameError</span>: name &#39;lazy_square&#39; is not defined
+wrapper(*args, **kwargs)
 </pre></div>
 </div>
 </div>
 </div>
-<p>印出的結果是裝飾器中的wrapper()的名稱。要解決這個問題必須使用python標準函式庫中的一個套件<code class="docutils literal notranslate"><span class="pre">functools</span></code>，在內層的wrapper上面加上一個裝飾器<code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps()</span></code>：</p>
+<p>印出的結果是裝飾器中的wrapper()的名稱。</p>
+<p>要解決這個問題必須使用python標準函式庫中的一個套件<code class="docutils literal notranslate"><span class="pre">functools</span></code>，
+在內層的wrapper上面加上一個裝飾器<code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps()</span></code>：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -670,9 +652,11 @@ lazy_square(number)
 </section>
 <section id="id2">
 <h2>名稱空間<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<p>我們知道變數名稱是一個標籤，貼在盒子（物件）上面，當我們呼叫變數時，python會去取用盒子裡面的資料。</p>
+<p>我們知道變數名稱是一個標籤，貼在盒子（物件）上面，
+當我們呼叫變數時，python會去取用盒子裡面的資料。</p>
 <p>但是如果有多個一樣的變數名稱呢？到底要取用哪個物件就會造成混淆。</p>
-<p>Python透過名稱空間（namespace）去界定變數名稱的搜尋範圍，不同名稱空間有不同優先順序，在哪個空間先找到變數名稱，就去取用該變數名稱對應到的物件。</p>
+<p>Python透過名稱空間（namespace）去界定變數名稱的搜尋範圍，
+不同名稱空間有不同優先順序，在哪個空間先找到變數名稱，就去取用該變數名稱對應到的物件。</p>
 <p>名稱空間依序如下：</p>
 <ul class="simple">
 <li><p>local</p></li>
@@ -858,11 +842,11 @@ lazy_square(number)
 </div>
 <p>在定義變數時，要小心不要使用到這些變數名稱，否則會覆蓋掉。</p>
 <p><strong>global namespace</strong></p>
-<p>global namespace包含了在主程式中定義的變數名稱，所謂主程式可以先理解成就是正在使用中的</p>
-<p>jupyter notebook。</p>
+<p>global namespace包含了在主程式中定義的變數名稱，所謂主程式可以先理解成就是正在使用中的jupyter notebook。</p>
 <p><strong><strong>The Local and Enclosing Namespaces</strong></strong></p>
 <p>至於local namespace就是function在執行時內部的變數名稱空間。</p>
-<p>而enclosing namespace則是指當function是多層的時候，例如雙層的function，外層function的namespace就是所謂的enclosing namespace。</p>
+<p>而enclosing namespace則是指當function是多層的時候，
+例如雙層的function，外層function的namespace就是所謂的enclosing namespace。</p>
 <p>請看下方釋例說明：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -893,9 +877,10 @@ lazy_square(number)
 </div>
 </div>
 </div>
-<p>當我們呼叫outer()時，python會為outer建立新的namespace。</p>
-<p>當outer內部呼叫inner()時，python也會為inner建立另一個獨立的namespace。</p>
-<p>此時outer的namespace稱作enclosing namespace，而inner的namespace則是local namespace。</p>
+<p>當我們呼叫outer()時，python會為outer建立新的namespace。
+當outer內部呼叫inner()時，python也會為inner建立另一個獨立的namespace。</p>
+<p>此時outer的namespace稱作enclosing namespace，
+而inner的namespace則是local namespace。</p>
 </section>
 <section id="id4">
 <h3>範例<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
@@ -970,7 +955,8 @@ lazy_square(number)
 </div>
 <p><strong>範例四</strong></p>
 <p>無法修改超出名稱空間範圍的變數。</p>
-<p>例如我們定義了一個revise_x的function，裡面重新對x賦值，但這邊的賦值行為只在local namespace中生效，並不會影響到global namespace。</p>
+<p>例如我們定義了一個revise_x的function，裡面重新對x賦值，
+但這邊的賦值行為只在local namespace中生效，並不會影響到global namespace。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1023,9 +1009,9 @@ global: 1
 </section>
 <section id="id5">
 <h3>統整<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
-<p>在取用變數時，python會從local → enclosing → global → build-in逐層搜尋變數名稱。</p>
-<p>如果變數名稱都搜尋不到的話，就會丟出<code class="docutils literal notranslate"><span class="pre">NameError</span></code>，說明變數並不存在。</p>
-<p>在修改變數時，變數只在local namespace中作用，並不會影響到外面的namespace。</p>
+<p>在取用變數時，python會從local → enclosing → global → build-in逐層搜尋變數名稱。
+如果變數名稱都搜尋不到的話，就會丟出<code class="docutils literal notranslate"><span class="pre">NameError</span></code>，說明變數並不存在。
+在修改變數時，變數只在local namespace中作用，並不會影響到外面的namespace。</p>
 <p>參考：</p>
 <p><a class="reference external" href="https://realpython.com/python-namespaces-scope/">Namespaces and Scope in Python – Real Python</a></p>
 </section>

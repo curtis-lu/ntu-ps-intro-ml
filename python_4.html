@@ -164,7 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to the mini course of causal machine learning!
+                    面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
                 </a>
             </li>
         </ul>
@@ -375,7 +375,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else">if, elif, else</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基本結構</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">條件判斷的形式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expression"><strong><strong>Conditional</strong></strong> expression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expression">Conditional expression</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a><ul class="nav section-nav flex-column">
@@ -386,10 +386,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">利用zip迭代多個序列</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">break, continue 陳述式</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break"><strong>break</strong></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">break, continue 陳述式</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">while loop</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-finally">try, except, finally陳述句</a></li>
 </ul>
@@ -405,18 +402,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>4.流程控制<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<p>之前的內容主要在介紹python的資料型態和相關操作，接下來介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。</p>
+<p>之前的內容主要在介紹python的資料型態和相關操作，
+接下來介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。</p>
 <section id="if-elif-else">
 <h2>if, elif, else<a class="headerlink" href="#if-elif-else" title="Permalink to this heading">#</a></h2>
 <section id="id2">
 <h3>基本結構<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>if 陳述式的最簡單結構如下方。</p>
-<p>當if陳述句的條件判斷為True的話就會做if區塊指定的事情，</p>
-<p>如果不為True，就接著判斷elif敘述，</p>
-<p>如果都不為True就會跑到else敘述，做else區塊的事情。</p>
-<p>if, elif, else句子的最後方都需要冒號。</p>
-<p>冒號下面的區塊必須縮排(indentation)，且必須有相同的格數。通常是用4個空格，而非tab鍵。</p>
-<p>Python利用縮排來判斷程式結構，所以不能弄亂縮排的格數。</p>
+<ul class="simple">
+<li><p>當if陳述句的條件判斷為True的話就會做if區塊指定的事情，</p></li>
+<li><p>如果不為True，就接著判斷elif敘述，由上而下照順序判斷。</p></li>
+<li><p>如果都不為True就會跑到else敘述，做else區塊的事情。</p></li>
+<li><p>if, elif, else句子的最後方都需要冒號。</p></li>
+<li><p>冒號下面的區塊必須縮排(indentation)，且必須有相同的格數。通常是用4個空格，而非tab鍵。</p></li>
+<li><p>Python利用縮排來判斷程式結構，所以不能弄亂縮排的格數。</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">88</span>
@@ -477,8 +477,9 @@ document.write(`
 </section>
 <section id="id3">
 <h3>條件判斷的形式<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<p>陳述句中的條件判斷可以放很多種形式，不只<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>等比較運算子。</p>
-<p>基本上只要能產生布林值的都可以：</p>
+<p>陳述句中的條件判斷可以放很多種形式，
+不只<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>等比較運算子。
+基本上只要能產生布林值的都可以：</p>
 <p><strong>布林值本身：</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">True</span></code></p>
 <p><strong>比較運算子：</strong></p>
@@ -517,15 +518,17 @@ There is no f
 </div>
 </div>
 <p><strong>以下東西都會被視為False：</strong></p>
-<p>布林值 False</p>
-<p>空值 None</p>
-<p>整數 0</p>
-<p>浮點數 0.0</p>
-<p>空字串 ‘’</p>
-<p>空list []</p>
-<p>空tuple ()</p>
-<p>空dict {}</p>
-<p>空set set()</p>
+<ul class="simple">
+<li><p>布林值 False</p></li>
+<li><p>空值 None</p></li>
+<li><p>整數 0</p></li>
+<li><p>浮點數 0.0</p></li>
+<li><p>空字串 ‘’</p></li>
+<li><p>空list []</p></li>
+<li><p>空tuple ()</p></li>
+<li><p>空dict {}</p></li>
+<li><p>空set set()</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -545,26 +548,19 @@ There is no f
 </div>
 </section>
 <section id="conditional-expression">
-<h3><strong><strong>Conditional</strong></strong> expression<a class="headerlink" href="#conditional-expression" title="Permalink to this heading">#</a></h3>
+<h3>Conditional expression<a class="headerlink" href="#conditional-expression" title="Permalink to this heading">#</a></h3>
 <p>通常用在變數賦值，而非流程控制。語法結構如下：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="s1">&#39;18&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
 
-<span class="n">is_can_vote</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">age</span><span class="o">&gt;=</span><span class="mi">18</span> <span class="k">else</span> <span class="kc">False</span>
+<span class="n">is_can_vote</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="k">else</span> <span class="kc">False</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">is_can_vote</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">age</span> <span class="o">=</span> <span class="s1">&#39;18&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">is_can_vote</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">age</span><span class="o">&gt;=</span><span class="mi">18</span> <span class="k">else</span> <span class="kc">False</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_can_vote</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: &#39;&gt;=&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -573,8 +569,8 @@ There is no f
 </section>
 <section id="for-loop">
 <h2>for loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h2>
-<p>在python中，很多東西都可以拿來迭代：</p>
-<p>list, tuple, set, dict, range, enumerate, zip等等這些東西統稱為<strong>可迭代物(iterable)</strong>。</p>
+<p>在python中，很多東西都可以拿來迭代：
+list, tuple, set, dict, range, enumerate, zip等等這些東西統稱為<strong>可迭代物(iterable)</strong>。</p>
 <section id="list">
 <h3>以list做迭代<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h3>
 <p>以list做迭代的用法範例如下：</p>
@@ -621,9 +617,11 @@ Sat
 </div>
 <p>tuple, set跟list做迭代的方式很像，就不贅述了。</p>
 <p>特別值得一提的是，依資料結構的不同特性，會適合不同的使用情境。</p>
-<p>list有順序，但可變。</p>
-<p>tuple有順序，但不可變。</p>
-<p>set無順序，且元素不重複。</p>
+<ul class="simple">
+<li><p>list有順序，但可變。</p></li>
+<li><p>tuple有順序，但不可變。</p></li>
+<li><p>set無順序，且元素不重複。</p></li>
+</ul>
 </section>
 <section id="dict">
 <h3>以dict做迭代<a class="headerlink" href="#dict" title="Permalink to this heading">#</a></h3>
@@ -696,15 +694,15 @@ c 3
 
 <span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
 
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_set</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_dict</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 c
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 a
 1 b
-2 a
+2 c
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -712,7 +710,7 @@ c 3
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_set</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_dict</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 1)
@@ -723,8 +721,8 @@ c 3
 </section>
 <section id="range">
 <h3><strong>以range做迭代</strong><a class="headerlink" href="#range" title="Permalink to this heading">#</a></h3>
-<p>range是一個專門用來做迭代的iterable，可以很方便地去迭代一個等差數列。</p>
-<p>最簡單的使用方法如下，第一個參數是start，第二個參數是end：</p>
+<p>range是一個專門用來做迭代的iterable，可以很方便地去迭代一個等差數列。
+最簡單的使用方法如下，第一個參數是start，第二個參數是end：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
@@ -746,7 +744,7 @@ c 3
 </div>
 </div>
 </div>
-<p>注意到，不會print出10，因為range的序列不會包含最後一個元素。</p>
+<p>注意到，不會print出10，因為range的序列不會包含end(第二個參數)。</p>
 <p>參數也可以省略start，但start的預設值就會是0</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -851,8 +849,7 @@ c c
 </section>
 <section id="break-continue">
 <h2>break, continue 陳述式<a class="headerlink" href="#break-continue" title="Permalink to this heading">#</a></h2>
-<section id="break">
-<h3><strong>break</strong><a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
+<p><strong>break</strong></p>
 <p>當你想要迴圈符合某個條件時，就馬上跳出迴圈，就可以使用break。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -903,10 +900,12 @@ c c
 </div>
 </div>
 </section>
-</section>
 <section id="while-loop">
 <h2>while loop<a class="headerlink" href="#while-loop" title="Permalink to this heading">#</a></h2>
-<p>當條件為True時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。</p>
+<p>當條件為True時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。
+千萬要記得設定好停止條件，
+例如下方的<code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">&lt;=</span> <span class="pre">5</span></code>以及<code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">+=</span> <span class="pre">1</span></code>，
+否則會導致無限迴圈。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -928,7 +927,10 @@ c c
 </div>
 </div>
 <p><strong>while loop中的else子句</strong></p>
-<p>while loop中的else子句只有在loop正常結束完成時，才會執行：</p>
+<p>while loop中的else子句只有在loop正常結束完成時，才會執行。
+例如以下程式，會去判斷<code class="docutils literal notranslate"><span class="pre">numbers</span></code>中是否有不被3整除的數字，
+若有的話就會因為<code class="docutils literal notranslate"><span class="pre">break</span></code>而停止程式，
+若沒有的話就會執行最後的<code class="docutils literal notranslate"><span class="pre">else</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
@@ -951,7 +953,8 @@ c c
 </div>
 </div>
 </div>
-<p>這邊else的概念跟if, else中的else，有點不一樣，可以把這邊的else當作break的檢查器，只有當迴圈正常結束，沒有呼叫break時才會執行。</p>
+<p>這邊<code class="docutils literal notranslate"><span class="pre">else</span></code>的概念跟<code class="docutils literal notranslate"><span class="pre">if,</span> <span class="pre">else</span></code>中的<code class="docutils literal notranslate"><span class="pre">else</span></code>，有點不一樣，
+可以把這邊的<code class="docutils literal notranslate"><span class="pre">else</span></code>當作<code class="docutils literal notranslate"><span class="pre">break</span></code>的檢查器，只有當迴圈正常結束，沒有呼叫<code class="docutils literal notranslate"><span class="pre">break</span></code>時才會執行。</p>
 </section>
 <section id="try-except-finally">
 <h2>try, except, finally陳述句<a class="headerlink" href="#try-except-finally" title="Permalink to this heading">#</a></h2>
@@ -1133,7 +1136,7 @@ run this no matter what.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else">if, elif, else</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基本結構</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">條件判斷的形式</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expression"><strong><strong>Conditional</strong></strong> expression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expression">Conditional expression</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a><ul class="nav section-nav flex-column">
@@ -1144,10 +1147,7 @@ run this no matter what.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">利用zip迭代多個序列</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">break, continue 陳述式</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break"><strong>break</strong></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">break, continue 陳述式</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">while loop</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-finally">try, except, finally陳述句</a></li>
 </ul>

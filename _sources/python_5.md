@@ -18,13 +18,11 @@ kernelspec:
 
 所謂function是接收一些輸入，然後做一些事情，最後吐出輸出。
 
-自定義一個function，對於資料分析來說也是很實用的。
-
+自定義function，對於資料分析來說非常實用。
 不僅在資料處理與分析的過程中，可以避免一直重複複製貼上同一段語法。
+也可以有效地組織你的程式，讓程式的結構更清楚，更好維護。
 
-再者也可以有效地組織你的程式，讓程式的結構更清楚，更好維護。
-
-### **定義function**
+### 定義function
 
 - 要使用```def```關鍵字
 - 為function命名
@@ -39,7 +37,7 @@ def my_sum(a, b, c):
     return result
 ```
 
-### **使用function**
+### 使用function
 
 - 實際呼叫function時，只要在function的```()```中放入function需要的輸入，就可以執行了。
 - 呼叫時傳入的東西稱作**引數(argument)**，在定義時則稱作**參數(parameter)**。
@@ -70,13 +68,13 @@ my_sum(1, 2, c=3)
 my_sum(a=1, 2, 3)
 ```
 
-**任意引數：*args & **kwargs**
+**任意引數：args & kwargs**
 
 當想要function可以傳入不固定的參數數量時，可以使用可變動參數。
 
 其中```*args```代表位置引數，```**kwargs```代表關鍵字引數。
 
-***args用法範例如下：**
+**args用法範例如下：**
 
 ```{code-cell}
 def my_sum(*args):
@@ -92,12 +90,12 @@ my_sum(1,2,3,4,5)
 my_sum(1,2,3,4,5,6,7,8,9,10)
 ```
 
-****kwargs用法範例如下：**
+**kwargs用法範例如下：**
 
 ```{code-cell}
 def my_func(**kwargs):
     for k, v in kwargs:
-        print(f'{k} -> {v}'
+        print(f'{k} -> {v}')
     return None
 
 my_func(a=1, b=2, c=3)
@@ -152,8 +150,9 @@ def my_sum(a=1, b, c):
     return result
 ```
 
-注意，可變物件作為參數預設值可能會產生問題。
+**可變物件作為參數預設值**
 
+以可變物件作為參數預設值可能會產生問題。
 例如以下程式，假設我們希望這個function當沒有指定list時就初始化一個空的list，然後就把元素append進去：
 
 ```{code-cell}
@@ -168,16 +167,16 @@ def append_element(e, mylist=[]):
 append_element(e='a')
 ```
 
-但執行第二次時，理論上沒有傳入一個list的話，我們預期這個function應該是先產生一個空的list然後再append元素。但實際上的結果是保留了上一次append進去的元素’a’：
+但執行第二次時，理論上沒有傳入一個list的話，
+我們預期這個function應該是先產生一個空的list然後再append元素。
+但實際上的結果是保留了上一次append進去的元素’a’：
 
 ```{code-cell}
 append_element(e='b')
 ```
 
 之所以會這樣的原因是，function的預設值在定義階段就會被創建，後續使用時不會再重新創建。
-
 所以第一次執行function時，mylist就已經被建立，後續重新呼叫function並不會再重新創建。
-
 又因為list是一種可變物件，可以不斷把東西塞進去。
 
 可以看到以下程式，每次呼叫時，mylist的id都一樣，代表物件沒有被重新創建。
@@ -220,7 +219,7 @@ append_element(e='b')
 
 **僅限位置參數 (Positional-Only Parameters)**
 
-只要在參數中加入"/"就可以限制**"/"前的引數都必須是位置引數**。
+只要在參數中加入"\\/"就可以限制"\\/"前的引數都必須是位置引數。
 
 ```{code-cell}
 def pos_only_func(a, b, c, /):
@@ -237,7 +236,7 @@ pos_only_func(1, 2, c=3)
 
 **僅限關鍵字引數 (Keyword-Only Arguments)**
 
-只要在參數中加入"*"就可以限制**"*"後的引數都必須是關鍵字引數**。
+只要在參數中加入"\*" 就可以限制 "\*"後的引數都必須是關鍵字引數。
 
 ```{code-cell}
 def kwd_only_func(*, f, g):
@@ -263,7 +262,7 @@ def combined_func(a, b, c, /, d, e, *, f, g):
 combined_func(1, 2, 3, 4, e=5, f=6, g=7)
 ```
 
-此外，*args後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。
+此外，args後面的參數也都是僅限關鍵字引數(Keyword-Only Arguments)。
 
 ```{code-cell}
 def example_func(*args, c, d):
@@ -337,12 +336,12 @@ sorted(a_list, key=get_second_element)
 
 ### **動態型別(dynamic types)與靜態型別(static type)**
 
-在python中，變數的資料型別是**動態型別(dynamic types)**，意思是：
+在python中，變數的資料型別是 **動態型別(dynamic types)** ，意思是：
 
 1. 定義變數時不需要宣告變數的資料型別，而是直接賦值就可以了，而且，
 2. 如果要改變型別只要重新賦值即可。
 
-相反地，所謂**靜態型別(static type)**，就是指變數賦值前必須先宣告好資料型別，而且一旦宣告後，除非重新宣告其他型別，否則用其他型別資料賦值就會產生錯誤。
+相反地，所謂 **靜態型別(static type)** ，就是指變數賦值前必須先宣告好資料型別，而且一旦宣告後，除非重新宣告其他型別，否則用其他型別資料賦值就會產生錯誤。
 
 ```{code-cell}
 myvar = 1
@@ -352,7 +351,7 @@ myvar = True
 
 這樣感覺起來似乎動態型別方便多了！不必像靜態型別一樣有許多限制。事實上，限制帶來的是穩定性與可預測性，比較能夠避免程式出現意料之外的錯誤。
 
-因此，雖然python是動態型別，但仍創造了所謂**型別提示(type hint)**的功能。使用方式如下：
+因此，雖然python是動態型別，但仍創造了所謂 **型別提示(type hint)** 的功能。使用方式如下：
 
 ```{code-cell}
 is_student: bool = True
@@ -361,7 +360,7 @@ a_list: list[str] = ['a','b','c'] # python 3.9以上支援
 a_set: set[int] = {1, 2} # python 3.9以上支援
 ```
 
-事實上，**型別提示(type hint)**只是提示，python並不會對type hint做任何事，所以即使用錯了型別也不會報錯。
+事實上， **型別提示(type hint)** 只是提示，python並不會對type hint做任何事，所以即使用錯了型別也不會報錯。
 
 但其實有套件可以替我們做檢查（例如mypy），檢查的方式例如，明明myvar的type hint是str型別，但卻在程式某個地方對myvar使用了.append()方法等等。
 
@@ -388,15 +387,13 @@ def lucky_number(name: str, birthday: str = '19000101') -> int:
 ## Documentation
 
 > “Code is more often read than written.”
-> 
-> 
+>
+>
 > — *Guido van Rossum*
-> 
+>
 
 程式的易讀性是python哲學中非常重要的一部分，程式有好的文件才會有人願意使用。
-
 例如```pandas```和```scikit-learn```的文件都非常優秀，讓使用者可以找到清楚的說明與範例。
-
 好的文件同時也是為了避免未來的自己或是你的同事，陷入痛苦的困惑當中。
 
 ### 為程式加入註解
@@ -424,7 +421,6 @@ print(l_words)
 ```
 
 以上程式片段對於不熟悉正規表達式的人，會很難以理解程式碼的作用。
-
 但加上一些註解後就可以消除困惑：
 
 ```{code-cell}
@@ -460,7 +456,8 @@ for year in range(years):
     print(investments * (1 + yearly_return)**year)
 ```
 
-因為很多東西都是顯而易見的，有意義的變數名稱就已經可以說明許多事情，就不必要再做行內註解。（行內註解意思是在同一行程式碼的後面直接加上註解）
+因為很多東西都是顯而易見的，有意義的變數名稱就已經可以說明許多事情，就不必要再做行內註解。
+（行內註解意思是在同一行程式碼的後面直接加上註解）
 
 而且該知道的常識也沒必要註解，例如大家都知道for迴圈就是為了逐個計算，就不必註解for迴圈的功能。
 
@@ -490,4 +487,5 @@ print(help(my_func))
 print(my_func.__doc__)
 ```
 
+參考資源：
 [Defining Your Own Python Function – Real Python](https://realpython.com/defining-your-own-python-function/#function-calls-and-definition)

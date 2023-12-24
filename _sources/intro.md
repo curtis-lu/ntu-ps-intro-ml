@@ -1,11 +1,14 @@
-# Welcome to the mini course of causal machine learning!
+# 面向文科生的資料科學必備知識：python, pandas 與 其他實用工具
 
-This mini course will cover the basic knowledge of the following topics:
+本書主題涵蓋
 
-- Basics of Python and essential tools
-- Basics of machine learning
-- Basics of causal inference
-- Basics of causal machine learning
+- Python基礎
+- Pandas基礎
+- 其他實用工具
+    - shell
+    - git & github
+    - Markdown
+    - IDE & virtual environment
 
 ```{tableofcontents}
 ```
