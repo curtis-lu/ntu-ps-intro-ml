@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>流程控制 &#8212; My sample book</title>
+    <title>4.流程控制 &#8212; My sample book</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5.function" href="python_5.html" />
+    <link rel="prev" title="3.資料型態：進階主題" href="python_3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,11 +169,14 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.流程控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_5.html">5.function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_6.html">6.進階主題</a></li>
 </ul>
 
     </div>
@@ -357,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>流程控制</h1>
+    <h1>4.流程控制</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,12 +372,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else">if elif else</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-finally">try except finally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else">if, elif, else</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基本結構</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">條件判斷的形式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expression"><strong><strong>Conditional</strong></strong> expression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">以list做迭代</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">以dict做迭代</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">以enumerate做迭代</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><strong>以range做迭代</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">利用zip迭代多個序列</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">break, continue 陳述式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break"><strong>break</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">while loop</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">range</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">enumerate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-finally">try, except, finally陳述句</a></li>
 </ul>
             </nav>
         </div>
@@ -385,24 +404,666 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>流程控制<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1>4.流程控制<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<p>之前的內容主要在介紹python的資料型態和相關操作，接下來介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。</p>
 <section id="if-elif-else">
-<h2>if elif else<a class="headerlink" href="#if-elif-else" title="Permalink to this heading">#</a></h2>
+<h2>if, elif, else<a class="headerlink" href="#if-elif-else" title="Permalink to this heading">#</a></h2>
+<section id="id2">
+<h3>基本結構<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>if 陳述式的最簡單結構如下方。</p>
+<p>當if陳述句的條件判斷為True的話就會做if區塊指定的事情，</p>
+<p>如果不為True，就接著判斷elif敘述，</p>
+<p>如果都不為True就會跑到else敘述，做else區塊的事情。</p>
+<p>if, elif, else句子的最後方都需要冒號。</p>
+<p>冒號下面的區塊必須縮排(indentation)，且必須有相同的格數。通常是用4個空格，而非tab鍵。</p>
+<p>Python利用縮排來判斷程式結構，所以不能弄亂縮排的格數。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">88</span>
+
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">85</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do task 1&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do task 2&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do task 3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>do task 1
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>elif 敘述可以有多個</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">88</span>
+
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do task 1&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do task 2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do task 3&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do task 4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>do task 2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>elif &amp; else 都是非必要的</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">88</span>
+
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do something&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>do something
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>條件判斷的形式<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>陳述句中的條件判斷可以放很多種形式，不只<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>等比較運算子。</p>
+<p>基本上只要能產生布林值的都可以：</p>
+<p><strong>布林值本身：</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p><strong>比較運算子：</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p>
+<p><strong>邏輯運算子</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code></p>
+<p><strong>成員運算子</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">in</span></code> ,  <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p>
+<p>使用方式如下：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;I am a sentence&#39;</span>
+
+<span class="k">if</span> <span class="s1">&#39;o&#39;</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is an o&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is no o&#39;</span><span class="p">)</span>
+
+<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="mi">4</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is a 4&#39;</span><span class="p">)</span>
+
+<span class="n">a_set</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="s1">&#39;f&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">a_set</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is no f&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There is no o
+There is no f
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>以下東西都會被視為False：</strong></p>
+<p>布林值 False</p>
+<p>空值 None</p>
+<p>整數 0</p>
+<p>浮點數 0.0</p>
+<p>空字串 ‘’</p>
+<p>空list []</p>
+<p>空tuple ()</p>
+<p>空dict {}</p>
+<p>空set set()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">if</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do something&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the list is empty&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the list is empty
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conditional-expression">
+<h3><strong><strong>Conditional</strong></strong> expression<a class="headerlink" href="#conditional-expression" title="Permalink to this heading">#</a></h3>
+<p>通常用在變數賦值，而非流程控制。語法結構如下：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="s1">&#39;18&#39;</span>
+
+<span class="n">is_can_vote</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">age</span><span class="o">&gt;=</span><span class="mi">18</span> <span class="k">else</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_can_vote</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">age</span> <span class="o">=</span> <span class="s1">&#39;18&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">is_can_vote</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">age</span><span class="o">&gt;=</span><span class="mi">18</span> <span class="k">else</span> <span class="kc">False</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">is_can_vote</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;&gt;=&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="for-loop">
 <h2>for loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h2>
+<p>在python中，很多東西都可以拿來迭代：</p>
+<p>list, tuple, set, dict, range, enumerate, zip等等這些東西統稱為<strong>可迭代物(iterable)</strong>。</p>
+<section id="list">
+<h3>以list做迭代<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h3>
+<p>以list做迭代的用法範例如下：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>上面的i可以取任何名稱，通常會取一個好辨認的名稱，增加程式的可讀性。例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekdays</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sun&#39;</span><span class="p">,</span> <span class="s1">&#39;Mon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tue&#39;</span><span class="p">,</span> <span class="s1">&#39;Wed&#39;</span><span class="p">,</span> <span class="s1">&#39;Thu&#39;</span><span class="p">,</span> <span class="s1">&#39;Fri&#39;</span><span class="p">,</span> <span class="s1">&#39;Sat&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">weekday</span> <span class="ow">in</span> <span class="n">weekdays</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">weekday</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sun
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+</pre></div>
+</div>
+</div>
+</div>
+<p>tuple, set跟list做迭代的方式很像，就不贅述了。</p>
+<p>特別值得一提的是，依資料結構的不同特性，會適合不同的使用情境。</p>
+<p>list有順序，但可變。</p>
+<p>tuple有順序，但不可變。</p>
+<p>set無順序，且元素不重複。</p>
 </section>
-<section id="try-except-finally">
-<h2>try except finally<a class="headerlink" href="#try-except-finally" title="Permalink to this heading">#</a></h2>
+<section id="dict">
+<h3>以dict做迭代<a class="headerlink" href="#dict" title="Permalink to this heading">#</a></h3>
+<p>dict的迭代方法如下：</p>
+<p><strong>根據key迭代</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">a_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>根據value迭代</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">a_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>key &amp; value 同時</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">a_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a 1
+b 2
+c 3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="enumerate">
+<h3>以enumerate做迭代<a class="headerlink" href="#enumerate" title="Permalink to this heading">#</a></h3>
+<p>enumerate做迭代的方式其實跟list, set, tuple差不多，但使用enumerate可以多輸出index，有時候會比較方便。</p>
+<p>enumerate裡面可以放任何iterable進去。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_set</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_set</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 c
+1 b
+2 a
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_set</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="range">
+<h3><strong>以range做迭代</strong><a class="headerlink" href="#range" title="Permalink to this heading">#</a></h3>
+<p>range是一個專門用來做迭代的iterable，可以很方便地去迭代一個等差數列。</p>
+<p>最簡單的使用方法如下，第一個參數是start，第二個參數是end：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>注意到，不會print出10，因為range的序列不會包含最後一個元素。</p>
+<p>參數也可以省略start，但start的預設值就會是0</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>range也可以指定步伐(step)，當指定step時，就必須指定start。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+3
+6
+9
+12
+15
+18
+</pre></div>
+</div>
+</div>
+</div>
+<p>step可以是負數，但若step為負數，stop須小於start</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+7
+4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zip">
+<h3>利用zip迭代多個序列<a class="headerlink" href="#zip" title="Permalink to this heading">#</a></h3>
+<p>若有多個序列想要一起做迭代，可以使用zip：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">y_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_list</span><span class="p">,</span> <span class="n">y_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a 1
+b 2
+c 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>當zip起來的多個序列長短不一，會迭代短的元素結束為止：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">longer</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="n">shorter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">longer</span><span class="p">,</span> <span class="n">shorter</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a a
+b b
+c c
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="break-continue">
+<h2>break, continue 陳述式<a class="headerlink" href="#break-continue" title="Permalink to this heading">#</a></h2>
+<section id="break">
+<h3><strong>break</strong><a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
+<p>當你想要迴圈符合某個條件時，就馬上跳出迴圈，就可以使用break。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+---
+1
+---
+2
+---
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>continue</strong></p>
+<p>則是當想要迴圈符合某個條件時，就馬上跳到「下一個迴圈」時使用。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+---
+1
+---
+2
+---
+4
+---
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="while-loop">
 <h2>while loop<a class="headerlink" href="#while-loop" title="Permalink to this heading">#</a></h2>
+<p>當條件為True時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># 也可以寫成count = count + 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>while loop中的else子句</strong></p>
+<p>while loop中的else子句只有在loop正常結束完成時，才會執行：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;found strange number: </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;finished&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>finished
+</pre></div>
+</div>
+</div>
+</div>
+<p>這邊else的概念跟if, else中的else，有點不一樣，可以把這邊的else當作break的檢查器，只有當迴圈正常結束，沒有呼叫break時才會執行。</p>
 </section>
-<section id="range">
-<h2>range<a class="headerlink" href="#range" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="enumerate">
-<h2>enumerate<a class="headerlink" href="#enumerate" title="Permalink to this heading">#</a></h2>
+<section id="try-except-finally">
+<h2>try, except, finally陳述句<a class="headerlink" href="#try-except-finally" title="Permalink to this heading">#</a></h2>
+<p>try與except主要的功能是做例外處理。</p>
+<p>例如兩個數字相除，若分母為0，python會丟出錯誤。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span> <span class="c1"># ZeroDivisionError: division by zero</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span> <span class="c1"># ZeroDivisionError: division by zero</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以使用except來捕捉錯誤做例外處理：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;infinite&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>infinite
+</pre></div>
+</div>
+</div>
+</div>
+<p>通常比較好的做法是會指定錯誤類型。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;infinite&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>infinite
+</pre></div>
+</div>
+</div>
+</div>
+<p>然後根據不同可能的例外情境去使用不同的except敘述。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;infinite&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;illegal number for log&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+illegal number for log
+</pre></div>
+</div>
+</div>
+</div>
+<p>最後，finally敘述則無論程式是否丟出例外，都會執行。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;infinite&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;run this no matter what.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>infinite
+run this no matter what.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -436,6 +1097,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="python_3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3.資料型態：進階主題</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="python_5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5.function</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -451,12 +1130,26 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else">if elif else</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-finally">try except finally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else">if, elif, else</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基本結構</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">條件判斷的形式</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expression"><strong><strong>Conditional</strong></strong> expression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">以list做迭代</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">以dict做迭代</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">以enumerate做迭代</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><strong>以range做迭代</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">利用zip迭代多個序列</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue">break, continue 陳述式</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break"><strong>break</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">while loop</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#range">range</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">enumerate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except-finally">try, except, finally陳述句</a></li>
 </ul>
   </nav></div>
 

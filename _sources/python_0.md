@@ -52,7 +52,7 @@ type(42)
 type(3.14)
 ```
 
-(python_0_topic_2) =
+(tag_1) =
 ## Python的資料 = 物件
 
 在python中，所有資料都是「**物件(object)**」。
