@@ -382,7 +382,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">以list做迭代</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">以dict做迭代</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">以enumerate做迭代</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><strong>以range做迭代</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">以range做迭代</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">利用zip迭代多個序列</a></li>
 </ul>
 </li>
@@ -403,8 +403,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>4.流程控制<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>之前的內容主要在介紹python的資料型態和相關操作，
-接下來介紹的內容是讓程式動起來的基礎：
-邏輯判斷以及流程控制。</p>
+接下來的章節介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。
+瞭解這些後就可以進入實戰，做到很多事情！</p>
 <section id="if-elif-else">
 <h2>if, elif, else<a class="headerlink" href="#if-elif-else" title="Permalink to this heading">#</a></h2>
 <section id="id2">
@@ -412,8 +412,8 @@ document.write(`
 <p>if 陳述式的最簡單結構如下方。</p>
 <ul class="simple">
 <li><p>當if陳述句的條件判斷為True的話就會做if區塊指定的事情，</p></li>
-<li><p>如果不為True，就接著判斷elif敘述，由上而下照順序判斷。</p></li>
-<li><p>如果都不為True就會跑到else敘述，做else區塊的事情。</p></li>
+<li><p>如果不為<code class="docutils literal notranslate"><span class="pre">True</span></code>，就接著判斷<code class="docutils literal notranslate"><span class="pre">elif</span></code>敘述，由上而下照順序判斷。</p></li>
+<li><p>如果都不為<code class="docutils literal notranslate"><span class="pre">True</span></code>就會跑到<code class="docutils literal notranslate"><span class="pre">else</span></code>敘述，做else區塊的事情。</p></li>
 <li><p>if, elif, else句子的最後方都需要冒號。</p></li>
 <li><p>冒號下面的區塊必須縮排(indentation)，且必須有相同的格數。通常是用4個空格，而非tab鍵。</p></li>
 <li><p>Python利用縮排來判斷程式結構，所以不能弄亂縮排的格數。</p></li>
@@ -534,15 +534,15 @@ document.write(`
 </div>
 <p><strong>以下東西都會被視為False：</strong></p>
 <ul class="simple">
-<li><p>布林值 False</p></li>
-<li><p>空值 None</p></li>
-<li><p>整數 0</p></li>
-<li><p>浮點數 0.0</p></li>
-<li><p>空字串 ‘’</p></li>
-<li><p>空list []</p></li>
-<li><p>空tuple ()</p></li>
-<li><p>空dict {}</p></li>
-<li><p>空set set()</p></li>
+<li><p>布林值 <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>空值 <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p>整數 <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p>浮點數 <code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></li>
+<li><p>空字串 <code class="docutils literal notranslate"><span class="pre">‘’</span></code></p></li>
+<li><p>空list <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
+<li><p>空tuple <code class="docutils literal notranslate"><span class="pre">()</span></code></p></li>
+<li><p>空dict <code class="docutils literal notranslate"><span class="pre">{}</span></code></p></li>
+<li><p>空set <code class="docutils literal notranslate"><span class="pre">set()</span></code></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -585,7 +585,7 @@ document.write(`
 <section id="for-loop">
 <h2>for loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h2>
 <p>在python中，很多東西都可以拿來迭代：
-list, tuple, set, dict, range, enumerate, zip等等這些東西統稱為<strong>可迭代物(iterable)</strong>。</p>
+<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, <code class="docutils literal notranslate"><span class="pre">zip</span></code>等等這些東西統稱為<strong>可迭代物(iterable)</strong>。</p>
 <section id="list">
 <h3>以list做迭代<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h3>
 <p>以list做迭代的用法範例如下：</p>
@@ -608,7 +608,7 @@ list, tuple, set, dict, range, enumerate, zip等等這些東西統稱為<strong>
 </div>
 </div>
 </div>
-<p>上面的i可以取任何名稱，通常會取一個好辨認的名稱，增加程式的可讀性。例如：</p>
+<p>上面的<code class="docutils literal notranslate"><span class="pre">i</span></code>可以取任何名稱，通常會取一個好辨認的名稱，增加程式的可讀性。例如：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekdays</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sun&#39;</span><span class="p">,</span> <span class="s1">&#39;Mon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tue&#39;</span><span class="p">,</span> <span class="s1">&#39;Wed&#39;</span><span class="p">,</span> <span class="s1">&#39;Thu&#39;</span><span class="p">,</span> <span class="s1">&#39;Fri&#39;</span><span class="p">,</span> <span class="s1">&#39;Sat&#39;</span><span class="p">]</span>
@@ -715,8 +715,8 @@ c 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 a
-1 c
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 c
+1 a
 2 b
 </pre></div>
 </div>
@@ -735,9 +735,9 @@ c 3
 </div>
 </section>
 <section id="range">
-<h3><strong>以range做迭代</strong><a class="headerlink" href="#range" title="Permalink to this heading">#</a></h3>
+<h3>以range做迭代<a class="headerlink" href="#range" title="Permalink to this heading">#</a></h3>
 <p>range是一個專門用來做迭代的iterable，可以很方便地去迭代一個等差數列。
-最簡單的使用方法如下，第一個參數是start，第二個參數是end：</p>
+最簡單的使用方法如下，第一個參數是<code class="docutils literal notranslate"><span class="pre">start</span></code>，第二個參數是<code class="docutils literal notranslate"><span class="pre">end</span></code>：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
@@ -759,8 +759,8 @@ c 3
 </div>
 </div>
 </div>
-<p>注意到，不會print出10，因為range的序列不會包含end(第二個參數)。</p>
-<p>參數也可以省略start，但start的預設值就會是0</p>
+<p>注意到，不會印出10，因為range的序列不會包含<code class="docutils literal notranslate"><span class="pre">end</span></code>(第二個參數)。</p>
+<p>參數也可以省略<code class="docutils literal notranslate"><span class="pre">start</span></code>，但<code class="docutils literal notranslate"><span class="pre">start</span></code>的預設值就會是0</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -783,7 +783,7 @@ c 3
 </div>
 </div>
 </div>
-<p>range也可以指定步伐(step)，當指定step時，就必須指定start。</p>
+<p>range也可以指定步伐(<code class="docutils literal notranslate"><span class="pre">step</span></code>)，當指定<code class="docutils literal notranslate"><span class="pre">step</span></code>時，就必須指定<code class="docutils literal notranslate"><span class="pre">start</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
@@ -803,7 +803,7 @@ c 3
 </div>
 </div>
 </div>
-<p>step可以是負數，但若step為負數，stop須小於start</p>
+<p><code class="docutils literal notranslate"><span class="pre">step</span></code>可以是負數，但若<code class="docutils literal notranslate"><span class="pre">step</span></code>為負數，<code class="docutils literal notranslate"><span class="pre">stop</span></code>須小於<code class="docutils literal notranslate"><span class="pre">start</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">):</span>
@@ -822,7 +822,7 @@ c 3
 </section>
 <section id="zip">
 <h3>利用zip迭代多個序列<a class="headerlink" href="#zip" title="Permalink to this heading">#</a></h3>
-<p>若有多個序列想要一起做迭代，可以使用zip：</p>
+<p>若有多個序列想要一起做迭代，可以使用<code class="docutils literal notranslate"><span class="pre">zip</span></code>：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
@@ -841,7 +841,7 @@ c 3
 </div>
 </div>
 </div>
-<p>當zip起來的多個序列長短不一，會迭代短的元素結束為止：</p>
+<p>當<code class="docutils literal notranslate"><span class="pre">zip</span></code>起來的多個序列長短不一，會迭代短的元素結束為止：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">longer</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
@@ -917,7 +917,7 @@ c c
 </section>
 <section id="while-loop">
 <h2>while loop<a class="headerlink" href="#while-loop" title="Permalink to this heading">#</a></h2>
-<p>當條件為True時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。
+<p>當條件為<code class="docutils literal notranslate"><span class="pre">True</span></code>時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。
 千萬要記得設定好停止條件，
 例如下方的<code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">&lt;=</span> <span class="pre">5</span></code>以及<code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">+=</span> <span class="pre">1</span></code>，
 否則會導致無限迴圈。</p>
@@ -942,7 +942,7 @@ c c
 </div>
 </div>
 <p><strong>while loop中的else子句</strong></p>
-<p>while loop中的else子句只有在loop正常結束完成時，才會執行。
+<p>while loop中的<code class="docutils literal notranslate"><span class="pre">else</span></code>子句只有在loop正常結束完成時，才會執行。
 例如以下程式，會去判斷<code class="docutils literal notranslate"><span class="pre">numbers</span></code>中是否有不被3整除的數字，
 若有的話就會因為<code class="docutils literal notranslate"><span class="pre">break</span></code>而停止程式，
 若沒有的話就會執行最後的<code class="docutils literal notranslate"><span class="pre">else</span></code>。</p>
@@ -973,7 +973,7 @@ c c
 </section>
 <section id="try-except-finally">
 <h2>try, except, finally陳述句<a class="headerlink" href="#try-except-finally" title="Permalink to this heading">#</a></h2>
-<p>try與except主要的功能是做例外處理。</p>
+<p><code class="docutils literal notranslate"><span class="pre">try</span></code>與<code class="docutils literal notranslate"><span class="pre">except</span></code>主要的功能是做例外處理。</p>
 <p>例如兩個數字相除，若分母為0，python會丟出錯誤。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -997,7 +997,7 @@ c c
 </div>
 </div>
 </div>
-<p>可以使用except來捕捉錯誤做例外處理：</p>
+<p>可以使用<code class="docutils literal notranslate"><span class="pre">except</span></code>來捕捉錯誤做例外處理：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
@@ -1158,7 +1158,7 @@ run this no matter what.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">以list做迭代</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict">以dict做迭代</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">以enumerate做迭代</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><strong>以range做迭代</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">以range做迭代</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip">利用zip迭代多個序列</a></li>
 </ul>
 </li>

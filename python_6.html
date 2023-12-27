@@ -567,11 +567,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square starts at 2023-12-25 00:14:02.064743
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square starts at 2023-12-27 23:25:11.317878
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square ends at 2023-12-25 00:14:02.569801
-total execution time: 0:00:00.505058
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square ends at 2023-12-27 23:25:11.822927
+total execution time: 0:00:00.505049
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9801
@@ -852,27 +852,29 @@ lazy_square(number)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;start outer function&#39;</span><span class="p">)</span>
+    <span class="n">namespace</span> <span class="o">=</span> <span class="s1">&#39;outer&#39;</span>
 
     <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt; start inner function&#39;</span><span class="p">)</span>
+        <span class="n">namespace</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">namespace</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt; end inner function&#39;</span><span class="p">)</span>
 
-    <span class="n">enclosed</span><span class="p">()</span>
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">namespace</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end outer function&#39;</span><span class="p">)</span>
 
-<span class="n">enclosing</span><span class="p">()</span>
+<span class="n">outer</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">enclosed</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end outer function&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">enclosing</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;enclosing&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>start outer function
+&gt;&gt; start inner function
+inner
+&gt;&gt; end inner function
+outer
+end outer function
 </pre></div>
 </div>
 </div>

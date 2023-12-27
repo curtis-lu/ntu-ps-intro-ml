@@ -377,7 +377,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別：布林</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">基礎資料型別：整數與浮點數</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別：字串</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“\”轉譯</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">字串的切片</a></li>
@@ -403,6 +403,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bool-int-float-str">
 <h1>0.資料型態：bool, int, float, str<a class="headerlink" href="#bool-int-float-str" title="Permalink to this heading">#</a></h1>
+<p>Python的語法非常貼近自然語言，所以很好理解。
+建議是先快速瞭解Python的語法規則及基本用法，
+然後直接進入實戰，相信就能快速上手。</p>
+<p>首先就讓我們從瞭解Python最基礎的資料型態開始吧！</p>
 <section id="python">
 <h2>Python的基本資料型態<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
 <p>Python常用的資料型態基本上就如下表列這幾種：</p>
@@ -459,6 +463,8 @@ document.write(`
 </div>
 </div>
 </div>
+<p>上面的格子列出的內容就是python執行<code class="docutils literal notranslate"><span class="pre">type(True)</span></code>的結果，
+顯示True的資料型別是<code class="docutils literal notranslate"><span class="pre">bool</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -483,11 +489,11 @@ document.write(`
 </div>
 </div>
 </div>
-<p>(tag_1) =</p>
 </section>
 <section id="id1">
 <h2>Python的資料 = 物件<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>在python中，所有資料都是「<strong>物件(object)</strong>」。</p>
+<p>在python中，所有資料都是「<strong>物件(object)</strong>」。
+(所謂「資料」在python中包含了function, class等等東西。)</p>
 <p>物件佔用記憶體的一部分位置，儲存了以下元素：</p>
 <ul class="simple">
 <li><p>物件的<strong>id</strong>，也就是唯一識別碼，指出了在倉庫中的位置。</p></li>
@@ -503,7 +509,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4339401480
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id:  4382966536
 type:  &lt;class &#39;bool&#39;&gt;
 value:  True
 </pre></div>
@@ -517,7 +523,7 @@ value:  True
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text"><a href="https://www.freepik.com/free-ai-image/futuristic-library-with-shelves-symmetry-generated-by-ai_41283616.htm#fromView=search&term=warehouse&page=1&position=9&track=ais_ai_generated&regularType=ai&uuid=65da5c56-20aa-4bd1-8206-2c73a350cecc">Image By vecstock</a></span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>我們可以把一個物件當作是一個盒子，佔用了倉庫中某些格子的位置。</p>
+<p>我們可以把一個<strong>物件</strong>當作是一個盒子，佔用了倉庫（記憶體）中某些格子的位置。</p>
 <p>有些盒子比較大，佔用比較多格子，有些盒子比較小，只佔用一些格子。</p>
 <p><strong>變數(variable)</strong> 則是物件的名稱，可以想像是盒子的標籤。</p>
 <p>標籤貼著盒子，幫助我們利用標籤去找出我們要的資料。</p>
@@ -548,15 +554,21 @@ value:  True
 </div>
 </div>
 </div>
+<p>上面的<code class="docutils literal notranslate"><span class="pre">print()</span></code>是一個簡單的function，
+可以把放入<code class="docutils literal notranslate"><span class="pre">()</span></code>的物件的資訊輸出到螢幕上顯示出來。</p>
 <p><strong>變數名稱的規則</strong></p>
 <ul class="simple">
 <li><p>只能使用以下這幾種字元： a-z, A-Z, 0-9, _ 。</p></li>
 <li><p>區分大小寫，apple ≠ APPLE ≠ Apple 。</p></li>
-<li><p>開頭不能使用數字。</p></li>
+<li><p>開頭不能使用數字、不能有空格。</p></li>
 <li><p>以底線開頭的變數有特殊意義。</p></li>
 <li><p>不能是python保留字。</p></li>
 </ul>
-<p>以下為python保留字，也可參考：<a class="reference external" href="https://realpython.com/python-keywords/">Python Keywords: An Introduction – Real Python</a></p>
+<p>以下為合法的變數名稱：</p>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">varname</span></code>, <code class="docutils literal notranslate"><span class="pre">var_1</span></code>, <code class="docutils literal notranslate"><span class="pre">RandomVariable</span></code>……等等。</p>
+<p>以下為不合法的變數名稱：</p>
+<p><code class="docutils literal notranslate"><span class="pre">1st_column</span></code>, <code class="docutils literal notranslate"><span class="pre">my</span> <span class="pre">variable</span> </code>……等等。</p>
+<p>以下為python保留字，可參考：<a class="reference external" href="https://realpython.com/python-keywords/">Python Keywords: An Introduction – Real Python</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="s2">&quot;keywords&quot;</span><span class="p">)</span>
@@ -796,9 +808,9 @@ False
 </div>
 </div>
 <section id="id5">
-<h3>“&quot;轉譯<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
-<p>在python中”&quot;是一個特殊的符號，後面接不同字母代表不同意思：</p>
-<p>“\n”代表換行；”\t”代表tab；”\”則代表”&quot;</p>
+<h3>“\”轉譯<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<p>在python中”\”是一個特殊的符號，後面接不同字母代表不同意思：</p>
+<p>“\n”代表換行；”\t”代表tab；”\&quot;則代表”\”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a</span><span class="se">\n</span><span class="s1">bc&#39;</span><span class="p">)</span>
@@ -836,7 +848,7 @@ bc
 </div>
 </div>
 </div>
-<p>在字串前多加一個r，會取消”&quot;轉譯。</p>
+<p>在字串前多加一個r，會取消”\”轉譯。</p>
 <p>這種字串稱作原始字串，常用於表示window作業系統的路徑。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1130,7 +1142,7 @@ CURTIS LU
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">基礎資料型別：布林</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">基礎資料型別：整數與浮點數</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">基礎資料型別：字串</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“"轉譯</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">“\”轉譯</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">字串的其他基本用法</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">字串的切片</a></li>

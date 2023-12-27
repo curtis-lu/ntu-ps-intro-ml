@@ -156,8 +156,9 @@ print(a_list)
 ```{code-cell}
 a_list = ['b','d','a','c','e']
 
-sorted(a_list) # 只會回傳資料的「副本」
-print(a_list)
+print(sorted(a_list)) # 只會回傳資料的「副本」
+
+print(a_list) # 不影響a_list的內容。
 ```
 
 ### list 操作

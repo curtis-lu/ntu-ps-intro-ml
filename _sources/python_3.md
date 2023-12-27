@@ -16,7 +16,7 @@ kernelspec:
 
 ## 資料型別的可變與不可變
 
-之前講到在python中所有資料都是物件，而變數是物件的標籤。(請參考：[0.資料型態：bool, int, float, str](tag_1)。)
+之前講到在python中所有資料都是物件，而變數是物件的標籤。(請參考：[0.資料型態：bool, int, float, str]。)
 
 我們將資料賦值到一個變數的這個過程就叫做**實例化(initialization)**。
 例如：

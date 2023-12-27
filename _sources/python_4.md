@@ -15,8 +15,8 @@ kernelspec:
 # 4.流程控制
 
 之前的內容主要在介紹python的資料型態和相關操作，
-接下來介紹的內容是讓程式動起來的基礎：
-邏輯判斷以及流程控制。
+接下來的章節介紹的內容是讓程式動起來的基礎：邏輯判斷以及流程控制。
+瞭解這些後就可以進入實戰，做到很多事情！
 
 ## if, elif, else
 
@@ -24,8 +24,8 @@ kernelspec:
 
 if 陳述式的最簡單結構如下方。
 - 當if陳述句的條件判斷為True的話就會做if區塊指定的事情，
-- 如果不為True，就接著判斷elif敘述，由上而下照順序判斷。
-- 如果都不為True就會跑到else敘述，做else區塊的事情。
+- 如果不為```True```，就接著判斷```elif```敘述，由上而下照順序判斷。
+- 如果都不為```True```就會跑到```else```敘述，做else區塊的事情。
 - if, elif, else句子的最後方都需要冒號。
 - 冒號下面的區塊必須縮排(indentation)，且必須有相同的格數。通常是用4個空格，而非tab鍵。
 - Python利用縮排來判斷程式結構，所以不能弄亂縮排的格數。
@@ -115,15 +115,15 @@ if 'f' not in a_set:
 
 **以下東西都會被視為False：**
 
-- 布林值 False
-- 空值 None
-- 整數 0
-- 浮點數 0.0
-- 空字串 ‘’
-- 空list []
-- 空tuple ()
-- 空dict {}
-- 空set set()
+- 布林值 ```False```
+- 空值 ```None```
+- 整數 ```0```
+- 浮點數 ```0.0```
+- 空字串 ```‘’```
+- 空list ```[]```
+- 空tuple ```()```
+- 空dict ```{}```
+- 空set ```set()```
 
 ```{code-cell}
 a_list = []
@@ -148,7 +148,7 @@ print(is_can_vote)
 ## for loop
 
 在python中，很多東西都可以拿來迭代：
-list, tuple, set, dict, range, enumerate, zip等等這些東西統稱為**可迭代物(iterable)**。
+```list```, ```tuple```, ```set```, ```dict```, ```range```, ```enumerate```, ```zip```等等這些東西統稱為**可迭代物(iterable)**。
 
 ### 以list做迭代
 
@@ -161,7 +161,7 @@ for i in a_list:
     print(i)
 ```
 
-上面的i可以取任何名稱，通常會取一個好辨認的名稱，增加程式的可讀性。例如：
+上面的```i```可以取任何名稱，通常會取一個好辨認的名稱，增加程式的可讀性。例如：
 
 ```{code-cell}
 weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -227,33 +227,33 @@ for idx, (k, v) in enumerate(a_dict):
     print(idx, k, v)
 ```
 
-### **以range做迭代**
+### 以range做迭代
 
 range是一個專門用來做迭代的iterable，可以很方便地去迭代一個等差數列。
-最簡單的使用方法如下，第一個參數是start，第二個參數是end：
+最簡單的使用方法如下，第一個參數是```start```，第二個參數是```end```：
 
 ```{code-cell}
 for i in range(1, 10):
     print(i)
 ```
 
-注意到，不會print出10，因為range的序列不會包含end(第二個參數)。
+注意到，不會印出10，因為range的序列不會包含```end```(第二個參數)。
 
-參數也可以省略start，但start的預設值就會是0
+參數也可以省略```start```，但```start```的預設值就會是0
 
 ```{code-cell}
 for i in range(10):
     print(i)
 ```
 
-range也可以指定步伐(step)，當指定step時，就必須指定start。
+range也可以指定步伐(```step```)，當指定```step```時，就必須指定```start```。
 
 ```{code-cell}
 for i in range(0, 20, 3):
     print(i)
 ```
 
-step可以是負數，但若step為負數，stop須小於start
+```step```可以是負數，但若```step```為負數，```stop```須小於```start```。
 
 ```{code-cell}
 for i in range(10, 1, -3):
@@ -262,7 +262,7 @@ for i in range(10, 1, -3):
 
 ### 利用zip迭代多個序列
 
-若有多個序列想要一起做迭代，可以使用zip：
+若有多個序列想要一起做迭代，可以使用```zip```：
 
 ```{code-cell}
 x_list = ['a', 'b', 'c']
@@ -272,7 +272,7 @@ for x, y in zip(x_list, y_list):
     print(x, y)
 ```
 
-當zip起來的多個序列長短不一，會迭代短的元素結束為止：
+當```zip```起來的多個序列長短不一，會迭代短的元素結束為止：
 
 ```{code-cell}
 longer = ['a', 'b', 'c', 'd', 'e']
@@ -312,7 +312,7 @@ for i in range(0,5):
 
 ## while loop
 
-當條件為True時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。
+當條件為```True```時就繼續執行迴圈，跟for loop一樣需有冒號和縮排。
 千萬要記得設定好停止條件，
 例如下方的```count <= 5```以及```count += 1```，
 否則會導致無限迴圈。
@@ -326,7 +326,7 @@ while count <= 5:
 
 **while loop中的else子句**
 
-while loop中的else子句只有在loop正常結束完成時，才會執行。
+while loop中的```else```子句只有在loop正常結束完成時，才會執行。
 例如以下程式，會去判斷```numbers```中是否有不被3整除的數字，
 若有的話就會因為```break```而停止程式，
 若沒有的話就會執行最後的```else```。
@@ -350,7 +350,7 @@ else:
 
 ## try, except, finally陳述句
 
-try與except主要的功能是做例外處理。
+```try```與```except```主要的功能是做例外處理。
 
 例如兩個數字相除，若分母為0，python會丟出錯誤。
 
@@ -361,7 +361,7 @@ b = 0
 print(a/b) # ZeroDivisionError: division by zero
 ```
 
-可以使用except來捕捉錯誤做例外處理：
+可以使用```except```來捕捉錯誤做例外處理：
 
 ```{code-cell}
 a = 42

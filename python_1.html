@@ -660,13 +660,15 @@ c
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
 
-<span class="nb">sorted</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="c1"># 只會回傳資料的「副本」</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">a_list</span><span class="p">))</span> <span class="c1"># 只會回傳資料的「副本」</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="c1"># 不影響a_list的內容。</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;d&#39;, &#39;a&#39;, &#39;c&#39;, &#39;e&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+[&#39;b&#39;, &#39;d&#39;, &#39;a&#39;, &#39;c&#39;, &#39;e&#39;]
 </pre></div>
 </div>
 </div>
@@ -970,10 +972,10 @@ Stark
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4405093696
-4404998800
-4405007296
-4405007296
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4465888000
+4465782960
+4465807232
+4465807232
 </pre></div>
 </div>
 </div>
