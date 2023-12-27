@@ -375,18 +375,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">function</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">定義function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">使用function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter"><strong>參數預設值(default parameter)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter">參數預設值(default parameter)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊參數</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">匿名函數：lambda運算式</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">基本操作</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>實用的情境</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">實用的情境</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">定義function的好習慣</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-types-static-type"><strong>動態型別(dynamic types)與靜態型別(static type)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hint"><strong>在函式定義中使用型別提示(type hint)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-types-static-type">動態型別(dynamic types)與靜態型別(static type)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hint">在函式定義中使用型別提示(type hint)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a><ul class="nav section-nav flex-column">
@@ -618,7 +618,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <p>由上面的例子可以看到，<code class="docutils literal notranslate"><span class="pre">*args</span></code>是傳入一個tuple，<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>則是傳入一個dict。</p>
 </section>
 <section id="default-parameter">
-<h3><strong>參數預設值(default parameter)</strong><a class="headerlink" href="#default-parameter" title="Permalink to this heading">#</a></h3>
+<h3>參數預設值(default parameter)<a class="headerlink" href="#default-parameter" title="Permalink to this heading">#</a></h3>
 <p>可以在function定義時，指定參數的預設值，使用該function時就可以不必輸入引數傳入。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -723,7 +723,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4491862656
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4490750976
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;]
@@ -739,7 +739,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4491862656
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4490750976
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;]
@@ -982,7 +982,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </section>
 <section id="id6">
-<h3><strong>實用的情境</strong><a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3>實用的情境<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>假設一個list如下，如何根據tuple第二位來排序？</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1038,7 +1038,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <section id="id7">
 <h2>定義function的好習慣<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <section id="dynamic-types-static-type">
-<h3><strong>動態型別(dynamic types)與靜態型別(static type)</strong><a class="headerlink" href="#dynamic-types-static-type" title="Permalink to this heading">#</a></h3>
+<h3>動態型別(dynamic types)與靜態型別(static type)<a class="headerlink" href="#dynamic-types-static-type" title="Permalink to this heading">#</a></h3>
 <p>在python中，變數的資料型別是 <strong>動態型別(dynamic types)</strong> ，意思是：</p>
 <ol class="arabic simple">
 <li><p>定義變數時不需要宣告變數的資料型別，而是直接賦值就可以了，而且，</p></li>
@@ -1073,7 +1073,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <p>總而言之，使用**型別提示(type hint)**可以讓程式更可讀也更好維護。</p>
 </section>
 <section id="type-hint">
-<h3><strong>在函式定義中使用型別提示(type hint)</strong><a class="headerlink" href="#type-hint" title="Permalink to this heading">#</a></h3>
+<h3>在函式定義中使用型別提示(type hint)<a class="headerlink" href="#type-hint" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>直接在參數後面寫入資料型別</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> 後面代表的是return的資料型別。</p></li>
@@ -1316,18 +1316,18 @@ None
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">function</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">定義function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">使用function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter"><strong>參數預設值(default parameter)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter">參數預設值(default parameter)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">特殊參數</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">匿名函數：lambda運算式</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">基本操作</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>實用的情境</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">實用的情境</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">定義function的好習慣</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-types-static-type"><strong>動態型別(dynamic types)與靜態型別(static type)</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hint"><strong>在函式定義中使用型別提示(type hint)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-types-static-type">動態型別(dynamic types)與靜態型別(static type)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hint">在函式定義中使用型別提示(type hint)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a><ul class="nav section-nav flex-column">

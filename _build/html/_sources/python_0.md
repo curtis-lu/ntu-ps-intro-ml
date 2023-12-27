@@ -14,6 +14,12 @@ kernelspec:
 
 # 0.資料型態：bool, int, float, str
 
+Python的語法非常貼近自然語言，所以很好理解。
+建議是先快速瞭解Python的語法規則及基本用法，
+然後直接進入實戰，相信就能快速上手。
+
+首先就讓我們從瞭解Python最基礎的資料型態開始吧！
+
 ## Python的基本資料型態
 
 Python常用的資料型態基本上就如下表列這幾種：
@@ -44,6 +50,9 @@ Python常用的資料型態基本上就如下表列這幾種：
 type(True)
 ```
 
+上面的格子列出的內容就是python執行```type(True)```的結果，
+顯示True的資料型別是```bool```。
+
 ```{code-cell}
 type(42)
 ```
@@ -52,10 +61,10 @@ type(42)
 type(3.14)
 ```
 
-(tag_1) =
 ## Python的資料 = 物件
 
 在python中，所有資料都是「**物件(object)**」。
+(所謂「資料」在python中包含了function, class等等東西。)
 
 物件佔用記憶體的一部分位置，儲存了以下元素：
 
@@ -78,7 +87,7 @@ scale: 30%
 <a href="https://www.freepik.com/free-ai-image/futuristic-library-with-shelves-symmetry-generated-by-ai_41283616.htm#fromView=search&term=warehouse&page=1&position=9&track=ais_ai_generated&regularType=ai&uuid=65da5c56-20aa-4bd1-8206-2c73a350cecc">Image By vecstock</a>
 ```
 
-我們可以把一個物件當作是一個盒子，佔用了倉庫中某些格子的位置。
+我們可以把一個**物件**當作是一個盒子，佔用了倉庫（記憶體）中某些格子的位置。
 
 有些盒子比較大，佔用比較多格子，有些盒子比較小，只佔用一些格子。
 
@@ -106,15 +115,27 @@ my_number = 20221130
 print(my_number)
 ```
 
+上面的```print()```是一個簡單的function，
+可以把放入```()```的物件的資訊輸出到螢幕上顯示出來。
+
 **變數名稱的規則**
 
 - 只能使用以下這幾種字元： a-z, A-Z, 0-9, _ 。
 - 區分大小寫，apple ≠ APPLE ≠ Apple 。
-- 開頭不能使用數字。
+- 開頭不能使用數字、不能有空格。
 - 以底線開頭的變數有特殊意義。
 - 不能是python保留字。
 
-以下為python保留字，也可參考：[Python Keywords: An Introduction – Real Python](https://realpython.com/python-keywords/)
+以下為合法的變數名稱：
+
+```a```, ```varname```, ```var_1```, ```RandomVariable```......等等。
+
+以下為不合法的變數名稱：
+
+```1st_column```, ```my variable ```......等等。
+
+
+以下為python保留字，可參考：[Python Keywords: An Introduction – Real Python](https://realpython.com/python-keywords/)
 
 ```{code-cell}
 help("keywords")
@@ -210,11 +231,11 @@ str(42.0)
 str(True)
 ```
 
-### "\\"轉譯
+### "\\\\"轉譯
 
-在python中"\\"是一個特殊的符號，後面接不同字母代表不同意思：
+在python中"\\\\"是一個特殊的符號，後面接不同字母代表不同意思：
 
-"\n"代表換行；"\t"代表tab；"\\\\"則代表"\\"
+"\n"代表換行；"\t"代表tab；"\\\\\\"則代表"\\\\"
 
 ```{code-cell}
 print('a\nbc')
@@ -228,7 +249,7 @@ print('a\tbc')
 print('a\\bc')
 ```
 
-在字串前多加一個r，會取消"\\\"轉譯。
+在字串前多加一個r，會取消"\\\\"轉譯。
 
 這種字串稱作原始字串，常用於表示window作業系統的路徑。
 

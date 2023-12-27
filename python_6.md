@@ -227,15 +227,19 @@ global namespace包含了在主程式中定義的變數名稱，所謂主程式�
 ```{code-cell}
 def outer():
     print('start outer function')
+    namespace = 'outer'
 
     def inner():
         print('>> start inner function')
+        namespace = 'inner'
+        print(namespace)
         print('>> end inner function')
 
-    enclosed()
+    inner()
+    print(namespace)
     print('end outer function')
 
-enclosing()
+outer()
 ```
 
 當我們呼叫```outer()```時，python會為outer建立新的namespace。

@@ -125,7 +125,7 @@ my_func(1, 2, 3, d=4, e=5)
 
 由上面的例子可以看到，```*args```是傳入一個tuple，```**kwargs```則是傳入一個dict。
 
-### **參數預設值(default parameter)**
+### 參數預設值(default parameter)
 
 可以在function定義時，指定參數的預設值，使用該function時就可以不必輸入引數傳入。
 
@@ -303,7 +303,7 @@ lambda x: x**2
 (lambda x: x**2)(3)
 ```
 
-### **實用的情境**
+### 實用的情境
 
 假設一個list如下，如何根據tuple第二位來排序？
 
@@ -334,7 +334,7 @@ sorted(a_list, key=get_second_element)
 
 ## 定義function的好習慣
 
-### **動態型別(dynamic types)與靜態型別(static type)**
+### 動態型別(dynamic types)與靜態型別(static type)
 
 在python中，變數的資料型別是 **動態型別(dynamic types)** ，意思是：
 
@@ -368,7 +368,7 @@ a_set: set[int] = {1, 2} # python 3.9以上支援
 
 總而言之，使用**型別提示(type hint)**可以讓程式更可讀也更好維護。
 
-### **在函式定義中使用型別提示(type hint)**
+### 在函式定義中使用型別提示(type hint)
 
 1. 直接在參數後面寫入資料型別
 2. ``` -> ``` 後面代表的是return的資料型別。
