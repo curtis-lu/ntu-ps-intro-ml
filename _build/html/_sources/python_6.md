@@ -244,6 +244,7 @@ outer()
 
 當我們呼叫```outer()```時，python會為outer建立新的namespace。
 當outer內部呼叫```inner()```時，python也會為inner建立另一個獨立的namespace。
+namespace彼此之間不會互相干擾，確保程式不會有意料之外的事情發生。
 
 此時outer的namespace稱作enclosing namespace，
 而inner的namespace則是local namespace。

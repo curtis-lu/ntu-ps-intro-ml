@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_6';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Intro to Pandas" href="pandas_0.html" />
     <link rel="prev" title="5.function" href="python_5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,6 +177,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="python_4.html">4.流程控制</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_5.html">5.function</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">6.進階主題</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">pandas basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pandas_0.html">Intro to Pandas</a></li>
 </ul>
 
     </div>
@@ -567,11 +572,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square starts at 2023-12-27 23:25:11.317878
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square starts at 2024-01-01 14:59:46.604937
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square ends at 2023-12-27 23:25:11.822927
-total execution time: 0:00:00.505049
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lazy_square ends at 2024-01-01 14:59:47.109991
+total execution time: 0:00:00.505054
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9801
@@ -880,7 +885,8 @@ end outer function
 </div>
 </div>
 <p>當我們呼叫<code class="docutils literal notranslate"><span class="pre">outer()</span></code>時，python會為outer建立新的namespace。
-當outer內部呼叫<code class="docutils literal notranslate"><span class="pre">inner()</span></code>時，python也會為inner建立另一個獨立的namespace。</p>
+當outer內部呼叫<code class="docutils literal notranslate"><span class="pre">inner()</span></code>時，python也會為inner建立另一個獨立的namespace。
+namespace彼此之間不會互相干擾，確保程式不會有意料之外的事情發生。</p>
 <p>此時outer的namespace稱作enclosing namespace，
 而inner的namespace則是local namespace。</p>
 </section>
@@ -1058,6 +1064,15 @@ global: 1
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">5.function</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="pandas_0.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Intro to Pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
