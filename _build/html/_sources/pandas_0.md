@@ -246,7 +246,9 @@ df.notna().sum()
 
 ### 確認欄位值
 
-如果想知道特定欄位有哪些取值，例如想知道客戶來申辦貸款的目的有哪些？可以對purpose這個欄位使用以下操作：
+如果想知道特定欄位有哪些取值，通常是要初步看一下資料的內容，以及看欄位有沒有什麼異常值。
+
+例如想知道客戶來申辦貸款的目的有哪些？可以對purpose這個欄位使用以下操作：
 
 ```{code-cell}
 df['purpose'].unique()
@@ -295,7 +297,26 @@ df['purpose'].value_counts()
 df['purpose'].value_counts(normalize=True)
 ```
 
-或是看個別欄位的前幾大或倒數前幾大的值是哪些（參數可指定列數）：
+注意到```value_counts()```會忽略空值：
+
+```{code-cell}
+df['other_parties'].value_counts() # 明顯不到1000筆資料
+```
+
+可以使用```dropna=False```參數：
+
+```{code-cell}
+df['other_parties'].value_counts(dropna=False)
+```
+
+針對數值型欄位可以使用```bins```參數，放入要切分的組數。
+這邊組別的切分是依據欄位值的全距去切指定的等份。
+
+```{code-cell}
+df['age'].value_counts(bins=7)
+```
+
+如果要看個別欄位的前幾大或倒數前幾大的值是哪些（參數可指定列數）：
 
 ```{code-cell}
 df['duration'].nlargest()
@@ -402,7 +423,7 @@ df.iloc[:, [12, 1, 4]]
 注意到```:```的使用，可以一次指定多個欄位，使用方式跟list的index一樣：
 
 ```{code-cell}
-df.iloc[:, 0:4] 
+df.iloc[:, 0:4]
 ```
 
 ```.loc[]```也可以使用```:```，但就必須符合原本的欄位順序：
@@ -511,3 +532,32 @@ cond = f'{c1} & {c2} & {c3}'
 
 df.query(cond)
 ```
+
+其他根據欄位值篩選，常用的方法有：
+
+```{code-cell}
+df[df['age'].between(30, 35)]
+```
+
+或是根據欄位值清單篩選：
+
+```{code-cell}
+df[df['purpose'].isin(['new car', 'used card'])]
+```
+
+
+### 排序資料
+
+要排序資料可以使用前面用過的```.sort_values()```語法，參數```by```指定欄位，```ascending```指定方向：
+
+
+```{code-cell}
+df.sort_values(by='credit_amount', ascending=False)
+```
+
+另外，若要根據index排序，可以使用```.sort_index()```。例如，想將資料根據年齡統計筆數後，查看年紀最小的幾個樣本數：
+
+```{code-cell}
+df['age'].value_counts().sort_index().head(10)
+```
+

@@ -13,6 +13,7 @@ parts:
     - file: python_4
     - file: python_5
     - file: python_6
-  - caption: pandas basics
+  - caption: Pandas basics
     chapters:
     - file: pandas_0
+    - file: pandas_1
