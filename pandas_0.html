@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'pandas_0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pandas常用操作" href="pandas_1.html" />
     <link rel="prev" title="6.進階主題" href="python_6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,9 +178,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="python_5.html">5.function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_6.html">6.進階主題</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">pandas basics</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_1.html">Pandas常用操作</a></li>
 </ul>
 
     </div>
@@ -387,6 +389,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">抓特定欄位的資料</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">抓特定列的資料</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">依條件判斷抓取資料</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">排序資料</a></li>
 </ul>
 </li>
 </ul>
@@ -1089,75 +1092,75 @@ memory usage: 164.2+ KB
   </thead>
   <tbody>
     <tr>
-      <th>391</th>
-      <td>0&lt;=X&lt;200</td>
-      <td>12.0</td>
-      <td>existing paid</td>
-      <td>furniture/equipment</td>
-      <td>983.0</td>
-      <td>&gt;=1000</td>
-      <td>&lt;1</td>
-      <td>1.0</td>
-      <td>female div/dep/mar</td>
+      <th>740</th>
+      <td>&lt;0</td>
+      <td>24.0</td>
+      <td>all paid</td>
+      <td>new car</td>
+      <td>2325.0</td>
+      <td>100&lt;=X&lt;500</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>2.0</td>
+      <td>male single</td>
       <td>NaN</td>
       <td>...</td>
-      <td>real estate</td>
-      <td>19.0</td>
-      <td>NaN</td>
-      <td>rent</td>
+      <td>car</td>
+      <td>32.0</td>
+      <td>bank</td>
+      <td>own</td>
       <td>1.0</td>
-      <td>unskilled resident</td>
+      <td>skilled</td>
       <td>1.0</td>
       <td>NaN</td>
       <td>yes</td>
       <td>good</td>
     </tr>
     <tr>
-      <th>915</th>
-      <td>0&lt;=X&lt;200</td>
-      <td>48.0</td>
-      <td>no credits/all paid</td>
-      <td>other</td>
-      <td>18424.0</td>
-      <td>&lt;100</td>
-      <td>1&lt;=X&lt;4</td>
-      <td>1.0</td>
-      <td>female div/dep/mar</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>life insurance</td>
-      <td>32.0</td>
-      <td>bank</td>
-      <td>own</td>
-      <td>1.0</td>
-      <td>high qualif/self emp/mgmt</td>
-      <td>1.0</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>bad</td>
-    </tr>
-    <tr>
-      <th>773</th>
+      <th>657</th>
       <td>no checking</td>
-      <td>24.0</td>
-      <td>critical/other existing credit</td>
+      <td>48.0</td>
+      <td>existing paid</td>
       <td>radio/tv</td>
-      <td>2223.0</td>
-      <td>100&lt;=X&lt;500</td>
-      <td>&gt;=7</td>
+      <td>10222.0</td>
+      <td>no known savings</td>
+      <td>4&lt;=X&lt;7</td>
       <td>4.0</td>
       <td>male single</td>
       <td>NaN</td>
       <td>...</td>
-      <td>life insurance</td>
-      <td>52.0</td>
-      <td>bank</td>
+      <td>car</td>
+      <td>37.0</td>
+      <td>stores</td>
       <td>own</td>
-      <td>2.0</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>no checking</td>
+      <td>12.0</td>
+      <td>existing paid</td>
+      <td>used car</td>
+      <td>1413.0</td>
+      <td>&gt;=1000</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>life insurance</td>
+      <td>55.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
       <td>skilled</td>
       <td>1.0</td>
       <td>NaN</td>
-      <td>yes</td>
+      <td>no</td>
       <td>good</td>
     </tr>
   </tbody>
@@ -2271,7 +2274,8 @@ dtype: int64
 </section>
 <section id="id4">
 <h3>確認欄位值<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<p>如果想知道特定欄位有哪些取值，例如想知道客戶來申辦貸款的目的有哪些？可以對purpose這個欄位使用以下操作：</p>
+<p>如果想知道特定欄位有哪些取值，通常是要初步看一下資料的內容，以及看欄位有沒有什麼異常值。</p>
+<p>例如想知道客戶來申辦貸款的目的有哪些？可以對purpose這個欄位使用以下操作：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -2408,7 +2412,61 @@ Name: proportion, dtype: float64
 </div>
 </div>
 </div>
-<p>或是看個別欄位的前幾大或倒數前幾大的值是哪些（參數可指定列數）：</p>
+<p>注意到<code class="docutils literal notranslate"><span class="pre">value_counts()</span></code>會忽略空值：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;other_parties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="c1"># 明顯不到1000筆資料</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>other_parties
+guarantor       52
+co applicant    41
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以使用<code class="docutils literal notranslate"><span class="pre">dropna=False</span></code>參數：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;other_parties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>other_parties
+NaN             907
+guarantor        52
+co applicant     41
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>針對數值型欄位可以使用<code class="docutils literal notranslate"><span class="pre">bins</span></code>參數，放入要切分的組數。
+這邊組別的切分是依據欄位值的全距去切指定的等份。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(27.0, 35.0]                  297
+(18.942999999999998, 27.0]    291
+(35.0, 43.0]                  194
+(43.0, 51.0]                  113
+(51.0, 59.0]                   54
+(59.0, 67.0]                   41
+(67.0, 75.0]                   10
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果要看個別欄位的前幾大或倒數前幾大的值是哪些（參數可指定列數）：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">()</span>
@@ -3059,7 +3117,7 @@ Name: class, Length: 1000, dtype: object
 <p>注意到<code class="docutils literal notranslate"><span class="pre">:</span></code>的使用，可以一次指定多個欄位，使用方式跟list的index一樣：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -5916,6 +5974,990 @@ Name: class, Length: 1000, dtype: object
 </table>
 </div></div></div>
 </div>
+<p>其他根據欄位值篩選，常用的方法有：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>checking_status</th>
+      <th>duration</th>
+      <th>credit_history</th>
+      <th>purpose</th>
+      <th>credit_amount</th>
+      <th>savings_status</th>
+      <th>employment</th>
+      <th>installment_commitment</th>
+      <th>personal_status</th>
+      <th>other_parties</th>
+      <th>residence_since</th>
+      <th>property_magnitude</th>
+      <th>age</th>
+      <th>other_payment_plans</th>
+      <th>housing</th>
+      <th>existing_credits</th>
+      <th>job</th>
+      <th>num_dependents</th>
+      <th>own_telephone</th>
+      <th>foreign_worker</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>no checking</td>
+      <td>36.0</td>
+      <td>existing paid</td>
+      <td>education</td>
+      <td>9055.0</td>
+      <td>no known savings</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>no known property</td>
+      <td>35.0</td>
+      <td>NaN</td>
+      <td>for free</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>2.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>36.0</td>
+      <td>existing paid</td>
+      <td>used car</td>
+      <td>6948.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>car</td>
+      <td>35.0</td>
+      <td>NaN</td>
+      <td>rent</td>
+      <td>1.0</td>
+      <td>high qualif/self emp/mgmt</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>&lt;0</td>
+      <td>24.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>1282.0</td>
+      <td>100&lt;=X&lt;500</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>4.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>car</td>
+      <td>32.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>no checking</td>
+      <td>24.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>3430.0</td>
+      <td>500&lt;=X&lt;1000</td>
+      <td>&gt;=7</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>car</td>
+      <td>31.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>2.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>7.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>2415.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>guarantor</td>
+      <td>2.0</td>
+      <td>real estate</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>984</th>
+      <td>no checking</td>
+      <td>24.0</td>
+      <td>critical/other existing credit</td>
+      <td>furniture/equipment</td>
+      <td>2028.0</td>
+      <td>&lt;100</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>2.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>life insurance</td>
+      <td>30.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>986</th>
+      <td>&gt;=200</td>
+      <td>42.0</td>
+      <td>no credits/all paid</td>
+      <td>business</td>
+      <td>6289.0</td>
+      <td>&lt;100</td>
+      <td>&lt;1</td>
+      <td>2.0</td>
+      <td>male div/sep</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>life insurance</td>
+      <td>33.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>no checking</td>
+      <td>15.0</td>
+      <td>all paid</td>
+      <td>radio/tv</td>
+      <td>1569.0</td>
+      <td>100&lt;=X&lt;500</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>car</td>
+      <td>34.0</td>
+      <td>bank</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>&lt;0</td>
+      <td>36.0</td>
+      <td>existing paid</td>
+      <td>furniture/equipment</td>
+      <td>3959.0</td>
+      <td>&lt;100</td>
+      <td>unemployed</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>life insurance</td>
+      <td>30.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>high qualif/self emp/mgmt</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>no checking</td>
+      <td>12.0</td>
+      <td>existing paid</td>
+      <td>furniture/equipment</td>
+      <td>1736.0</td>
+      <td>&lt;100</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>3.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>real estate</td>
+      <td>31.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+  </tbody>
+</table>
+<p>217 rows × 21 columns</p>
+</div></div></div>
+</div>
+<p>或是根據欄位值清單篩選：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;purpose&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;new car&#39;</span><span class="p">,</span> <span class="s1">&#39;used card&#39;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>checking_status</th>
+      <th>duration</th>
+      <th>credit_history</th>
+      <th>purpose</th>
+      <th>credit_amount</th>
+      <th>savings_status</th>
+      <th>employment</th>
+      <th>installment_commitment</th>
+      <th>personal_status</th>
+      <th>other_parties</th>
+      <th>residence_since</th>
+      <th>property_magnitude</th>
+      <th>age</th>
+      <th>other_payment_plans</th>
+      <th>housing</th>
+      <th>existing_credits</th>
+      <th>job</th>
+      <th>num_dependents</th>
+      <th>own_telephone</th>
+      <th>foreign_worker</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>&lt;0</td>
+      <td>24.0</td>
+      <td>delayed previously</td>
+      <td>new car</td>
+      <td>4870.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>no known property</td>
+      <td>53.0</td>
+      <td>NaN</td>
+      <td>for free</td>
+      <td>2.0</td>
+      <td>skilled</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>30.0</td>
+      <td>critical/other existing credit</td>
+      <td>new car</td>
+      <td>5234.0</td>
+      <td>&lt;100</td>
+      <td>unemployed</td>
+      <td>4.0</td>
+      <td>male mar/wid</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>car</td>
+      <td>28.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>high qualif/self emp/mgmt</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>12.0</td>
+      <td>existing paid</td>
+      <td>new car</td>
+      <td>1295.0</td>
+      <td>&lt;100</td>
+      <td>&lt;1</td>
+      <td>3.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>car</td>
+      <td>25.0</td>
+      <td>NaN</td>
+      <td>rent</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>&lt;0</td>
+      <td>24.0</td>
+      <td>critical/other existing credit</td>
+      <td>new car</td>
+      <td>1199.0</td>
+      <td>&lt;100</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>car</td>
+      <td>60.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>&lt;0</td>
+      <td>15.0</td>
+      <td>existing paid</td>
+      <td>new car</td>
+      <td>1403.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>car</td>
+      <td>28.0</td>
+      <td>NaN</td>
+      <td>rent</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>972</th>
+      <td>&lt;0</td>
+      <td>24.0</td>
+      <td>all paid</td>
+      <td>new car</td>
+      <td>1193.0</td>
+      <td>&lt;100</td>
+      <td>unemployed</td>
+      <td>1.0</td>
+      <td>female div/dep/mar</td>
+      <td>co applicant</td>
+      <td>4.0</td>
+      <td>no known property</td>
+      <td>29.0</td>
+      <td>NaN</td>
+      <td>rent</td>
+      <td>2.0</td>
+      <td>unemp/unskilled non res</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>no checking</td>
+      <td>24.0</td>
+      <td>delayed previously</td>
+      <td>new car</td>
+      <td>2538.0</td>
+      <td>&lt;100</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>car</td>
+      <td>47.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>unskilled resident</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>979</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>15.0</td>
+      <td>all paid</td>
+      <td>new car</td>
+      <td>1264.0</td>
+      <td>100&lt;=X&lt;500</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>male mar/wid</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>life insurance</td>
+      <td>25.0</td>
+      <td>NaN</td>
+      <td>rent</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>982</th>
+      <td>&gt;=200</td>
+      <td>21.0</td>
+      <td>existing paid</td>
+      <td>new car</td>
+      <td>2923.0</td>
+      <td>100&lt;=X&lt;500</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>1.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>car</td>
+      <td>28.0</td>
+      <td>bank</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>high qualif/self emp/mgmt</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>no checking</td>
+      <td>12.0</td>
+      <td>existing paid</td>
+      <td>new car</td>
+      <td>2390.0</td>
+      <td>no known savings</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>car</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+  </tbody>
+</table>
+<p>234 rows × 21 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="id10">
+<h3>排序資料<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<p>要排序資料可以使用前面用過的<code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code>語法，參數<code class="docutils literal notranslate"><span class="pre">by</span></code>指定欄位，<code class="docutils literal notranslate"><span class="pre">ascending</span></code>指定方向：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;credit_amount&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>checking_status</th>
+      <th>duration</th>
+      <th>credit_history</th>
+      <th>purpose</th>
+      <th>credit_amount</th>
+      <th>savings_status</th>
+      <th>employment</th>
+      <th>installment_commitment</th>
+      <th>personal_status</th>
+      <th>other_parties</th>
+      <th>residence_since</th>
+      <th>property_magnitude</th>
+      <th>age</th>
+      <th>other_payment_plans</th>
+      <th>housing</th>
+      <th>existing_credits</th>
+      <th>job</th>
+      <th>num_dependents</th>
+      <th>own_telephone</th>
+      <th>foreign_worker</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>915</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>48.0</td>
+      <td>no credits/all paid</td>
+      <td>other</td>
+      <td>18424.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>1.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>life insurance</td>
+      <td>32.0</td>
+      <td>bank</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>high qualif/self emp/mgmt</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>54.0</td>
+      <td>no credits/all paid</td>
+      <td>business</td>
+      <td>15945.0</td>
+      <td>&lt;100</td>
+      <td>&lt;1</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>no known property</td>
+      <td>58.0</td>
+      <td>NaN</td>
+      <td>rent</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>818</th>
+      <td>&lt;0</td>
+      <td>36.0</td>
+      <td>existing paid</td>
+      <td>other</td>
+      <td>15857.0</td>
+      <td>&lt;100</td>
+      <td>unemployed</td>
+      <td>2.0</td>
+      <td>male div/sep</td>
+      <td>co applicant</td>
+      <td>3.0</td>
+      <td>car</td>
+      <td>43.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>high qualif/self emp/mgmt</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>887</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>48.0</td>
+      <td>existing paid</td>
+      <td>business</td>
+      <td>15672.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>car</td>
+      <td>23.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>637</th>
+      <td>no checking</td>
+      <td>60.0</td>
+      <td>delayed previously</td>
+      <td>radio/tv</td>
+      <td>15653.0</td>
+      <td>&lt;100</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>2.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>car</td>
+      <td>21.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>458</th>
+      <td>&lt;0</td>
+      <td>6.0</td>
+      <td>existing paid</td>
+      <td>domestic appliance</td>
+      <td>343.0</td>
+      <td>&lt;100</td>
+      <td>&lt;1</td>
+      <td>4.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>real estate</td>
+      <td>27.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>&lt;0</td>
+      <td>12.0</td>
+      <td>all paid</td>
+      <td>retraining</td>
+      <td>339.0</td>
+      <td>&lt;100</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male mar/wid</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>car</td>
+      <td>45.0</td>
+      <td>bank</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>&lt;0</td>
+      <td>6.0</td>
+      <td>critical/other existing credit</td>
+      <td>radio/tv</td>
+      <td>338.0</td>
+      <td>500&lt;=X&lt;1000</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>car</td>
+      <td>52.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>309</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>9.0</td>
+      <td>existing paid</td>
+      <td>new car</td>
+      <td>276.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>4.0</td>
+      <td>male mar/wid</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>real estate</td>
+      <td>22.0</td>
+      <td>NaN</td>
+      <td>rent</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>725</th>
+      <td>no checking</td>
+      <td>6.0</td>
+      <td>critical/other existing credit</td>
+      <td>new car</td>
+      <td>250.0</td>
+      <td>&gt;=1000</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>real estate</td>
+      <td>41.0</td>
+      <td>bank</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 21 columns</p>
+</div></div></div>
+</div>
+<p>另外，若要根據index排序，可以使用<code class="docutils literal notranslate"><span class="pre">.sort_index()</span></code>。例如，想將資料根據年齡統計筆數後，查看年紀最小的幾個樣本數：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age
+19.0     2
+20.0    14
+21.0    14
+22.0    27
+23.0    48
+24.0    44
+25.0    41
+26.0    50
+27.0    51
+28.0    43
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -5959,6 +7001,15 @@ Name: class, Length: 1000, dtype: object
         <p class="prev-next-title">6.進階主題</p>
       </div>
     </a>
+    <a class="right-next"
+       href="pandas_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pandas常用操作</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -5986,6 +7037,7 @@ Name: class, Length: 1000, dtype: object
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">抓特定欄位的資料</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">抓特定列的資料</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">依條件判斷抓取資料</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">排序資料</a></li>
 </ul>
 </li>
 </ul>

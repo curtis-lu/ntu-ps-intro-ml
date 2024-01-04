@@ -1,0 +1,1983 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Pandas常用操作 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pandas_1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Intro to Pandas" href="pandas_0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/shiba_inu2.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/shiba_inu2.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    A Layman’s Guide to Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_4.html">4.流程控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_5.html">5.function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_6.html">6.進階主題</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pandas_0.html">Intro to Pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandas常用操作</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml/issues/new?title=Issue%20on%20page%20%2Fpandas_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/pandas_1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas常用操作</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">基本操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">數值欄位操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">字串欄位操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">時間欄位操作</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas">
+<h1>Pandas常用操作<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
+<p>上一章的內容主要介紹如何擷取資料的基本資訊，例如資料的維度、大略地看資料內容、統計值、遺漏值、欄位有無異常值等等。</p>
+<p>本節開始要介紹對DataFrame或是欄位的一些操作及轉換。</p>
+<p>同樣使用相同的資料，首先讀入資料：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/credit_customers.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h2>基本操作<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p><strong>改變欄位名稱</strong></p>
+<p>由於其中一個欄位名稱”class”與python關鍵字相同，故建議是更改名稱，避免後許使用的困擾。</p>
+<p>此外，剛好該欄位是該資料集用來預測是否違約的標籤，因此可以命名為”label”。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;label&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>checking_status</th>
+      <th>duration</th>
+      <th>credit_history</th>
+      <th>purpose</th>
+      <th>credit_amount</th>
+      <th>savings_status</th>
+      <th>employment</th>
+      <th>installment_commitment</th>
+      <th>personal_status</th>
+      <th>other_parties</th>
+      <th>...</th>
+      <th>property_magnitude</th>
+      <th>age</th>
+      <th>other_payment_plans</th>
+      <th>housing</th>
+      <th>existing_credits</th>
+      <th>job</th>
+      <th>num_dependents</th>
+      <th>own_telephone</th>
+      <th>foreign_worker</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>&lt;0</td>
+      <td>6.0</td>
+      <td>critical/other existing credit</td>
+      <td>radio/tv</td>
+      <td>1169.0</td>
+      <td>no known savings</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>real estate</td>
+      <td>67.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>2.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>48.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>5951.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>real estate</td>
+      <td>22.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>no checking</td>
+      <td>12.0</td>
+      <td>critical/other existing credit</td>
+      <td>education</td>
+      <td>2096.0</td>
+      <td>&lt;100</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>2.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>real estate</td>
+      <td>49.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>&lt;0</td>
+      <td>42.0</td>
+      <td>existing paid</td>
+      <td>furniture/equipment</td>
+      <td>7882.0</td>
+      <td>&lt;100</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>2.0</td>
+      <td>male single</td>
+      <td>guarantor</td>
+      <td>...</td>
+      <td>life insurance</td>
+      <td>45.0</td>
+      <td>NaN</td>
+      <td>for free</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>&lt;0</td>
+      <td>24.0</td>
+      <td>delayed previously</td>
+      <td>new car</td>
+      <td>4870.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>no known property</td>
+      <td>53.0</td>
+      <td>NaN</td>
+      <td>for free</td>
+      <td>2.0</td>
+      <td>skilled</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>no checking</td>
+      <td>12.0</td>
+      <td>existing paid</td>
+      <td>furniture/equipment</td>
+      <td>1736.0</td>
+      <td>&lt;100</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>3.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>real estate</td>
+      <td>31.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>&lt;0</td>
+      <td>30.0</td>
+      <td>existing paid</td>
+      <td>used car</td>
+      <td>3857.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>4.0</td>
+      <td>male div/sep</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>life insurance</td>
+      <td>40.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>high qualif/self emp/mgmt</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>no checking</td>
+      <td>12.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>804.0</td>
+      <td>&lt;100</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>car</td>
+      <td>38.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>&lt;0</td>
+      <td>45.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>1845.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>no known property</td>
+      <td>23.0</td>
+      <td>NaN</td>
+      <td>for free</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>45.0</td>
+      <td>critical/other existing credit</td>
+      <td>used car</td>
+      <td>4576.0</td>
+      <td>100&lt;=X&lt;500</td>
+      <td>unemployed</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>car</td>
+      <td>27.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 21 columns</p>
+</div></div></div>
+</div>
+<p>注意到，這邊結果是回傳一個DataFrame，並不會改變原本DataFrame的內容：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 該欄位的名稱仍為&quot;class&quot;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;checking_status&#39;, &#39;duration&#39;, &#39;credit_history&#39;, &#39;purpose&#39;,
+       &#39;credit_amount&#39;, &#39;savings_status&#39;, &#39;employment&#39;,
+       &#39;installment_commitment&#39;, &#39;personal_status&#39;, &#39;other_parties&#39;,
+       &#39;residence_since&#39;, &#39;property_magnitude&#39;, &#39;age&#39;, &#39;other_payment_plans&#39;,
+       &#39;housing&#39;, &#39;existing_credits&#39;, &#39;job&#39;, &#39;num_dependents&#39;, &#39;own_telephone&#39;,
+       &#39;foreign_worker&#39;, &#39;class&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果要直接修改的話必須帶<code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>參數：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;label&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>發現到若加上<code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>參數後，執行該語法並不會回傳任何東西，而是對DataFrame的內容直接做修改。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;checking_status&#39;, &#39;duration&#39;, &#39;credit_history&#39;, &#39;purpose&#39;,
+       &#39;credit_amount&#39;, &#39;savings_status&#39;, &#39;employment&#39;,
+       &#39;installment_commitment&#39;, &#39;personal_status&#39;, &#39;other_parties&#39;,
+       &#39;residence_since&#39;, &#39;property_magnitude&#39;, &#39;age&#39;, &#39;other_payment_plans&#39;,
+       &#39;housing&#39;, &#39;existing_credits&#39;, &#39;job&#39;, &#39;num_dependents&#39;, &#39;own_telephone&#39;,
+       &#39;foreign_worker&#39;, &#39;label&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>在很多DataFrame的方法中都有。</p>
+<p>然而，實務上並不建議直接使用<code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>，原因是這會直接修改資料，若要復原操作，就要反向再執行一次，或是重新讀入DataFrame，造成時間上會付出較大的代價。建議是在有明確理由的情況下使用。</p>
+<p>比較好的做法是，將結果賦值到新變數中。一來程式的易讀性較高（賦值的動作明確表達出有新資料產出），二來若想修改為其他名稱也只需要在這個步驟重來就好。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_processed</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;label&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>但缺點是會造成記憶體空間佔用以及需要命名新的物件，所以需要一般會是配合幾個相關的處理需求，利用chaining或是<code class="docutils literal notranslate"><span class="pre">.pipe()</span></code>方法一起執行(後面章節會再詳細說明)。</p>
+<p><strong>填補遺漏值</strong></p>
+<p>可以用以下語法填補資料的遺漏值，但須注意資料格式，建議用相同格式：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;other_payment_plans&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      other
+1      other
+2      other
+3      other
+4      other
+       ...  
+995    other
+996    other
+997    other
+998    other
+999    other
+Name: other_payment_plans, Length: 1000, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>一樣，要加上<code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>才會直接改變資料內容：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;other_payment_plans&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;other_payment_plans&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>欄位值轉換</strong></p>
+<p>後續若要進行建模，通常會需要把文字的欄位值轉換爲數字才能夠丟給模型。</p>
+<p>例如我們想把label的值，從good/bad改為0/1，可以把轉換的對應關係儲存成一個字典，然後搭配<code class="docutils literal notranslate"><span class="pre">.map()</span></code>方法：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapper</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;good&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;bad&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0
+1      1
+2      0
+3      0
+4      1
+      ..
+995    0
+996    0
+997    0
+998    1
+999    0
+Name: label, Length: 1000, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>注意，如果是mapper沒定義到的欄位值，<code class="docutils literal notranslate"><span class="pre">.map()</span></code>之後會轉為空值。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapper</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;bad&#39;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      NaN
+1      1.0
+2      NaN
+3      NaN
+4      1.0
+      ... 
+995    NaN
+996    NaN
+997    NaN
+998    1.0
+999    NaN
+Name: label, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.map()</span></code>方法是回傳一個DataFrame，但沒有修改原始的DataFrame。而<code class="docutils literal notranslate"><span class="pre">.map()</span></code>方法也沒有<code class="docutils literal notranslate"><span class="pre">inplace</span></code>參數，通常的做法會是新建一個欄位。</p>
+<p>如何新建一個欄位？下一章會詳細說明，這邊先劇透其中一個方法：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;label_new&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>label_new</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>good</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bad</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>good</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>good</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>bad</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>good</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>good</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>good</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>bad</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>good</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 2 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="id2">
+<h2>數值欄位操作<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>針對數值型的欄位，可能會有一些組合運算，接下來介紹一些方法。</p>
+<p><strong>欄位運算</strong></p>
+<p><strong>加法</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      68.0
+1      23.0
+2      50.0
+3      46.0
+4      54.0
+       ... 
+995    32.0
+996    41.0
+997    39.0
+998    24.0
+999    28.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      68.0
+1      23.0
+2      50.0
+3      46.0
+4      54.0
+       ... 
+995    32.0
+996    41.0
+997    39.0
+998    24.0
+999    28.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>減法</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      66.0
+1      21.0
+2      48.0
+3      44.0
+4      52.0
+       ... 
+995    30.0
+996    39.0
+997    37.0
+998    22.0
+999    26.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      66.0
+1      21.0
+2      48.0
+3      44.0
+4      52.0
+       ... 
+995    30.0
+996    39.0
+997    37.0
+998    22.0
+999    26.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>乘法</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installment_commitment&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.04
+1      0.02
+2      0.02
+3      0.02
+4      0.03
+       ... 
+995    0.03
+996    0.04
+997    0.04
+998    0.04
+999    0.03
+Name: installment_commitment, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installment_commitment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.04
+1      0.02
+2      0.02
+3      0.02
+4      0.03
+       ... 
+995    0.03
+996    0.04
+997    0.04
+998    0.04
+999    0.03
+Name: installment_commitment, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>除法</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.089552
+1      2.181818
+2      0.244898
+3      0.933333
+4      0.452830
+         ...   
+995    0.387097
+996    0.750000
+997    0.315789
+998    1.956522
+999    1.666667
+Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.089552
+1      2.181818
+2      0.244898
+3      0.933333
+4      0.452830
+         ...   
+995    0.387097
+996    0.750000
+997    0.315789
+998    1.956522
+999    1.666667
+Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>取商數</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      5.0
+1      1.0
+2      4.0
+3      3.0
+4      4.0
+      ... 
+995    2.0
+996    3.0
+997    3.0
+998    1.0
+999    2.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">floordiv</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      5.0
+1      1.0
+2      4.0
+3      3.0
+4      4.0
+      ... 
+995    2.0
+996    3.0
+997    3.0
+998    1.0
+999    2.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>取餘數</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">%</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       7.0
+1      10.0
+2       1.0
+3       9.0
+4       5.0
+       ... 
+995     7.0
+996     4.0
+997     2.0
+998    11.0
+999     3.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       7.0
+1      10.0
+2       1.0
+3       9.0
+4       5.0
+       ... 
+995     7.0
+996     4.0
+997     2.0
+998    11.0
+999     3.0
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>進位運算</strong></p>
+<p>括弧內的數字代表進位到第幾位。</p>
+<p>注意到這邊rounding的行為是”四捨五入到最接近的偶數”，5.5捨去小數點到整數會是6，4.5捨去小數點到整數會是4。這種rounding又稱作是round-to-even。</p>
+<p>參考：</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/45021268/strange-behavior-of-numpy-round">python - Strange behavior of numpy.round - Stack Overflow</a>。</p></li>
+<li><p><a class="reference external" href="https://www.ithome.com.tw/voice/112663">算錢學問大 | iThome</a></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;relative_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;relative_duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.1
+1      2.2
+2      0.2
+3      0.9
+4      0.5
+      ... 
+995    0.4
+996    0.8
+997    0.3
+998    2.0
+999    1.7
+Name: relative_duration, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>取次方</strong></p>
+<p>括弧內可指定次方項。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 取平方</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;relative_duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.008020
+1      4.760331
+2      0.059975
+3      0.871111
+4      0.205055
+         ...   
+995    0.149844
+996    0.562500
+997    0.099723
+998    3.827977
+999    2.777778
+Name: relative_duration, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>取絕對值</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      31.454
+1     -13.546
+2      13.454
+3       9.454
+4      17.454
+        ...  
+995    -4.546
+996     4.454
+997     2.454
+998   -12.546
+999    -8.546
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      31.454
+1      13.546
+2      13.454
+3       9.454
+4      17.454
+        ...  
+995     4.546
+996     4.454
+997     2.454
+998    12.546
+999     8.546
+Name: age, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>限定值的範圍</strong></p>
+<p>第一個參數是下界，第二個參數是上界。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;relative_duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.089552
+1      2.000000
+2      0.244898
+3      0.933333
+4      0.452830
+         ...   
+995    0.387097
+996    0.750000
+997    0.315789
+998    1.956522
+999    1.666667
+Name: relative_duration, Length: 1000, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>數值離散化</strong></p>
+<p>有時要將數值型變數切割，會比較方便做一些描述統計或視覺化分析。</p>
+<p>其中參數<code class="docutils literal notranslate"><span class="pre">bins</span></code>是據以切割的數值，<code class="docutils literal notranslate"><span class="pre">right=False</span></code>代表左邊是<code class="docutils literal notranslate"><span class="pre">[</span></code>，而右邊是<code class="docutils literal notranslate"><span class="pre">)</span></code>。</p>
+<p>以下面的例子來看，第一個bin會是：0 ≤ age &lt; 20，第二個bin則是：20 ≤ age &lt; 40……以此類推。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;age_bins&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age_bins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age_bins
+[0, 20)       2
+[20, 40)    699
+[40, 60)    248
+[60, 80)     51
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>另外一種方式則是直接透過資料的百分位數來做切割。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        (52.0, 75.0]
+1      (18.999, 23.0]
+2        (45.0, 52.0]
+3        (39.0, 45.0]
+4        (52.0, 75.0]
+            ...      
+995      (30.0, 33.0]
+996      (39.0, 45.0]
+997      (36.0, 39.0]
+998    (18.999, 23.0]
+999      (26.0, 28.0]
+Name: age, Length: 1000, dtype: category
+Categories (10, interval[float64, right]): [(18.999, 23.0] &lt; (23.0, 26.0] &lt; (26.0, 28.0] &lt; (28.0, 30.0] ... (36.0, 39.0] &lt; (39.0, 45.0] &lt; (45.0, 52.0] &lt; (52.0, 75.0]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>字串欄位操作<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>以下範例來自pandas官方API文件：</p>
+<p><strong>字串截取</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;koala&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;chameleon&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># = s.str[1:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        oala
+1          og
+2    hameleon
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># = s.str[-1:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    a
+1    g
+2    n
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># = s.str[:2]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    ko
+1    do
+2    ch
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># = s.str[::2]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      kaa
+1       dg
+2    caeen
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># = s.str[0:5:3]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    kl
+1     d
+2    cm
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>判斷字串是否存在</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Mouse&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;house and parrot&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>判斷特定字串是否包含在值當中</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;og&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1     True
+2    False
+3    False
+4      NaN
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>設定參數<code class="docutils literal notranslate"><span class="pre">na</span></code>代表當遇到空值要填入什麼值，下面設定填入<code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1     True
+2    False
+3    False
+4    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下用法稱作<strong>正規表達式（regular expression）</strong>，正規表達式專門處理字串，但內容頗多，附上資源供自行參考。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;house|dog&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1     True
+2     True
+3    False
+4      NaN
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">d&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1    False
+2    False
+3     True
+4      NaN
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>參考：</p>
+<p><a class="reference external" href="https://towardsdatascience.com/the-ultimate-guide-to-using-the-python-regex-module-69aad9e9ba56">The Ultimate Guide to using the Python regex module</a></p>
+<p><a class="reference external" href="https://realpython.com/regex-python/">Regular Expressions: Regexes in Python (Part 1) – Real Python</a></p>
+<p><a class="reference external" href="https://realpython.com/regex-python-part-2/">Regular Expressions: Regexes in Python (Part 2) – Real Python</a></p>
+<p><strong>字串取代</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;fuz&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;f.&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以單純將字串替換成別的字串。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    bao
+1    baz
+2    NaN
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>也可以使用正規表達式，<code class="docutils literal notranslate"><span class="pre">.</span></code>代表任一字元，所以”f” 以及”f”後面1個字元被取代成”ba”。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;f.&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    bao
+1    baz
+2    NaN
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>時間欄位操作<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p><strong>生成時間序列</strong></p>
+<p>可以透過指定起始與結束日期來建立連續的日期序列：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;20231129&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;20231207&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2023-11-29&#39;, &#39;2023-11-30&#39;, &#39;2023-12-01&#39;, &#39;2023-12-02&#39;,
+               &#39;2023-12-03&#39;, &#39;2023-12-04&#39;, &#39;2023-12-05&#39;, &#39;2023-12-06&#39;,
+               &#39;2023-12-07&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>也可以只指定起始日期，然後利用<code class="docutils literal notranslate"><span class="pre">periods</span></code>參數指定長度：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;20231129&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2023-11-29&#39;, &#39;2023-11-30&#39;, &#39;2023-12-01&#39;, &#39;2023-12-02&#39;,
+               &#39;2023-12-03&#39;, &#39;2023-12-04&#39;, &#39;2023-12-05&#39;, &#39;2023-12-06&#39;,
+               &#39;2023-12-07&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>也可以使用參數<code class="docutils literal notranslate"><span class="pre">freq=&quot;M&quot;</span></code>：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;20230101&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2023-01-31&#39;, &#39;2023-02-28&#39;, &#39;2023-03-31&#39;, &#39;2023-04-30&#39;,
+               &#39;2023-05-31&#39;, &#39;2023-06-30&#39;, &#39;2023-07-31&#39;, &#39;2023-08-31&#39;,
+               &#39;2023-09-30&#39;, &#39;2023-10-31&#39;, &#39;2023-11-30&#39;, &#39;2023-12-31&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;M&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>但結果會是月底。可改用<code class="docutils literal notranslate"><span class="pre">DateOffset</span></code>物件來處理：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.tseries.offsets</span> <span class="kn">import</span> <span class="n">DateOffset</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;20230101&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2023-01-01&#39;, &#39;2023-02-01&#39;, &#39;2023-03-01&#39;, &#39;2023-04-01&#39;,
+               &#39;2023-05-01&#39;, &#39;2023-06-01&#39;, &#39;2023-07-01&#39;, &#39;2023-08-01&#39;,
+               &#39;2023-09-01&#39;, &#39;2023-10-01&#39;, &#39;2023-11-01&#39;, &#39;2023-12-01&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;&lt;DateOffset: months=1&gt;&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>若是要固定隔n天(或n週, n秒等等)，可以用<code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>物件來處理：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;20230101&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;20231231&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2023-01-01&#39;, &#39;2023-01-16&#39;, &#39;2023-01-31&#39;, &#39;2023-02-15&#39;,
+               &#39;2023-03-02&#39;, &#39;2023-03-17&#39;, &#39;2023-04-01&#39;, &#39;2023-04-16&#39;,
+               &#39;2023-05-01&#39;, &#39;2023-05-16&#39;, &#39;2023-05-31&#39;, &#39;2023-06-15&#39;,
+               &#39;2023-06-30&#39;, &#39;2023-07-15&#39;, &#39;2023-07-30&#39;, &#39;2023-08-14&#39;,
+               &#39;2023-08-29&#39;, &#39;2023-09-13&#39;, &#39;2023-09-28&#39;, &#39;2023-10-13&#39;,
+               &#39;2023-10-28&#39;, &#39;2023-11-12&#39;, &#39;2023-11-27&#39;, &#39;2023-12-12&#39;,
+               &#39;2023-12-27&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;15D&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>計算日期</strong></p>
+<p>利用<code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>物件來處理：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;19930103&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">765</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;1990-11-30 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DateOffset</span></code>物件同樣可以做到：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;19930103&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">765</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;1990-11-30 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>計算兩個日期之間的天數</strong></p>
+<p>其實就是直接相減就可以了：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;20240314&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">-</span> 
+ <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;20200524&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">days</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1390
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>時間轉文字</strong></p>
+<p>首先透過<code class="docutils literal notranslate"><span class="pre">pd.date_range</span></code>產生日期的時間序列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;20231129&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;20231207&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2023-11-29&#39;, &#39;2023-11-30&#39;, &#39;2023-12-01&#39;, &#39;2023-12-02&#39;,
+               &#39;2023-12-03&#39;, &#39;2023-12-04&#39;, &#39;2023-12-05&#39;, &#39;2023-12-06&#39;,
+               &#39;2023-12-07&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以透過以下方法將時間轉成文字格式</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;20231129&#39;, &#39;20231130&#39;, &#39;20231201&#39;, &#39;20231202&#39;, &#39;20231203&#39;, &#39;20231204&#39;,
+       &#39;20231205&#39;, &#39;20231206&#39;, &#39;20231207&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>文字轉時間</strong></p>
+<p>先將上一步的結果借來用。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>需要使用的方法是<code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2023-11-29&#39;, &#39;2023-11-30&#39;, &#39;2023-12-01&#39;, &#39;2023-12-02&#39;,
+               &#39;2023-12-03&#39;, &#39;2023-12-04&#39;, &#39;2023-12-05&#39;, &#39;2023-12-06&#39;,
+               &#39;2023-12-07&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>這邊時間日期的表示法與python內建的表示法相同，可參考前面的章節。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pandas_0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Intro to Pandas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">基本操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">數值欄位操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">字串欄位操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">時間欄位操作</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
