@@ -17,3 +17,4 @@ parts:
     chapters:
     - file: pandas_0
     - file: pandas_1
+    - file: pandas_2
