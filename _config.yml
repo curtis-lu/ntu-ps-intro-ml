@@ -3,7 +3,7 @@
 
 title: My sample book
 author: The Jupyter Book Community
-logo: shiba_inu2.jpg
+logo: logo.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -31,3 +31,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+# Add a Launch on Google Colab button
+launch_buttons:
+  colab_url: "https://colab.research.google.com"

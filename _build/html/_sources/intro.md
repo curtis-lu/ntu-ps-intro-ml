@@ -15,4 +15,4 @@ Topics covered by this book：
 
 -------
 
-logo image by <a href="https://www.freepik.com/free-photo/low-angle-cute-shiba-inu-dog_28475740.htm#query=shiba%20inu&position=17&from_view=search&track=ais&uuid=887f9d8c-8d21-472c-a7ef-8565c97ba88e">Freepik</a>
+<a href="https://www.freepik.com/free-vector/japanese-wave-line-art-landscape-background-abstract-mountain-banner-design-pattern-vector-illustration-geometric-poster_23191005.htm#query=illustrations&position=0&from_view=keyword&track=sph&uuid=6f6451f9-2e76-4265-bc7c-fe4386a4f41f">Image by svstudioart</a> on Freepik
