@@ -1,0 +1,749 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>shell &amp; IDE 介紹 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cs_1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python安裝與虛擬環境" href="cs_2.html" />
+    <link rel="prev" title="Pandas 資料分析" href="pandas_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    A Layman’s Guide to Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_4.html">4.流程控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_5.html">5.function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_6.html">6.進階主題</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pandas_0.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_1.html">Pandas常用操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_2.html">Pandas 資料分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">shell &amp; IDE 介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs_2.html">Python安裝與虛擬環境</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml/issues/new?title=Issue%20on%20page%20%2Fcs_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cs_1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>shell & IDE 介紹</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell">Shell 介紹</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">什麼是Shell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>如何使用Shell</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ide">什麼是IDE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code"><strong>Visual Studio code的功能</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code-vscode"><strong>安裝Visual Studio code (vscode)</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="shell-ide">
+<h1>shell &amp; IDE 介紹<a class="headerlink" href="#shell-ide" title="Permalink to this heading">#</a></h1>
+<p>要進行python資料分析或程式開發就必須建立python的開發環境。</p>
+<p>建立開發環境的方式有非常多種，本章介紹的方法對初學者而言會有點複雜，但絕對值得跟著一步一步完成。</p>
+<p>除了能夠有結構的建立穩健的python開發環境以外，也能夠更熟悉對電腦的瞭解，往後學習更進階的部分時，例如套件開發、使用docker等等，可以比較快上手。</p>
+<p>要建立python開發環境基本上有以下幾大步驟：</p>
+<ul class="simple">
+<li><p>安裝IDE工具：VScode</p></li>
+<li><p>安裝homebrew (for macOS)</p></li>
+<li><p>用homebrew安裝pyenv</p></li>
+<li><p>用pyenv安裝python</p></li>
+<li><p>用homebrew安裝pipx</p></li>
+<li><p>用pipx安裝poetry</p></li>
+<li><p>用poetry建立虛擬環境</p></li>
+<li><p>用poetry安裝套件</p></li>
+</ul>
+<p>在開始安裝之前，需要先介紹shell是什麼。</p>
+<section id="shell">
+<h2>Shell 介紹<a class="headerlink" href="#shell" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>什麼是Shell<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>我們知道電腦由各種硬體組成，包括CPU、記憶體，與硬碟等。</p>
+<p>管理電腦硬體的程式稱作Kernal，例如管理CPU處理程序、管理記憶體資源、管理硬碟存取等等。</p>
+<p>Kernal是作業系統的核心部分，透過機器語言來控制硬體。</p>
+<p>機器語言是一堆010101的邏輯，人類難以理解，無法直接進行程式設計。</p>
+<p>所以需要一個介面讓使用者控制Kernal，這個介面就是Shell。</p>
+<p>可以把Shell理解成操作作業系統的程式語言。</p>
+<p>Shell只是這類語言的統稱，不同作業系統有各種不同shell，甚至同一個作業系統也有不同shell可以使用。例如適用於Windows作業系統就有cmd和Powershell，或是適用於Unix類作業系統（包括Mac）的bash、z shell(zsh)、c shell(tcsh)等等。</p>
+<p>shell除了可以操作作業系統，也可以執行程式，我們主要使用shell的目的就是為了要去執行程式。</p>
+<p>例如我們可以把python程式儲存在一個副檔名為<code class="docutils literal notranslate"><span class="pre">.py</span></code>的檔案中，shell可以透過呼叫python編譯器來執行<code class="docutils literal notranslate"><span class="pre">.py</span></code>的程式。</p>
+<p>所謂編譯器是指把人類編寫的程式轉譯成機器能理解的語言，所以python編譯器指的就是把python程式碼轉譯成機器可以理解的指令。</p>
+</section>
+<section id="id2">
+<h3><strong>如何使用Shell</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>一般是使用終端機（terminal），可以提供畫面讓使用者輸入shell指令並顯示結果。</p>
+<p>另外也可以使用IDE，下一部分的內容會介紹IDE。</p>
+<p><strong>shell的常用指令</strong></p>
+<p>關於shell其實我們只需要瞭解以下幾個指令：<code class="docutils literal notranslate"><span class="pre">pwd</span></code>、<code class="docutils literal notranslate"><span class="pre">cd</span></code>、<code class="docutils literal notranslate"><span class="pre">ls</span></code>基本上就夠了。</p>
+<p>就讓我們用一個例子開始示範吧！假設資料夾結構如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my_project
+├── contents
+│   ├── week1
+│   └── week2
+├── exam
+│   ├── final.txt
+│   ├── grading.py
+│   └── midterm.txt
+├── grading.py
+└── people
+    └── students.txt
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pwd</span></code>：印出當前工作資料夾(working directory)</strong></p></li>
+</ol>
+<p>directory的意思可以理解成folder，也就是資料夾。在終端機輸入<code class="docutils literal notranslate"><span class="pre">pwd</span></code>指令就可以在終端機上印出當前工作資料夾。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">curtislu</span><span class="o">/</span><span class="n">my_project</span>
+</pre></div>
+</div>
+<p>假設有一個python的程式檔grading.py就在當前工作資料夾，那麼我們只要在終端機輸入以下指令，shell就會幫我們告訴電腦我們要執行這隻python程式：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 代表shell呼叫python編譯器去執行grading.py這支python程式</span>
+<span class="n">python</span> <span class="n">grading</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>而所謂<strong>當前工作資料夾</strong>代表shell執行程式時，該程式的路徑參照位置。也就是說程式<strong>並不是以程式存放的位置</strong>來當作路徑的參照位置。</p>
+<p>具體是什麼意思請參考以下範例。</p>
+<p>假設my_project目錄下的grading.py的程式內容如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data1.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;data saved.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>而exam目錄下的grading.py的程式內容如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data2.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;data saved.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>兩者都會產出一個csv檔，只是檔名不同。</p>
+<p>假設我們當前的工作資料夾在my_project，<a class="reference external" href="http://xn--grading-o86ks5h3yb0jq03dyh2m.py">分別執行兩個grading.py</a>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">grading</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">./</span><span class="n">exam</span><span class="o">/</span><span class="n">grading</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>注意到上方的語法中，<code class="docutils literal notranslate"><span class="pre">.</span></code>代表當前位置的意思，<code class="docutils literal notranslate"><span class="pre">/</span></code>代表下一層資料夾。整段代表我們要執行的是<code class="docutils literal notranslate"><span class="pre">./exam</span></code>目錄中的<code class="docutils literal notranslate"><span class="pre">grading.py</span></code>。</p>
+<p>執行完後會發現兩個csv檔都儲存在my_project這個資料夾，代表其實兩支程式都是在當前工作資料夾執行的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my_project
+├── contents
+│   ├── week1
+│   └── week2
+├── data1.csv
+├── data2.csv
+├── exam
+│   ├── final.txt
+│   ├── grading.py
+│   └── midterm.txt
+├── grading.py
+└── people
+    └── students.txt
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code>：<strong>更改當前工作目錄</strong></p></li>
+</ol>
+<p>所以如果我們希望所執行的程式的路徑參照位置更改的話，就要更改當前工作目錄。</p>
+<p>只要使用<code class="docutils literal notranslate"><span class="pre">cd</span></code> ＋ 路徑位置就可以了。路徑位置的指定方式有兩種：</p>
+<p>一個是剛剛看過的<strong>相對路徑</strong>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .代表當層</span>
+<span class="n">cd</span> <span class="o">./</span><span class="n">contents</span><span class="o">/</span><span class="n">week1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ..代表上一層</span>
+<span class="n">cd</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p>另一個是使用<strong>絕對路徑</strong>，也就是從根目錄開始的完整路徑：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">curtislu</span><span class="o">/</span><span class="n">my_project</span><span class="o">/</span><span class="n">contents</span><span class="o">/</span><span class="n">week1</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ls</span></code>：列出當前工作資料夾中的檔案或資料夾清單</strong></p></li>
+</ol>
+<p>最後一個要介紹的指令比較單純，就只是把當前目錄中有的檔案列印出來，可以確認目前有哪些檔案及資料夾。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">contents</span>        <span class="n">exam</span>            <span class="n">grading</span><span class="o">.</span><span class="n">py</span>      <span class="n">people</span>
+</pre></div>
+</div>
+<p>還可以向下列出目前工作資料夾內所有檔案或資料夾清單。這邊-R就像是指定一個參數，希望ls這個函數多提供什麼功能：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">R</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">contents</span>        <span class="n">exam</span>            <span class="n">grading</span><span class="o">.</span><span class="n">py</span>      <span class="n">people</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">./</span><span class="n">contents</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">week1</span>   <span class="n">week2</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">./</span><span class="n">contents</span><span class="o">/</span><span class="n">week1</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">./</span><span class="n">contents</span><span class="o">/</span><span class="n">week2</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">./</span><span class="n">exam</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">final</span><span class="o">.</span><span class="n">txt</span>       <span class="n">midterm</span><span class="o">.</span><span class="n">txt</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">./</span><span class="n">people</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>參考：</p>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/difference-between-shell-and-kernel/">Difference between Shell and Kernel - GeeksforGeeks</a></p>
+<p><a class="reference external" href="https://rlads2021.github.io/LabBook/ch01">Chapter 1 掌握你的電腦 | RLads Lab</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/45591428/what-exactly-is-current-working-directory">What exactly is current working directory?</a></p>
+<p>總而言之，shell就是操作電腦的工具，可以下載軟體（可以理解成作業系統的套件），也可以執行程式。安裝python和建立環境都需要透過它。</p>
+<p>那麼就讓我們開始建立python開發環境吧！</p>
+<p>首先介紹接下來所有步驟要使用的工具VScode，VScode是一種IDE工具。</p>
+</section>
+</section>
+<section id="ide">
+<h2>什麼是IDE<a class="headerlink" href="#ide" title="Permalink to this heading">#</a></h2>
+<p>IDE是Integrated Development Environment的縮寫，直接翻譯就是「整合開發環境」。</p>
+<p>意思是一個整合多種功能的開發工具，包括了程式編輯器、終端機、版本控制工具等等，把很多功能整合在單一一個介面當中，方便進行程式開發。</p>
+<p>如果不用IDE的話，程式語法你可能要寫在文字檔上，例如文字編輯器或記事本。然後要另外開啟作業系統的終端機來執行你寫的程式。不僅凌亂很難管理，介面也很不方便。</p>
+<p>在資料分析的學習過程中，一般大家可能常看到的是使用jupyter notebook來寫python。</p>
+<p>但jupyter notebook並不是IDE，jupyter notebook目的是提供一個互動式的編輯界面，允許使用者以區塊的方式運行程式碼，可以即時呈現資料分析的結果，並且支援視覺化圖表等等。</p>
+<p>jupyter notebook的設計很符合資料分析的需求，但jupyter notebook比較適合用於教學或是小型的分析專案，一般進行開發仍是建議使用IDE。</p>
+<p>支援python常見的IDE有：</p>
+<ul class="simple">
+<li><p>pycharm</p></li>
+<li><p>VScode</p></li>
+<li><p>Jupyter Lab</p></li>
+<li><p>Spyder</p></li>
+<li><p>Atom</p></li>
+</ul>
+<p>想要推薦大家使用的是Visual Studio code (vscode)，vscode是由微軟開發的開源軟體，支援各種平台（windows、macOS、 Linux都可以用）以及上百種程式語言（C++, C#,  Go, Java, JavaScript,  Julia, Python, R等等  ）。</p>
+<section id="visual-studio-code">
+<h3><strong>Visual Studio code的功能</strong><a class="headerlink" href="#visual-studio-code" title="Permalink to this heading">#</a></h3>
+<p>vscode有許多方便的功能：</p>
+<p>程式碼輔助編輯功能：包括語法顏色突顯、程式碼折疊、自動完成、程式碼尋找</p>
+<p>擴充性工具生態系統：有超級多的擴充套件，例如可以把jupyter notebook整合進來。</p>
+<p>內建終端機：不必另外開啟終端機，可以直接在vscode中使用。</p>
+<p>整合版本控制：在vscode中可以直接操作git相關功能。</p>
+<p>參考：</p>
+<p><a class="reference external" href="https://code.visualstudio.com/docs/introvideos/basics">Getting started with Visual Studio Code</a></p>
+</section>
+<section id="visual-studio-code-vscode">
+<h3><strong>安裝Visual Studio code (vscode)</strong><a class="headerlink" href="#visual-studio-code-vscode" title="Permalink to this heading">#</a></h3>
+<p>[step 1] 至官網下載安裝檔</p>
+<p>基本上只要照著安裝就可以了</p>
+<p><a class="reference external" href="https://code.visualstudio.com/">vscode官網</a></p>
+<p>[step 2] 安裝擴充工具</p>
+<p>必備的擴充工具有：</p>
+<ul class="simple">
+<li><p>python: 在vscode上開發python必備的擴充工具，</p></li>
+<li><p>jupyter: 在vscode上開啟jupyter notebook</p></li>
+<li><p>path Intellisense: 方便編寫路徑</p></li>
+<li><p>Auto Docstring: 自動產生Docstring的格式</p></li>
+<li><p>Excel viewer: 方便在vscode查看csv檔</p></li>
+</ul>
+<p>VScode自己會依據你開啟的程式語法檔推薦你可以安裝的擴充套件。</p>
+<p>VScode的擴充套件有非常多，可再自行挖掘。</p>
+<p>安裝方法：</p>
+<figure class="align-default">
+<img alt="_images/vscode_extension.png" src="_images/vscode_extension.png" />
+</figure>
+<p>本章主要著重在VScode的介面中建立python開發環境的內容，其他相關操作可以再自行參考Vscode官方教學影片和其他資源。</p>
+<p><a class="reference external" href="https://code.visualstudio.com/docs/getstarted/introvideos">vscode - Introductory Videos</a></p>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/vs-code-extensions-for-data-science/">Top 10 VS Code Extensions For Data Science - GeeksforGeeks</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pandas_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pandas 資料分析</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cs_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python安裝與虛擬環境</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell">Shell 介紹</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">什麼是Shell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>如何使用Shell</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ide">什麼是IDE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code"><strong>Visual Studio code的功能</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code-vscode"><strong>安裝Visual Studio code (vscode)</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

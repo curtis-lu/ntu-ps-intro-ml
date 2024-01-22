@@ -81,9 +81,9 @@ print("value: ", True)
 
 如果把電腦的記憶體想像成很多排架子的倉庫，每排架子裡有很多個格子，
 
-```{figure} ./images/rack.jpg
+```{figure} ./images/rack.jpeg
 ---
-scale: 30%
+scale: 60%
 ---
 <a href="https://www.freepik.com/free-ai-image/futuristic-library-with-shelves-symmetry-generated-by-ai_41283616.htm#fromView=search&term=warehouse&page=1&position=9&track=ais_ai_generated&regularType=ai&uuid=65da5c56-20aa-4bd1-8206-2c73a350cecc">Image By vecstock</a>
 ```

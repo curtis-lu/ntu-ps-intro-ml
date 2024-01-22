@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Python安裝與虛擬環境 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cs_2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="shell &amp; IDE 介紹" href="cs_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    A Layman’s Guide to Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_4.html">4.流程控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_5.html">5.function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_6.html">6.進階主題</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pandas_0.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_1.html">Pandas常用操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_2.html">Pandas 資料分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cs_1.html">shell &amp; IDE 介紹</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python安裝與虛擬環境</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml/issues/new?title=Issue%20on%20page%20%2Fcs_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cs_2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python安裝與虛擬環境</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-macos">Python安裝(macOS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homebrew">安裝homebrew</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyenv">安裝pyenv</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">安裝python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">建立虛擬環境</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">什麼是虛擬環境？為什麼需要虛擬環境？</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">安裝Poetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">建立虛擬環境</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">啟動虛擬環境並安裝套件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">開啟jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小結</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>Python安裝與虛擬環境<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h1>
+<section id="python-macos">
+<h2>Python安裝(macOS)<a class="headerlink" href="#python-macos" title="Permalink to this heading">#</a></h2>
+<p>瞭解shell的功能以及學會使用IDE之後，就可以來開始著手安裝python了！</p>
+<p>如果使用macOS的話，首先第一步：安裝homebrew。</p>
+<section id="homebrew">
+<h3>安裝homebrew<a class="headerlink" href="#homebrew" title="Permalink to this heading">#</a></h3>
+<p>如果你用的是macOS，需要先使用shell安裝homebrew。</p>
+<p>homebrew又是什麼？可以把homebrew想成是macOS的套件管理軟體。</p>
+<p>就像python有各種套件一樣，作業系統也有各種套件，homebrew可以為macOS管理套件。</p>
+<p>透過homebrew這個工具我們就可以安裝pyenv套件，再透過pyenv來安裝python。</p>
+<p>[step 1] 開啟Vscode</p>
+<figure class="align-default">
+<img alt="_images/vscode_page.png" src="_images/vscode_page.png" />
+</figure>
+<p>[step 2] VScode中開啟終端機</p>
+<figure class="align-default">
+<img alt="_images/vscode_terminal.png" src="_images/vscode_terminal.png" />
+</figure>
+<p>[step 3] 透過shell指令安裝homebrew</p>
+<p>過程中可以需要輸入登入密碼或是按下RETURN鍵，就照著指令操作就可以了。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span>
+</pre></div>
+</div>
+<p>安裝完後建議關閉終端機並重新開啟，關閉的方法如下圖：</p>
+<figure class="align-default">
+<img alt="_images/vscode_kill.png" src="_images/vscode_kill.png" />
+</figure>
+</section>
+<section id="pyenv">
+<h3>安裝pyenv<a class="headerlink" href="#pyenv" title="Permalink to this heading">#</a></h3>
+<p>pyenv是管理python版本的工具，由於python不斷在更新。</p>
+<p>當希望使用python的新功能時，不能直接卸載舊版的python然後安裝新版。</p>
+<p>因為可能會造成之前的程式無法如預期運作，或是可能出現錯誤。</p>
+<p>所以不想影響舊有的程式的話，就必須讓電腦可以容納多種版本的python。</p>
+<p>可以實現這一點的工具就是pyenv。</p>
+<p>pyenv可以透過homebrew來安裝，安裝方法非常簡單，同樣在終端機輸入以下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">pyenv</span>
+</pre></div>
+</div>
+<p>安裝完成後可以測試是否設定成功：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>如果有設定成功的話，就會顯示你安裝的pyenv版本，目前最新是到2.3.35。</p>
+<p>如果產生錯誤訊息，告訴你不認識<code class="docutils literal notranslate"><span class="pre">pyenv</span></code>指令的話，代表shell還不認識<code class="docutils literal notranslate"><span class="pre">pyenv</span></code>。</p>
+<p>就需要把pyenv的資訊告訴shell，請同樣在終端機輸入以下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s1">&#39;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">zshrc</span>
+<span class="n">echo</span> <span class="s1">&#39;[[ -d $PYENV_ROOT/bin ]] &amp;&amp; export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">zshrc</span>
+<span class="n">echo</span> <span class="s1">&#39;eval &quot;$(pyenv init -)&quot;&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">zshrc</span>
+</pre></div>
+</div>
+<p>這段的目的是讓shell知道，當我在終端機輸入<code class="docutils literal notranslate"><span class="pre">pyenv</span></code>指令時，是要shell執行pyenv程式。所以需要告訴shell，pyenv的執行路徑在哪裡。</p>
+<p>設定完記得重啟shell，可以關閉終端機，或是在終端機輸入以下指定：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span> <span class="s2">&quot;$SHELL&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>安裝python<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>接著就可以透過pyenv來安裝python了！</p>
+<p>[step 1] 安裝python</p>
+<p>以下指令可以確認可以安裝的python版本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="n">install</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+<p>決定好要安裝的python版本時，例如想要的版本是3.11.0以及3.9.18：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="n">install</span> <span class="mf">3.11.0</span>
+<span class="n">pyenv</span> <span class="n">install</span> <span class="mf">3.12.1</span>
+</pre></div>
+</div>
+<p>等待pyenv跑完就安裝完成了！</p>
+<p>安裝python只是把python下載下來，並安裝在電腦某個地方。</p>
+<p>我們還需要透過pyenv告訴作業系統，我指定的python版本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="k">global</span> <span class="mf">3.11.0</span>
+</pre></div>
+</div>
+<p>如此一來，系統預設的python版本就會是3.11.0版。</p>
+<p>可以透過以下指令確認：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="k">global</span>
+</pre></div>
+</div>
+<p>或是</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>[step 2] 新增專案資料夾</p>
+<p>接著，假設我們要開啟一個新的專案，我們可以在想要的路徑下新增資料夾。</p>
+<p>手動新增或是輸入以下shell指定都可以：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">data_projects</span>
+</pre></div>
+</div>
+<p>並且把當前工作目錄移到該路徑：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">data_projects</span>
+</pre></div>
+</div>
+<p>結果如以下：</p>
+<figure class="align-default">
+<img alt="_images/vscode_cd.png" src="_images/vscode_cd.png" />
+</figure>
+<p>[step 3] 指定python版本</p>
+<p>pyenv多版本python的管理，就是透過為不同資料夾目錄指定不同python版本來做到。</p>
+<p>這樣在該資料夾底下執行python程式的時候，作業系統就知道要執行哪個版本的python編譯器。</p>
+<p>透過pyenv為當前工作資料夾目錄指定python版本：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="n">local</span> <span class="mf">3.12.1</span>
+</pre></div>
+</div>
+<p>確認版本是否指定正確：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="n">local</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>參考資料：</p>
+<p><a class="reference external" href="https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv">GitHub - pyenv/pyenv: Simple Python version management</a></p>
+</section>
+</section>
+<section id="id2">
+<h2>建立虛擬環境<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>終於來到最後一步，為專案資料夾指定python版本後，就可以來建立虛擬環境並安裝套件。</p>
+<p>完成後只要啟動環境就能夠動手做專案了！</p>
+<section id="id3">
+<h3>什麼是虛擬環境？為什麼需要虛擬環境？<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>就像我們可能會使用不同python版本一樣，就算是同一個python版本，不同專案也會使用各種不同套件，例如pandas、numpy、scikit-learn等等。</p>
+<p>不同的套件版本，套件的使用方法有可能會不一樣。例如同一個函數的參數預設值在A版本可能為<code class="docutils literal notranslate"><span class="pre">True</span></code>但在B版本為<code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+<p>所以就算是同一支程式，程式語法一模一樣，如果安裝的套件版本不一樣，可能程式就會有不一樣的行為或甚至是錯誤發生。</p>
+<p>而一個環境下的一個套件就只能使用一種版本，所以隨著專案越做越多，需要更新的套件越來越多，可能會導致過去寫的程式無法運作的情況。</p>
+<p>因此，我們需要根據不同專案建立不同的「環境」，不同環境下可以安裝各自的套件，環境之間不會互相干擾。</p>
+<p>而這些可以彼此區隔的環境的就叫做「虛擬環境」。</p>
+<p>建立虛擬環境的方法有很多種，python內建的venv、第三方套件virtualenv或pipenv、anaconda的conda等等。</p>
+<p>今天要介紹的是結合套件管理功能的<strong>Poetry</strong>。</p>
+<p>Poetry方便的的地方在於套件解析功能，讓套件安裝與卸載都很簡單，有效避免版本衝突的問題。</p>
+<p>只要透過<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>這個設定檔，把套件及相關資訊寫在上面，就可以決定虛擬環境該怎麼建立。</p>
+<p>如果把虛擬環境類比成一棟建築的話，<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>就是建築設計圖。</p>
+<p>有了<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>，就可以讓poetry依照我們想要的樣子來建立虛擬環境並安裝套件。</p>
+</section>
+<section id="poetry">
+<h3>安裝Poetry<a class="headerlink" href="#poetry" title="Permalink to this heading">#</a></h3>
+<p>Poetry本身是一個python套件，所以需要先安裝它。</p>
+<p>由於我們要透過Poetry來建立虛擬環境並管理套件，Poetry必須跟我們各個專案使用的虛擬環境分開，也就是說Poetry必須在一個獨立的環境。</p>
+<p>這邊我們透過<code class="docutils literal notranslate"><span class="pre">pipx</span></code>這個工具來安裝，透過這個工具就可以確保Poetry是在一個獨立的環境。</p>
+<p><code class="docutils literal notranslate"><span class="pre">pipx</span></code>跟pip、virtualenv都是來自同一個社群開發的工具。</p>
+<p>參考：</p>
+<p><a class="reference external" href="https://github.com/pypa/pipx">pypa/pipx: Install and Run Python Applications in Isolated Environments (github.com)</a></p>
+<p>[step 1] 安裝pipx</p>
+<p>透過homebrew安裝</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">pipx</span>
+</pre></div>
+</div>
+<p>安裝完成後必須設定好路徑</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">ensurepath</span>
+</pre></div>
+</div>
+<p>[step 2] 安裝poetry</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">install</span> <span class="n">poetry</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>建立虛擬環境<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>[step 1] 建立專案子環境資料夾</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">new</span> <span class="n">newproject</span>
+</pre></div>
+</div>
+<p>[step 2] 當前工作資料夾移至該資料夾</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">newproject</span>
+</pre></div>
+</div>
+<p>[step 3] 建立虛擬環境</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">env</span> <span class="n">use</span> <span class="mf">3.12.1</span>
+</pre></div>
+</div>
+<p>確認是否設定正確</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>啟動虛擬環境並安裝套件<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<p>[step 1] 啟動虛擬環境</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">shell</span>
+</pre></div>
+</div>
+<p>如果設定正確的話，會看到如下畫面：</p>
+<figure class="align-default">
+<img alt="_images/poetry_shell.png" src="_images/poetry_shell.png" />
+</figure>
+<p>終端機最前面的地方，會多了虛擬環境的名稱。</p>
+<p>[step 2] 安裝套件</p>
+<p>安裝套件的方法：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">add</span> <span class="n">jupyter</span>
+<span class="n">poetry</span> <span class="n">add</span> <span class="n">pandas</span>
+<span class="n">poetry</span> <span class="n">add</span> <span class="n">plotly</span>
+<span class="n">poetry</span> <span class="n">add</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+</pre></div>
+</div>
+<p>注意到<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>裡面的內容，自動加上了套件資訊：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dataviz&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;curtis-lu &lt;pclu79@gmail.com&gt;&quot;</span><span class="p">]</span>
+<span class="n">readme</span> <span class="o">=</span> <span class="s2">&quot;README.md&quot;</span>
+
+<span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">dependencies</span><span class="p">]</span>
+<span class="n">python</span> <span class="o">=</span> <span class="s2">&quot;^3.12&quot;</span>
+<span class="n">jupyter</span> <span class="o">=</span> <span class="s2">&quot;^1.0.0&quot;</span>
+<span class="n">pandas</span> <span class="o">=</span> <span class="s2">&quot;^2.2.0&quot;</span>
+<span class="n">plotly</span> <span class="o">=</span> <span class="s2">&quot;^5.18.0&quot;</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="o">=</span> <span class="s2">&quot;^1.4.0&quot;</span>
+
+<span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;poetry-core&quot;</span><span class="p">]</span>
+<span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;poetry.core.masonry.api&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="jupyter-notebook">
+<h3>開啟jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<p>開啟command palette</p>
+<figure class="align-default">
+<img alt="_images/command_palette.png" src="_images/command_palette.png" />
+</figure>
+<p>點選”create: New Jupyter Notebook”</p>
+<figure class="align-default">
+<img alt="_images/create_jupyter.png" src="_images/create_jupyter.png" />
+</figure>
+<p>輸入語法並測試是否可以正常執行</p>
+<figure class="align-default">
+<img alt="_images/test_jupyter.png" src="_images/test_jupyter.png" />
+</figure>
+<p>注意到，若右上角顯示的是”Select kernel”，可以點進去，選擇對應的虛擬環境名稱。</p>
+<figure class="align-default">
+<img alt="_images/select_kernel.png" src="_images/select_kernel.png" />
+</figure>
+<p>如果沒有對應虛擬環境名稱的話，代表VScode沒有正確抓到路徑。</p>
+<p>可以手動輸入，方法如下：</p>
+<p>回到終端機輸入以下（注意必須在虛擬環境啟動的情況下）：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">python</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="_images/pyexe_path.png" src="_images/pyexe_path.png" />
+</figure>
+<p>接著把輸出的路徑貼到以下地方：</p>
+<p>“python: select interpreter”</p>
+<figure class="align-default">
+<img alt="_images/python_select.png" src="_images/python_select.png" />
+</figure>
+<p>“enter interpreter path”</p>
+<figure class="align-default">
+<img alt="_images/enter_path.png" src="_images/enter_path.png" />
+</figure>
+<p>輸入路徑，然後按下enter：</p>
+<figure class="align-default">
+<img alt="_images/path_enter.png" src="_images/path_enter.png" />
+</figure>
+</section>
+</section>
+<section id="id6">
+<h2>小結<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>以後要使用python的步驟就是：</p>
+<ol class="arabic simple">
+<li><p>開啟vscode</p></li>
+<li><p>open folder 到專案版本資料夾路徑</p></li>
+<li><p>打開終端機</p></li>
+<li><p>輸入：<code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">shell</span></code> （注意當前工作資料夾須在pyproject.toml同一層資料夾）</p></li>
+<li><p>打開jupyter notebook檔，選擇好kernel(右上角)；或是python檔，選擇好interpreter(下方)。</p></li>
+</ol>
+<p>就可以進行開發了！</p>
+<p>本章的內容非常多，而且很多可能大家不熟悉的內容。</p>
+<p>卡住的話就先整個關掉甚至關機，然後喝杯水，放空一下。</p>
+<p>很多問題可能就迎刃而解了！</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cs_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">shell &amp; IDE 介紹</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-macos">Python安裝(macOS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homebrew">安裝homebrew</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyenv">安裝pyenv</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">安裝python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">建立虛擬環境</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">什麼是虛擬環境？為什麼需要虛擬環境？</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">安裝Poetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">建立虛擬環境</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">啟動虛擬環境並安裝套件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">開啟jupyter notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">小結</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -183,7 +183,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_1.html">Pandas常用操作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_2.html">Pandas 資料分析</a></li>
-<li class="toctree-l1"><a class="reference internal" href="colab.html">test for colab</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cs_1.html">shell &amp; IDE 介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs_2.html">Python安裝與虛擬環境</a></li>
 </ul>
 
     </div>
@@ -225,37 +229,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/curtis-lu/ntu-ps-intro-ml/blob/master/docs/pandas_0.md" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -313,23 +286,6 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/pandas_0.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
       
       
       
@@ -1142,44 +1098,68 @@ memory usage: 164.2+ KB
   </thead>
   <tbody>
     <tr>
-      <th>453</th>
-      <td>no checking</td>
-      <td>24.0</td>
+      <th>804</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>12.0</td>
       <td>existing paid</td>
-      <td>used car</td>
-      <td>2670.0</td>
-      <td>&lt;100</td>
-      <td>&gt;=7</td>
-      <td>4.0</td>
-      <td>male single</td>
+      <td>new car</td>
+      <td>7472.0</td>
+      <td>no known savings</td>
+      <td>unemployed</td>
+      <td>1.0</td>
+      <td>female div/dep/mar</td>
       <td>NaN</td>
       <td>...</td>
-      <td>car</td>
-      <td>35.0</td>
+      <td>real estate</td>
+      <td>24.0</td>
       <td>NaN</td>
-      <td>own</td>
+      <td>rent</td>
       <td>1.0</td>
-      <td>high qualif/self emp/mgmt</td>
+      <td>unemp/unskilled non res</td>
       <td>1.0</td>
-      <td>yes</td>
+      <td>NaN</td>
       <td>yes</td>
       <td>good</td>
     </tr>
     <tr>
-      <th>542</th>
-      <td>&lt;0</td>
-      <td>30.0</td>
+      <th>505</th>
+      <td>no checking</td>
+      <td>10.0</td>
       <td>existing paid</td>
-      <td>furniture/equipment</td>
-      <td>6350.0</td>
+      <td>new car</td>
+      <td>1309.0</td>
       <td>no known savings</td>
-      <td>&gt;=7</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>4.0</td>
+      <td>male single</td>
+      <td>guarantor</td>
+      <td>...</td>
+      <td>life insurance</td>
+      <td>27.0</td>
+      <td>NaN</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>9.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>458.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
       <td>4.0</td>
       <td>male single</td>
       <td>NaN</td>
       <td>...</td>
-      <td>life insurance</td>
-      <td>31.0</td>
+      <td>real estate</td>
+      <td>24.0</td>
       <td>NaN</td>
       <td>own</td>
       <td>1.0</td>
@@ -1187,31 +1167,7 @@ memory usage: 164.2+ KB
       <td>1.0</td>
       <td>NaN</td>
       <td>yes</td>
-      <td>bad</td>
-    </tr>
-    <tr>
-      <th>809</th>
-      <td>0&lt;=X&lt;200</td>
-      <td>15.0</td>
-      <td>no credits/all paid</td>
-      <td>new car</td>
-      <td>1778.0</td>
-      <td>&lt;100</td>
-      <td>&lt;1</td>
-      <td>2.0</td>
-      <td>female div/dep/mar</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>real estate</td>
-      <td>26.0</td>
-      <td>NaN</td>
-      <td>rent</td>
-      <td>2.0</td>
-      <td>unemp/unskilled non res</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>yes</td>
-      <td>bad</td>
+      <td>good</td>
     </tr>
   </tbody>
 </table>
