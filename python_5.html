@@ -186,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="cs_1.html">shell &amp; IDE 介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs_1.html">Shell &amp; IDE 介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs_2.html">Python安裝與虛擬環境</a></li>
 </ul>
 
@@ -536,7 +536,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">None</span>
 
@@ -545,20 +545,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="kc">None</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">my_func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="nn">Cell In[7], line 2,</span> in <span class="ni">my_func</span><span class="nt">(**kwargs)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="kc">None</span>
-
-<span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a -&gt; 1
+b -&gt; 2
+c -&gt; 3
 </pre></div>
 </div>
 </div>
@@ -570,18 +559,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">my_func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="nn">Cell In[7], line 2,</span> in <span class="ni">my_func</span><span class="nt">(**kwargs)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="kc">None</span>
-
-<span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a -&gt; 1
+b -&gt; 2
+c -&gt; 3
+d -&gt; 4
+e -&gt; 5
 </pre></div>
 </div>
 </div>
@@ -734,7 +716,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4449914240
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4428453760
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;]
@@ -750,7 +732,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4449914240
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4428453760
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;]
@@ -762,7 +744,7 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">mylist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">my_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mylist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">mylist</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">mylist</span><span class="p">))</span>
@@ -773,20 +755,10 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">mylist</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">mylist</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">append_element</span><span class="p">(</span><span class="n">e</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-
-<span class="nn">Cell In[20], line 2,</span> in <span class="ni">append_element</span><span class="nt">(e, mylist)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">mylist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">if</span> <span class="n">my_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="n">mylist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;my_list&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4428455360
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;]
 </pre></div>
 </div>
 </div>
@@ -799,18 +771,10 @@ I am keyword arg: {&#39;d&#39;: 4, &#39;e&#39;: 5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">append_element</span><span class="p">(</span><span class="n">e</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-
-<span class="nn">Cell In[20], line 2,</span> in <span class="ni">append_element</span><span class="nt">(e, mylist)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">mylist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">if</span> <span class="n">my_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="n">mylist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;my_list&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4428444288
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;]
 </pre></div>
 </div>
 </div>
