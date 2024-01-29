@@ -168,7 +168,7 @@ the_big_day = '20200520'
 today_dt = datetime.strptime(today, '%Y%m%d')
 the_big_day_dt = datetime.strptime(the_big_day , '%Y%m%d')
 
-days_together = today_dt - the_big_day_dt 
+days_together = today_dt - the_big_day_dt
 
 type(days_together)
 print(days_together.days)

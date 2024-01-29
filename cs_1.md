@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 
-# shell & IDE 介紹
+# Shell & IDE 介紹
 
 要進行python資料分析或程式開發就必須建立python的開發環境。
 
@@ -54,9 +54,9 @@ Shell只是這類語言的統稱，不同作業系統有各種不同shell，甚�
 
 shell除了可以操作作業系統，也可以執行程式，我們主要使用shell的目的就是為了要去執行程式。
 
-例如我們可以把python程式儲存在一個副檔名為```.py```的檔案中，shell可以透過呼叫python編譯器來執行```.py```的程式。
+例如我們可以把python程式儲存為副檔名是```.py```的檔案，shell可以透過呼叫python編譯器來執行```.py```的程式。
 
-所謂編譯器是指把人類編寫的程式轉譯成機器能理解的語言，所以python編譯器指的就是把python程式碼轉譯成機器可以理解的指令。
+所謂編譯器是指把人類編寫的程式轉譯成機器能理解的語言，python編譯器指的就是把python程式碼轉譯成機器可以理解的指令。
 
 ### **如何使用Shell**
 
@@ -125,7 +125,7 @@ print('data saved.')
 
 兩者都會產出一個csv檔，只是檔名不同。
 
-假設我們當前的工作資料夾在my_project，分別執行兩個grading.py：
+假設我們當前的工作資料夾在my_project，分別執行兩個```grading.py```：
 
 ```
 python grading.py

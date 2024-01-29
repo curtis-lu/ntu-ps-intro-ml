@@ -223,7 +223,7 @@ for idx, e in enumerate(a_set):
 
 a_dict = {'a':1, 'b':2, 'c':3}
 
-for idx, (k, v) in enumerate(a_dict):
+for idx, (k, v) in enumerate(a_dict.items()):
     print(idx, k, v)
 ```
 

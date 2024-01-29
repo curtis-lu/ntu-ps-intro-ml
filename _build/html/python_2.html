@@ -186,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="cs_1.html">shell &amp; IDE 介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs_1.html">Shell &amp; IDE 介紹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cs_2.html">Python安裝與虛擬環境</a></li>
 </ul>
 
@@ -413,9 +413,13 @@ document.write(`
 <p>key在字典裡不能重複，通常會使用字串或tuple來當作key。至於value則沒有什麼限制。</p>
 <p>dict跟後面等等會介紹的set一樣，都是沒有順序的，不能使用切片。</p>
 <p><strong>建立dict</strong></p>
+<p>以下兩種方法都可以建立dictionary。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># key: value</span>
+<span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="c1"># key=value</span>
 <span class="n">a_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -424,6 +428,7 @@ document.write(`
 <section id="id1">
 <h3>dict的基本用法<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p><strong>dict的基本用法</strong></p>
+<p>利用key來取出value：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
@@ -436,6 +441,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>利用key來取出value的另一種方法：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
@@ -448,6 +454,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>若key值不存在的話，用這個方法python會丟出錯誤。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
@@ -465,6 +472,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>若key值不存在的話，用<code class="docutils literal notranslate"><span class="pre">.get()</span></code>方法python不會丟出錯誤。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span> <span class="c1"># 不會回傳任何東西</span>
@@ -472,6 +480,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">.get()</span></code>方法內的參數是當key值不存在時，預設的value。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;missing&#39;</span><span class="p">)</span>
@@ -488,13 +497,16 @@ document.write(`
 <section id="id2">
 <h3>dict 新增與刪除項目<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p><strong>dict新增項目</strong></p>
+<p>新增項目的方法有兩種：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
 
+<span class="c1"># 第一種</span>
 <span class="n">a_dict</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
 
+<span class="c1"># 第二種</span>
 <span class="n">a_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_dict</span><span class="p">)</span>
 </pre></div>
@@ -540,6 +552,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>key值若不存在會拋錯。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
@@ -557,6 +570,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">.pop()</span></code>方法中可以塞預設值。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;Nothing happened&#39;</span><span class="p">)</span>
@@ -981,17 +995,12 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">isiperset</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">43</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="o">.</span><span class="n">isiperset</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: &#39;set&#39; object has no attribute &#39;isiperset&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>

@@ -24,8 +24,13 @@ dict跟後面等等會介紹的set一樣，都是沒有順序的，不能使用�
 
 **建立dict**
 
+以下兩種方法都可以建立dictionary。
+
 ```{code-cell}
+# key: value
 a_dict = {'a': 1, 'b': 2, 'c':3}
+
+# key=value
 a_dict = dict(a=1, b=2, c=3)
 ```
 
@@ -33,22 +38,26 @@ a_dict = dict(a=1, b=2, c=3)
 
  **dict的基本用法**
 
+利用key來取出value：
 ```{code-cell}
 a_dict['a']
 ```
 
+利用key來取出value的另一種方法：
 ```{code-cell}
 a_dict.get('a')
 ```
-
+若key值不存在的話，用這個方法python會丟出錯誤。
 ```{code-cell}
 a_dict['d']
 ```
 
+若key值不存在的話，用```.get()```方法python不會丟出錯誤。
 ```{code-cell}
 a_dict.get('d') # 不會回傳任何東西
 ```
 
+```.get()```方法內的參數是當key值不存在時，預設的value。
 ```{code-cell}
 a_dict.get('d', 'missing')
 ```
@@ -57,12 +66,15 @@ a_dict.get('d', 'missing')
 
 **dict新增項目**
 
+新增項目的方法有兩種：
 ```{code-cell}
 a_dict = {'a': 1, 'b': 2, 'c':3}
 
+# 第一種
 a_dict['d'] = 4
 print(a_dict)
 
+# 第二種
 a_dict.update({'e': 5})
 print(a_dict)
 ```
@@ -83,10 +95,12 @@ a_dict.pop('a')
 print(a_dict)
 ```
 
+key值若不存在會拋錯。
 ```{code-cell}
 a_dict.pop('d')
 ```
 
+```.pop()```方法中可以塞預設值。
 ```{code-cell}
 a_dict.pop('d', 'Nothing happened')
 ```
@@ -296,7 +310,7 @@ a >= b
 ```
 
 ```{code-cell}
-a.isiperset(b)
+a.issuperset(b)
 ```
 
 判斷是否為真超集

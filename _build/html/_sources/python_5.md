@@ -94,7 +94,7 @@ my_sum(1,2,3,4,5,6,7,8,9,10)
 
 ```{code-cell}
 def my_func(**kwargs):
-    for k, v in kwargs:
+    for k, v in kwargs.items():
         print(f'{k} -> {v}')
     return None
 
@@ -200,7 +200,7 @@ append_element(e='b')
 
 ```{code-cell}
 def append_element(e, mylist=None):
-    if my_list is None:
+    if mylist is None:
         mylist = []
     mylist.append(e)
     print(id(mylist))
