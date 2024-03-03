@@ -22,6 +22,7 @@ parts:
     chapters:
     - file: introml
     - file: colab_0
+    - file: colab_1
   - caption: Environment setup
     chapters:
     - file: cs_1
