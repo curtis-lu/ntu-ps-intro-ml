@@ -3,7 +3,8 @@
 Topics covered by this book：
 - Python basics
 - Pandas basics
-- useful knowledge for data scientist
+- Machine learning basics
+- useful knowledge for data scientists
     - shell
     - git & github
     - IDE & virtual environment

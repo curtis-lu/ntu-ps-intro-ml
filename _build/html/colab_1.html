@@ -455,7 +455,9 @@ document.write(`
 <p>首先一樣需要把使用到的套件先import進來。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_diabetes</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
@@ -464,7 +466,6 @@ document.write(`
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">ElasticNet</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
 </pre></div>
 </div>
 </div>
@@ -547,11 +548,15 @@ Intercept: 151.34560453985995
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2877.7168401330123
-Coefficient (slope): [  52.22078167 -135.20527784  425.64712881  285.19043931  -28.94107816
-  -73.51325335 -200.42059874  148.26489968  324.4599599   143.82779034]
-Intercept: [151.83385192]
-n of iteration: 868
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2872.1616744718763
+Coefficient (slope): [  50.63546365 -147.69938233  441.8114645   293.19266713  -36.74531262
+  -82.69469075 -204.24712985  147.30127313  333.80107271  140.09686077]
+Intercept: [151.5601889]
+n of iteration: 1000
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/curtislu/Library/Caches/pypoetry/virtualenvs/ntu-ps-intro-ml-GyDE60mE-py3.11/lib/python3.11/site-packages/sklearn/linear_model/_stochastic_gradient.py:1575: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+  warnings.warn(
 </pre></div>
 </div>
 </div>
@@ -611,10 +616,10 @@ n of iteration: 23
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.4790093841493
-Coefficients: [  42.85011537 -205.49666781  505.08182259  317.08893954 -108.46026913
-  -86.2555     -190.40930927  151.67353225  392.28068082   79.900497  ]
-Intercept: 151.45859968350263
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.4757277437116
+Coefficients: [  42.86920914 -205.47397661  505.05403365  317.09718315 -108.60100201
+  -86.17819659 -190.3217532   151.70077917  392.36856083   79.94204193]
+Intercept: 151.4584815239511
 n of iteration: [17]
 </pre></div>
 </div>
@@ -659,10 +664,7 @@ n of iteration: 15
 <h3>比較估計的參數<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Extracting coefficients from all models</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extracting coefficients from all models</span>
 <span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span> <span class="s1">&#39;Ridge&#39;</span><span class="p">,</span> <span class="s1">&#39;Lasso&#39;</span><span class="p">,</span> <span class="s1">&#39;Elastic-Net&#39;</span><span class="p">]</span>
 <span class="n">coefficients</span> <span class="o">=</span> <span class="p">[</span><span class="n">sgd_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">ridge_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">lasso_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">elasticnet_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">]</span>
 
@@ -691,7 +693,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7bb31f28a8153c0af654501942283e85cc30a78cbe0ed4b464a9d33390436dd.png" src="_images/c7bb31f28a8153c0af654501942283e85cc30a78cbe0ed4b464a9d33390436dd.png" />
+<img alt="_images/1344c67d75eb6636055600c93b4ad60141550cf640f2f815e53270060fdab6d1.png" src="_images/1344c67d75eb6636055600c93b4ad60141550cf640f2f815e53270060fdab6d1.png" />
 </div>
 </div>
 <p>從上面的圖可以看到Lasso regression有特徵挑選的效果，有些影響較小的特徵，迴歸係數(斜率)會整個被刪除。</p>
@@ -735,7 +737,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0c10223044d070874c805ac04528ce917354f578c6cf30d295c263d53e9d3f9c.png" src="_images/0c10223044d070874c805ac04528ce917354f578c6cf30d295c263d53e9d3f9c.png" />
+<img alt="_images/3e53cd033cad288bc299f44c1b738f08148a49deedf7d2e3352ab2b2a1e1be4c.png" src="_images/3e53cd033cad288bc299f44c1b738f08148a49deedf7d2e3352ab2b2a1e1be4c.png" />
 </div>
 </div>
 <p>基本上預測的結果都蠻相近的，沒有明顯差異。</p>
@@ -840,7 +842,7 @@ By Curtis Lu
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
