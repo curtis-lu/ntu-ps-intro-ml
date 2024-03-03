@@ -20,6 +20,7 @@ parts:
     - file: pandas_2
   - caption: Intro to machine learning
     chapters:
+    - file: introml
     - file: colab_0
   - caption: Environment setup
     chapters:

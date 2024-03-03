@@ -73,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Shell &amp; IDE 介紹" href="cs_1.html" />
-    <link rel="prev" title="Pandas資料分析" href="pandas_2.html" />
+    <link rel="prev" title="Introduction to machine learning" href="introml.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,7 +193,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to machine learning</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introml.html">Introduction to machine learning</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Gradient Descent</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
@@ -425,12 +427,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graident-descent">使用graident descent方法更新截距項</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">使用graident descent方法更新截距項 &amp; 斜率</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Gradient Descent</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graident-descent">使用graident descent更新截距項</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">用graident descent更新截距項 &amp; 斜率</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ols">OLS 結果比較</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -525,8 +531,9 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="graident-descent">
-<h2>使用graident descent方法更新截距項<a class="headerlink" href="#graident-descent" title="Permalink to this heading">#</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="graident-descent">
+<h1>使用graident descent更新截距項<a class="headerlink" href="#graident-descent" title="Permalink to this heading">#</a></h1>
 <p>與課程說明相同，假設僅更新截距項。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -832,9 +839,8 @@ loss: 0.4446
 </div>
 </div>
 <p>可以看到上圖顯示，迭代了50次之後，截距項從0逐漸移動至0.95附近。</p>
-</section>
 <section id="id1">
-<h2>使用graident descent方法更新截距項 &amp; 斜率<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>用graident descent更新截距項 &amp; 斜率<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>接著，下面的程式示範了如何同時更新截距項 &amp; 斜率。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1336,7 +1342,7 @@ Dep. Variable:                      y   R-squared:                       0.743
 Model:                            OLS   Adj. R-squared:                  0.485
 Method:                 Least Squares   F-statistic:                     2.884
 Date:                Sun, 03 Mar 2024   Prob (F-statistic):              0.339
-Time:                        20:41:59   Log-Likelihood:                -1.3931
+Time:                        21:22:47   Log-Likelihood:                -1.3931
 No. Observations:                   3   AIC:                             6.786
 Df Residuals:                       1   BIC:                             4.983
 Df Model:                           1                                         
@@ -1428,12 +1434,12 @@ Intercept: 0.9487179487179489
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="pandas_2.html"
+       href="introml.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Pandas資料分析</p>
+        <p class="prev-next-title">Introduction to machine learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -1460,12 +1466,16 @@ Intercept: 0.9487179487179489
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graident-descent">使用graident descent方法更新截距項</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">使用graident descent方法更新截距項 &amp; 斜率</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Gradient Descent</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graident-descent">使用graident descent更新截距項</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">用graident descent更新截距項 &amp; 斜率</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ols">OLS 結果比較</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
