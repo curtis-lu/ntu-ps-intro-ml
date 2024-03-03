@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Intro to Pandas &#8212; My sample book</title>
+    <title>Intro to Pandas &#8212; Data Science Basics</title>
   
   
   
@@ -160,8 +160,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Data Science Basics - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Data Science Basics - Home"/>`);</script>
   
   
 </a></div>
@@ -189,7 +189,11 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_1.html">Pandas常用操作</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas_2.html">Pandas 資料分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_2.html">Pandas資料分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to machine learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="colab_0.html">Gradient Descent</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
@@ -236,6 +240,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/curtis-lu/ntu-ps-intro-ml/blob/master/pandas_0.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -293,6 +328,23 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/pandas_0.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -1105,74 +1157,74 @@ memory usage: 164.2+ KB
   </thead>
   <tbody>
     <tr>
-      <th>890</th>
-      <td>&lt;0</td>
-      <td>27.0</td>
-      <td>critical/other existing credit</td>
-      <td>business</td>
-      <td>2442.0</td>
-      <td>&lt;100</td>
-      <td>&gt;=7</td>
-      <td>4.0</td>
-      <td>male single</td>
+      <th>975</th>
+      <td>&gt;=200</td>
+      <td>24.0</td>
+      <td>existing paid</td>
+      <td>radio/tv</td>
+      <td>1258.0</td>
+      <td>500&lt;=X&lt;1000</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>3.0</td>
+      <td>female div/dep/mar</td>
       <td>NaN</td>
       <td>...</td>
       <td>car</td>
-      <td>43.0</td>
-      <td>stores</td>
-      <td>own</td>
-      <td>4.0</td>
-      <td>high qualif/self emp/mgmt</td>
-      <td>2.0</td>
-      <td>yes</td>
-      <td>yes</td>
-      <td>good</td>
-    </tr>
-    <tr>
-      <th>977</th>
-      <td>0&lt;=X&lt;200</td>
-      <td>18.0</td>
-      <td>delayed previously</td>
-      <td>business</td>
-      <td>2427.0</td>
-      <td>no known savings</td>
-      <td>&gt;=7</td>
-      <td>4.0</td>
-      <td>male single</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>life insurance</td>
-      <td>42.0</td>
+      <td>57.0</td>
       <td>NaN</td>
       <td>own</td>
-      <td>2.0</td>
-      <td>skilled</td>
+      <td>1.0</td>
+      <td>unskilled resident</td>
       <td>1.0</td>
       <td>NaN</td>
       <td>yes</td>
       <td>good</td>
     </tr>
     <tr>
-      <th>774</th>
-      <td>&gt;=200</td>
-      <td>12.0</td>
-      <td>critical/other existing credit</td>
-      <td>new car</td>
-      <td>1480.0</td>
-      <td>500&lt;=X&lt;1000</td>
-      <td>unemployed</td>
+      <th>465</th>
+      <td>&lt;0</td>
+      <td>24.0</td>
+      <td>existing paid</td>
+      <td>used car</td>
+      <td>2924.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>3.0</td>
+      <td>male single</td>
+      <td>guarantor</td>
+      <td>...</td>
+      <td>no known property</td>
+      <td>63.0</td>
+      <td>bank</td>
+      <td>own</td>
+      <td>1.0</td>
+      <td>skilled</td>
       <td>2.0</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>794</th>
+      <td>no checking</td>
+      <td>24.0</td>
+      <td>existing paid</td>
+      <td>furniture/equipment</td>
+      <td>3062.0</td>
+      <td>500&lt;=X&lt;1000</td>
+      <td>&gt;=7</td>
+      <td>4.0</td>
       <td>male single</td>
       <td>NaN</td>
       <td>...</td>
       <td>no known property</td>
-      <td>66.0</td>
-      <td>bank</td>
-      <td>for free</td>
-      <td>3.0</td>
-      <td>unemp/unskilled non res</td>
-      <td>1.0</td>
+      <td>32.0</td>
       <td>NaN</td>
+      <td>rent</td>
+      <td>1.0</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>yes</td>
       <td>yes</td>
       <td>good</td>
     </tr>
@@ -7067,7 +7119,7 @@ Name: count, dtype: int64
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Curtis Lu
 </p>
 
   </div>
