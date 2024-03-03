@@ -1,0 +1,1522 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Gradient Descent &#8212; Data Science Basics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-FF9NX9TLJK"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-FF9NX9TLJK');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'colab_0';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Shell &amp; IDE 介紹" href="cs_1.html" />
+    <link rel="prev" title="Pandas資料分析" href="pandas_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Data Science Basics - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Data Science Basics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    A Layman’s Guide to Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_0.html">0.資料型態：bool, int, float, str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_1.html">1.資料型態：list與tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_2.html">2.資料型態：dict與set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_3.html">3.資料型態：進階主題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_4.html">4.流程控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_5.html">5.function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_6.html">6.進階主題</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pandas_0.html">Intro to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_1.html">Pandas常用操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_2.html">Pandas資料分析</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to machine learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Gradient Descent</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cs_1.html">Shell &amp; IDE 介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cs_2.html">Python安裝與虛擬環境</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/curtis-lu/ntu-ps-intro-ml/blob/master/colab_0.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/curtis-lu/ntu-ps-intro-ml/issues/new?title=Issue%20on%20page%20%2Fcolab_0.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/colab_0.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Gradient Descent</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graident-descent">使用graident descent方法更新截距項</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">使用graident descent方法更新截距項 &amp; 斜率</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ols">OLS 結果比較</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gradient-descent">
+<h1>Gradient Descent<a class="headerlink" href="#gradient-descent" title="Permalink to this heading">#</a></h1>
+<p>import 需要的套件。一般都會全部放在程式的最前面。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>配合課程說明的案例，用python演示一次。</p>
+<p>首先定義需要的function如下：</p>
+<ol class="arabic simple">
+<li><p>定義模型（簡單線性迴歸）：參數是截距項、斜率，及模型的input(feature)，輸出是對應的模型預測值。</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+
+    <span class="n">y_hat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span>
+
+    <span class="k">return</span> <span class="n">y_hat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>計算損失 &amp; gradient：計算給定參數時（即當前模型）的損失值 &amp; gradient。</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_loss</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+
+    <span class="n">loss</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">loss</span> <span class="o">+=</span> <span class="p">(</span> <span class="n">y</span> <span class="o">-</span> <span class="n">model</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">loss</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_gradient</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+
+    <span class="n">gradient</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">gradient</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span> <span class="n">y</span> <span class="o">-</span> <span class="n">model</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">gradient</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>更新參數：根據輸入的gradient，以及給定的learning rate(lr)，將目前的參數值更新為新的參數值。</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_param</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+
+    <span class="n">new_param</span> <span class="o">=</span> <span class="n">param</span> <span class="o">-</span> <span class="n">gradient</span> <span class="o">*</span> <span class="n">lr</span>
+
+    <span class="k">return</span> <span class="n">new_param</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>定義與課程說明相同的資料如下：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">],</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="graident-descent">
+<h2>使用graident descent方法更新截距項<a class="headerlink" href="#graident-descent" title="Permalink to this heading">#</a></h2>
+<p>與課程說明相同，假設僅更新截距項。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># step 1: 隨機取值。</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 初始化一些variable，供後續繪圖使用。</span>
+<span class="n">graph_a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">graph_loss</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">):</span> <span class="c1"># 假設僅迭代50次。</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&gt;&gt;&gt; iteration: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># step 2: 計算gradient。</span>
+    <span class="n">gradient</span> <span class="o">=</span> <span class="n">get_gradient</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.64</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;gradient = </span><span class="si">{</span><span class="n">gradient</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># step 3: 更新參數</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">update_param</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">gradient</span><span class="o">=</span><span class="n">gradient</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;a = </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># 儲存每一次迭代時的截距項，供繪圖用。</span>
+    <span class="n">graph_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c1"># 儲存並計算每一次迭代時的損失，供繪圖用。</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">get_loss</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.64</span><span class="p">)</span>
+    <span class="n">graph_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; iteration: 0
+gradient = -5.7040
+a = 0.5704
+loss: 0.8784
+
+&gt;&gt;&gt; iteration: 1
+gradient = -2.2816
+a = 0.7986
+loss: 0.5140
+
+&gt;&gt;&gt; iteration: 2
+gradient = -0.9126
+a = 0.8898
+loss: 0.4557
+
+&gt;&gt;&gt; iteration: 3
+gradient = -0.3651
+a = 0.9263
+loss: 0.4464
+
+&gt;&gt;&gt; iteration: 4
+gradient = -0.1460
+a = 0.9409
+loss: 0.4449
+
+&gt;&gt;&gt; iteration: 5
+gradient = -0.0584
+a = 0.9468
+loss: 0.4447
+
+&gt;&gt;&gt; iteration: 6
+gradient = -0.0234
+a = 0.9491
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 7
+gradient = -0.0093
+a = 0.9500
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 8
+gradient = -0.0037
+a = 0.9504
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 9
+gradient = -0.0015
+a = 0.9506
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 10
+gradient = -0.0006
+a = 0.9506
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 11
+gradient = -0.0002
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 12
+gradient = -0.0001
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 13
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 14
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 15
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 16
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 17
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 18
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 19
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 20
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 21
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 22
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 23
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 24
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 25
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 26
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 27
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 28
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 29
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 30
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 31
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 32
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 33
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 34
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 35
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 36
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 37
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 38
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 39
+gradient = -0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 40
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 41
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 42
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 43
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 44
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 45
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 46
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 47
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 48
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 49
+gradient = 0.0000
+a = 0.9507
+loss: 0.4446
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">graph_a</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">graph_loss</span><span class="p">})</span>
+<span class="n">graph_df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;a&#39;, ylabel=&#39;loss&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/16bb0ff486353d7683d5d50e7e3601d0dd4f5fece90642c577b76ecabeacdeff.png" src="_images/16bb0ff486353d7683d5d50e7e3601d0dd4f5fece90642c577b76ecabeacdeff.png" />
+</div>
+</div>
+<p>可以看到上圖顯示，迭代了50次之後，截距項從0逐漸移動至0.95附近。</p>
+</section>
+<section id="id1">
+<h2>使用graident descent方法更新截距項 &amp; 斜率<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>接著，下面的程式示範了如何同時更新截距項 &amp; 斜率。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_gradients</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+
+    <span class="n">gradient_a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">gradient_b</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">gradient_a</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span> <span class="n">y</span> <span class="o">-</span> <span class="n">model</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="n">gradient_b</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span> <span class="n">y</span> <span class="o">-</span> <span class="n">model</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">gradient_a</span><span class="p">,</span> <span class="n">gradient_b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># step 1: 隨機取值。</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 初始化一些variable，供後續繪圖使用。</span>
+<span class="n">graph_a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">graph_b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">graph_loss</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">701</span><span class="p">):</span>
+    <span class="c1"># step 2: 計算gradient。</span>
+    <span class="n">gradient_a</span><span class="p">,</span> <span class="n">gradient_b</span> <span class="o">=</span> <span class="n">get_gradients</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+
+    <span class="c1"># step 3: 更新參數</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">update_param</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">gradient</span><span class="o">=</span><span class="n">gradient_a</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">update_param</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">gradient</span><span class="o">=</span><span class="n">gradient_b</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+
+    <span class="c1"># 儲存每一次迭代時的截距項，供繪圖用。</span>
+    <span class="n">graph_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">graph_b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+    <span class="c1"># 儲存並計算每一次迭代時的損失，供繪圖用。</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">get_loss</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">graph_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+
+    <span class="c1"># 因為迭代的次數較多，讓程式每迭代10次才print內容。</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&gt;&gt;&gt; iteration: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;gradient_a = </span><span class="si">{</span><span class="n">gradient_a</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">, gradient_b = </span><span class="si">{</span><span class="n">gradient_b</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;a = </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">, b = </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; iteration: 0
+gradient_a = -1.6000, gradient_b = -0.8000
+a = 0.0160, b = 1.0080
+loss: 1.0311
+
+&gt;&gt;&gt; iteration: 10
+gradient_a = -0.9601, gradient_b = 0.3810
+a = 0.1269, b = 0.9906
+loss: 0.9005
+
+&gt;&gt;&gt; iteration: 20
+gradient_a = -0.8470, gradient_b = 0.3603
+a = 0.2163, b = 0.9531
+loss: 0.8068
+
+&gt;&gt;&gt; iteration: 30
+gradient_a = -0.7549, gradient_b = 0.3216
+a = 0.2958, b = 0.9192
+loss: 0.7324
+
+&gt;&gt;&gt; iteration: 40
+gradient_a = -0.6729, gradient_b = 0.2867
+a = 0.3667, b = 0.8890
+loss: 0.6733
+
+&gt;&gt;&gt; iteration: 50
+gradient_a = -0.5998, gradient_b = 0.2556
+a = 0.4299, b = 0.8621
+loss: 0.6263
+
+&gt;&gt;&gt; iteration: 60
+gradient_a = -0.5347, gradient_b = 0.2278
+a = 0.4863, b = 0.8381
+loss: 0.5890
+
+&gt;&gt;&gt; iteration: 70
+gradient_a = -0.4766, gradient_b = 0.2031
+a = 0.5365, b = 0.8167
+loss: 0.5594
+
+&gt;&gt;&gt; iteration: 80
+gradient_a = -0.4249, gradient_b = 0.1810
+a = 0.5812, b = 0.7976
+loss: 0.5358
+
+&gt;&gt;&gt; iteration: 90
+gradient_a = -0.3787, gradient_b = 0.1614
+a = 0.6212, b = 0.7806
+loss: 0.5171
+
+&gt;&gt;&gt; iteration: 100
+gradient_a = -0.3376, gradient_b = 0.1438
+a = 0.6567, b = 0.7654
+loss: 0.5022
+
+&gt;&gt;&gt; iteration: 110
+gradient_a = -0.3009, gradient_b = 0.1282
+a = 0.6884, b = 0.7519
+loss: 0.4904
+
+&gt;&gt;&gt; iteration: 120
+gradient_a = -0.2683, gradient_b = 0.1143
+a = 0.7167, b = 0.7399
+loss: 0.4810
+
+&gt;&gt;&gt; iteration: 130
+gradient_a = -0.2391, gradient_b = 0.1019
+a = 0.7419, b = 0.7291
+loss: 0.4735
+
+&gt;&gt;&gt; iteration: 140
+gradient_a = -0.2132, gradient_b = 0.0908
+a = 0.7644, b = 0.7196
+loss: 0.4676
+
+&gt;&gt;&gt; iteration: 150
+gradient_a = -0.1900, gradient_b = 0.0810
+a = 0.7844, b = 0.7110
+loss: 0.4629
+
+&gt;&gt;&gt; iteration: 160
+gradient_a = -0.1694, gradient_b = 0.0722
+a = 0.8022, b = 0.7034
+loss: 0.4591
+
+&gt;&gt;&gt; iteration: 170
+gradient_a = -0.1510, gradient_b = 0.0643
+a = 0.8181, b = 0.6967
+loss: 0.4561
+
+&gt;&gt;&gt; iteration: 180
+gradient_a = -0.1346, gradient_b = 0.0573
+a = 0.8323, b = 0.6906
+loss: 0.4538
+
+&gt;&gt;&gt; iteration: 190
+gradient_a = -0.1200, gradient_b = 0.0511
+a = 0.8450, b = 0.6852
+loss: 0.4519
+
+&gt;&gt;&gt; iteration: 200
+gradient_a = -0.1069, gradient_b = 0.0456
+a = 0.8562, b = 0.6804
+loss: 0.4504
+
+&gt;&gt;&gt; iteration: 210
+gradient_a = -0.0953, gradient_b = 0.0406
+a = 0.8663, b = 0.6762
+loss: 0.4492
+
+&gt;&gt;&gt; iteration: 220
+gradient_a = -0.0850, gradient_b = 0.0362
+a = 0.8752, b = 0.6723
+loss: 0.4483
+
+&gt;&gt;&gt; iteration: 230
+gradient_a = -0.0758, gradient_b = 0.0323
+a = 0.8832, b = 0.6689
+loss: 0.4475
+
+&gt;&gt;&gt; iteration: 240
+gradient_a = -0.0675, gradient_b = 0.0288
+a = 0.8903, b = 0.6659
+loss: 0.4469
+
+&gt;&gt;&gt; iteration: 250
+gradient_a = -0.0602, gradient_b = 0.0256
+a = 0.8967, b = 0.6632
+loss: 0.4464
+
+&gt;&gt;&gt; iteration: 260
+gradient_a = -0.0537, gradient_b = 0.0229
+a = 0.9023, b = 0.6608
+loss: 0.4461
+
+&gt;&gt;&gt; iteration: 270
+gradient_a = -0.0478, gradient_b = 0.0204
+a = 0.9073, b = 0.6587
+loss: 0.4458
+
+&gt;&gt;&gt; iteration: 280
+gradient_a = -0.0426, gradient_b = 0.0182
+a = 0.9118, b = 0.6567
+loss: 0.4455
+
+&gt;&gt;&gt; iteration: 290
+gradient_a = -0.0380, gradient_b = 0.0162
+a = 0.9158, b = 0.6550
+loss: 0.4453
+
+&gt;&gt;&gt; iteration: 300
+gradient_a = -0.0339, gradient_b = 0.0144
+a = 0.9194, b = 0.6535
+loss: 0.4452
+
+&gt;&gt;&gt; iteration: 310
+gradient_a = -0.0302, gradient_b = 0.0129
+a = 0.9226, b = 0.6522
+loss: 0.4451
+
+&gt;&gt;&gt; iteration: 320
+gradient_a = -0.0269, gradient_b = 0.0115
+a = 0.9254, b = 0.6509
+loss: 0.4450
+
+&gt;&gt;&gt; iteration: 330
+gradient_a = -0.0240, gradient_b = 0.0102
+a = 0.9280, b = 0.6499
+loss: 0.4449
+
+&gt;&gt;&gt; iteration: 340
+gradient_a = -0.0214, gradient_b = 0.0091
+a = 0.9302, b = 0.6489
+loss: 0.4448
+
+&gt;&gt;&gt; iteration: 350
+gradient_a = -0.0191, gradient_b = 0.0081
+a = 0.9322, b = 0.6481
+loss: 0.4448
+
+&gt;&gt;&gt; iteration: 360
+gradient_a = -0.0170, gradient_b = 0.0072
+a = 0.9340, b = 0.6473
+loss: 0.4448
+
+&gt;&gt;&gt; iteration: 370
+gradient_a = -0.0152, gradient_b = 0.0065
+a = 0.9356, b = 0.6466
+loss: 0.4447
+
+&gt;&gt;&gt; iteration: 380
+gradient_a = -0.0135, gradient_b = 0.0058
+a = 0.9370, b = 0.6460
+loss: 0.4447
+
+&gt;&gt;&gt; iteration: 390
+gradient_a = -0.0120, gradient_b = 0.0051
+a = 0.9383, b = 0.6455
+loss: 0.4447
+
+&gt;&gt;&gt; iteration: 400
+gradient_a = -0.0107, gradient_b = 0.0046
+a = 0.9394, b = 0.6450
+loss: 0.4447
+
+&gt;&gt;&gt; iteration: 410
+gradient_a = -0.0096, gradient_b = 0.0041
+a = 0.9404, b = 0.6446
+loss: 0.4447
+
+&gt;&gt;&gt; iteration: 420
+gradient_a = -0.0085, gradient_b = 0.0036
+a = 0.9413, b = 0.6442
+loss: 0.4447
+
+&gt;&gt;&gt; iteration: 430
+gradient_a = -0.0076, gradient_b = 0.0032
+a = 0.9421, b = 0.6438
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 440
+gradient_a = -0.0068, gradient_b = 0.0029
+a = 0.9429, b = 0.6435
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 450
+gradient_a = -0.0060, gradient_b = 0.0026
+a = 0.9435, b = 0.6433
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 460
+gradient_a = -0.0054, gradient_b = 0.0023
+a = 0.9441, b = 0.6430
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 470
+gradient_a = -0.0048, gradient_b = 0.0020
+a = 0.9446, b = 0.6428
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 480
+gradient_a = -0.0043, gradient_b = 0.0018
+a = 0.9450, b = 0.6426
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 490
+gradient_a = -0.0038, gradient_b = 0.0016
+a = 0.9454, b = 0.6424
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 500
+gradient_a = -0.0034, gradient_b = 0.0014
+a = 0.9458, b = 0.6423
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 510
+gradient_a = -0.0030, gradient_b = 0.0013
+a = 0.9461, b = 0.6421
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 520
+gradient_a = -0.0027, gradient_b = 0.0012
+a = 0.9464, b = 0.6420
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 530
+gradient_a = -0.0024, gradient_b = 0.0010
+a = 0.9466, b = 0.6419
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 540
+gradient_a = -0.0021, gradient_b = 0.0009
+a = 0.9469, b = 0.6418
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 550
+gradient_a = -0.0019, gradient_b = 0.0008
+a = 0.9471, b = 0.6417
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 560
+gradient_a = -0.0017, gradient_b = 0.0007
+a = 0.9472, b = 0.6417
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 570
+gradient_a = -0.0015, gradient_b = 0.0006
+a = 0.9474, b = 0.6416
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 580
+gradient_a = -0.0014, gradient_b = 0.0006
+a = 0.9475, b = 0.6415
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 590
+gradient_a = -0.0012, gradient_b = 0.0005
+a = 0.9477, b = 0.6415
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 600
+gradient_a = -0.0011, gradient_b = 0.0005
+a = 0.9478, b = 0.6414
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 610
+gradient_a = -0.0010, gradient_b = 0.0004
+a = 0.9479, b = 0.6414
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 620
+gradient_a = -0.0009, gradient_b = 0.0004
+a = 0.9480, b = 0.6413
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 630
+gradient_a = -0.0008, gradient_b = 0.0003
+a = 0.9481, b = 0.6413
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 640
+gradient_a = -0.0007, gradient_b = 0.0003
+a = 0.9481, b = 0.6413
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 650
+gradient_a = -0.0006, gradient_b = 0.0003
+a = 0.9482, b = 0.6412
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 660
+gradient_a = -0.0005, gradient_b = 0.0002
+a = 0.9483, b = 0.6412
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 670
+gradient_a = -0.0005, gradient_b = 0.0002
+a = 0.9483, b = 0.6412
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 680
+gradient_a = -0.0004, gradient_b = 0.0002
+a = 0.9483, b = 0.6412
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 690
+gradient_a = -0.0004, gradient_b = 0.0002
+a = 0.9484, b = 0.6412
+loss: 0.4446
+
+&gt;&gt;&gt; iteration: 700
+gradient_a = -0.0003, gradient_b = 0.0001
+a = 0.9484, b = 0.6412
+loss: 0.4446
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">graph_a</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="n">graph_b</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">graph_loss</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;a&#39;, ylabel=&#39;loss&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/82a9a6bfc194b565db53562464f33c0e477b0b0fa8a8270e594931b69fa08a95.png" src="_images/82a9a6bfc194b565db53562464f33c0e477b0b0fa8a8270e594931b69fa08a95.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;b&#39;, ylabel=&#39;loss&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/704cd8d18be7d4b03b773fe701a73e1ff028d0c4863a95a597d86a18588ee5c1.png" src="_images/704cd8d18be7d4b03b773fe701a73e1ff028d0c4863a95a597d86a18588ee5c1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;final a: </span><span class="si">{</span><span class="n">graph_a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;final b: </span><span class="si">{</span><span class="n">graph_b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final a: 0.9484228728799461
+final b: 0.6411513598871877
+</pre></div>
+</div>
+</div>
+</div>
+<p>依照上面的結果，gradient descent方法，找到的a是接近0.95，b則是約0.64。</p>
+<p>接下來測試如果使用傳統OLS方法，估計出來的數值是否接近。</p>
+<section id="ols">
+<h3>OLS 結果比較<a class="headerlink" href="#ols" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>這邊使用的套件是statsmodels，可以用類似寫方程式的方法來跑統計模型。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;y ~ x&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>結果如下：</p>
+<p>估計結果其實很接近gradient descent的估計方法。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.743
+Model:                            OLS   Adj. R-squared:                  0.485
+Method:                 Least Squares   F-statistic:                     2.884
+Date:                Sun, 03 Mar 2024   Prob (F-statistic):              0.339
+Time:                        20:41:59   Log-Likelihood:                -1.3931
+No. Observations:                   3   AIC:                             6.786
+Df Residuals:                       1   BIC:                             4.983
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.9487      0.814      1.165      0.451      -9.395      11.292
+x              0.6410      0.377      1.698      0.339      -4.156       5.438
+==============================================================================
+Omnibus:                          nan   Durbin-Watson:                   2.846
+Prob(Omnibus):                    nan   Jarque-Bera (JB):                0.392
+Skew:                          -0.470   Prob(JB):                        0.822
+Kurtosis:                       1.500   Cond. No.                         5.35
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/curtislu/Library/Caches/pypoetry/virtualenvs/ntu-ps-intro-ml-GyDE60mE-py3.11/lib/python3.11/site-packages/statsmodels/stats/stattools.py:74: ValueWarning: omni_normtest is not valid with less than 8 observations; 3 samples were given.
+  warn(&quot;omni_normtest is not valid with less than 8 observations; %i &quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>也可以使用Scikit-learn套件的LinearRegression來做到一樣的結果。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a Linear Regression model object</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Fitting the model to the data (data需整理成符合規格的形狀)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># Once fitted, you can get the coefficients and intercept of the linear regression line</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coefficient (slope): </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intercept: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coefficient (slope): [0.64102564]
+Intercept: 0.9487179487179489
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pandas_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pandas資料分析</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cs_1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Shell &amp; IDE 介紹</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graident-descent">使用graident descent方法更新截距項</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">使用graident descent方法更新截距項 &amp; 斜率</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ols">OLS 結果比較</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Curtis Lu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

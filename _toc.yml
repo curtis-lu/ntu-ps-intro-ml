@@ -18,6 +18,9 @@ parts:
     - file: pandas_0
     - file: pandas_1
     - file: pandas_2
+  - caption: Intro to machine learning
+    chapters:
+    - file: colab_0
   - caption: Environment setup
     chapters:
     - file: cs_1
