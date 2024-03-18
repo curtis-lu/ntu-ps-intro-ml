@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'colab_1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Shell &amp; IDE 介紹" href="cs_1.html" />
+    <link rel="next" title="Hyperparameter Tuning Methods &amp; Cross validation" href="colab_2.html" />
     <link rel="prev" title="Gradient Descent" href="colab_0.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="introml.html">Introduction to machine learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_0.html">Gradient Descent</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lasso regression, Ridge regression, Elastic-Net</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab_2.html">Hyperparameter Tuning Methods &amp; Cross validation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
@@ -548,15 +549,11 @@ Intercept: 151.34560453985995
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2872.1616744718763
-Coefficient (slope): [  50.63546365 -147.69938233  441.8114645   293.19266713  -36.74531262
-  -82.69469075 -204.24712985  147.30127313  333.80107271  140.09686077]
-Intercept: [151.5601889]
-n of iteration: 1000
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/curtislu/Library/Caches/pypoetry/virtualenvs/ntu-ps-intro-ml-GyDE60mE-py3.11/lib/python3.11/site-packages/sklearn/linear_model/_stochastic_gradient.py:1575: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
-  warnings.warn(
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2881.988758622926
+Coefficient (slope): [  52.74580595 -130.03625733  418.7103258   282.1656518   -25.43787021
+  -69.06625972 -198.71873574  148.21397385  320.4357422   144.65353386]
+Intercept: [151.67085946]
+n of iteration: 819
 </pre></div>
 </div>
 </div>
@@ -616,11 +613,11 @@ n of iteration: 23
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.4757277437116
-Coefficients: [  42.86920914 -205.47397661  505.05403365  317.09718315 -108.60100201
-  -86.17819659 -190.3217532   151.70077917  392.36856083   79.94204193]
-Intercept: 151.4584815239511
-n of iteration: [17]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.5092187333153
+Coefficients: [  42.86223984 -205.49963724  505.09260139  317.1011693  -108.53658624
+  -86.24192106 -190.31394476  151.77685475  392.28583575   79.91082629]
+Intercept: 151.4585477742505
+n of iteration: [18]
 </pre></div>
 </div>
 </div>
@@ -693,7 +690,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1344c67d75eb6636055600c93b4ad60141550cf640f2f815e53270060fdab6d1.png" src="_images/1344c67d75eb6636055600c93b4ad60141550cf640f2f815e53270060fdab6d1.png" />
+<img alt="_images/89982f178159943f92770dac38a436eee1c44b8fad2a1df750ea452ca43f3682.png" src="_images/89982f178159943f92770dac38a436eee1c44b8fad2a1df750ea452ca43f3682.png" />
 </div>
 </div>
 <p>從上面的圖可以看到Lasso regression有特徵挑選的效果，有些影響較小的特徵，迴歸係數(斜率)會整個被刪除。</p>
@@ -737,7 +734,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3e53cd033cad288bc299f44c1b738f08148a49deedf7d2e3352ab2b2a1e1be4c.png" src="_images/3e53cd033cad288bc299f44c1b738f08148a49deedf7d2e3352ab2b2a1e1be4c.png" />
+<img alt="_images/747bd4133f05fbf1193988102fd20b30ac817899260f6ce4283b336a97855d00.png" src="_images/747bd4133f05fbf1193988102fd20b30ac817899260f6ce4283b336a97855d00.png" />
 </div>
 </div>
 <p>基本上預測的結果都蠻相近的，沒有明顯差異。</p>
@@ -785,11 +782,11 @@ n of iteration: 15
       </div>
     </a>
     <a class="right-next"
-       href="cs_1.html"
+       href="colab_2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Shell &amp; IDE 介紹</p>
+        <p class="prev-next-title">Hyperparameter Tuning Methods &amp; Cross validation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
