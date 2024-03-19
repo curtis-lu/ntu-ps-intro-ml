@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="colab_0.html">Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_1.html">Lasso regression, Ridge regression, Elastic-Net</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_2.html">Hyperparameter Tuning Methods &amp; Cross validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab_3.html">Logistic Regression &amp; classification metrics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
@@ -2393,123 +2394,123 @@ Name: txn_amt, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>13771</th>
-      <td>13772</td>
-      <td>100000.0</td>
+      <th>28977</th>
+      <td>28978</td>
+      <td>80000.0</td>
       <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>23</td>
-      <td>-2</td>
-      <td>-2</td>
-      <td>-2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>44</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>-1</td>
       <td>-1</td>
       <td>...</td>
-      <td>2861.0</td>
-      <td>2698.0</td>
-      <td>1</td>
-      <td>-0.010760</td>
-      <td>-0.010760</td>
-      <td>1</td>
-      <td>100000</td>
-      <td>(20.999, 26.0]</td>
-      <td>87249.853716</td>
+      <td>2555.0</td>
+      <td>4290.0</td>
+      <td>0</td>
+      <td>-1.025000</td>
+      <td>-1.025000</td>
+      <td>0</td>
+      <td>80000</td>
+      <td>(40.0, 46.0]</td>
+      <td>183018.845509</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>7505</th>
-      <td>7506</td>
-      <td>80000.0</td>
+      <th>17287</th>
+      <td>17288</td>
+      <td>150000.0</td>
       <td>2</td>
       <td>2</td>
       <td>1</td>
-      <td>37</td>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
+      <td>38</td>
+      <td>-2</td>
+      <td>-2</td>
+      <td>-2</td>
+      <td>-2</td>
       <td>...</td>
-      <td>4000.0</td>
-      <td>1894.0</td>
-      <td>1</td>
-      <td>0.232739</td>
-      <td>0.232739</td>
-      <td>1</td>
-      <td>80000</td>
+      <td>11467.0</td>
+      <td>6943.0</td>
+      <td>0</td>
+      <td>0.057121</td>
+      <td>0.057121</td>
+      <td>0</td>
+      <td>150000</td>
       <td>(36.0, 40.0]</td>
       <td>197235.494881</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>29414</th>
-      <td>29415</td>
-      <td>130000.0</td>
+      <th>22876</th>
+      <td>22877</td>
+      <td>50000.0</td>
+      <td>2</td>
+      <td>3</td>
       <td>1</td>
-      <td>2</td>
-      <td>2</td>
-      <td>28</td>
+      <td>31</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>...</td>
-      <td>2961.0</td>
-      <td>2913.0</td>
+      <td>2000.0</td>
+      <td>1019.0</td>
       <td>0</td>
-      <td>0.146777</td>
-      <td>0.146777</td>
+      <td>-0.165520</td>
+      <td>-0.165520</td>
       <td>0</td>
-      <td>130000</td>
-      <td>(26.0, 29.0]</td>
-      <td>166401.692273</td>
+      <td>50000</td>
+      <td>(29.0, 32.0]</td>
+      <td>194254.641910</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>27973</th>
-      <td>27974</td>
-      <td>60000.0</td>
+      <th>16033</th>
+      <td>16034</td>
+      <td>150000.0</td>
       <td>2</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>28</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
-      <td>-1</td>
+      <td>43</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
       <td>...</td>
-      <td>1631.0</td>
-      <td>1931.0</td>
-      <td>0</td>
-      <td>0.938734</td>
-      <td>0.938734</td>
-      <td>0</td>
-      <td>60000</td>
-      <td>(26.0, 29.0]</td>
-      <td>166401.692273</td>
+      <td>2800.0</td>
+      <td>2500.0</td>
+      <td>1</td>
+      <td>0.022621</td>
+      <td>0.022621</td>
+      <td>1</td>
+      <td>150000</td>
+      <td>(40.0, 46.0]</td>
+      <td>183018.845509</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>15650</th>
-      <td>15651</td>
-      <td>100000.0</td>
-      <td>2</td>
-      <td>2</td>
+      <th>6549</th>
+      <td>6550</td>
+      <td>20000.0</td>
       <td>1</td>
-      <td>36</td>
-      <td>-1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>23</td>
       <td>0</td>
-      <td>-1</td>
-      <td>-1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
-      <td>1448.0</td>
-      <td>101434.0</td>
+      <td>2500.0</td>
+      <td>1000.0</td>
       <td>0</td>
-      <td>-0.002413</td>
-      <td>-0.002413</td>
+      <td>-0.186522</td>
+      <td>-0.186522</td>
       <td>0</td>
-      <td>100000</td>
-      <td>(32.0, 36.0]</td>
-      <td>197447.560168</td>
+      <td>20000</td>
+      <td>(20.999, 26.0]</td>
+      <td>87249.853716</td>
       <td>1</td>
     </tr>
   </tbody>
