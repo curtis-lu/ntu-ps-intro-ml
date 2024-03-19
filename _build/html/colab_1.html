@@ -197,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="colab_0.html">Gradient Descent</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lasso regression, Ridge regression, Elastic-Net</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_2.html">Hyperparameter Tuning Methods &amp; Cross validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab_3.html">Logistic Regression &amp; classification metrics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
@@ -549,11 +550,11 @@ Intercept: 151.34560453985995
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2881.988758622926
-Coefficient (slope): [  52.74580595 -130.03625733  418.7103258   282.1656518   -25.43787021
-  -69.06625972 -198.71873574  148.21397385  320.4357422   144.65353386]
-Intercept: [151.67085946]
-n of iteration: 819
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2882.355216034987
+Coefficient (slope): [  53.05811215 -130.1647267   419.02584916  282.18482171  -25.66366394
+  -69.24578881 -198.6263074   148.36805121  320.33750879  144.59105825]
+Intercept: [151.67300919]
+n of iteration: 818
 </pre></div>
 </div>
 </div>
@@ -613,11 +614,11 @@ n of iteration: 23
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.5092187333153
-Coefficients: [  42.86223984 -205.49963724  505.09260139  317.1011693  -108.53658624
-  -86.24192106 -190.31394476  151.77685475  392.28583575   79.91082629]
-Intercept: 151.4585477742505
-n of iteration: [18]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.4953498676127
+Coefficients: [  42.85944137 -205.49704644  505.06811741  317.09643087 -108.56124486
+  -86.2059545  -190.33003386  151.73446684  392.30382006   79.91915955]
+Intercept: 151.4585771290919
+n of iteration: [15]
 </pre></div>
 </div>
 </div>
@@ -690,7 +691,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/89982f178159943f92770dac38a436eee1c44b8fad2a1df750ea452ca43f3682.png" src="_images/89982f178159943f92770dac38a436eee1c44b8fad2a1df750ea452ca43f3682.png" />
+<img alt="_images/1290a0cce728ce058f7ffe21dff7c24da930526d04a2ced3e50af75a9e292030.png" src="_images/1290a0cce728ce058f7ffe21dff7c24da930526d04a2ced3e50af75a9e292030.png" />
 </div>
 </div>
 <p>從上面的圖可以看到Lasso regression有特徵挑選的效果，有些影響較小的特徵，迴歸係數(斜率)會整個被刪除。</p>
@@ -734,7 +735,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/747bd4133f05fbf1193988102fd20b30ac817899260f6ce4283b336a97855d00.png" src="_images/747bd4133f05fbf1193988102fd20b30ac817899260f6ce4283b336a97855d00.png" />
+<img alt="_images/c4c570139165c7013dbec1855fe11c523df8494fdf14d96ed1078865fc67f81c.png" src="_images/c4c570139165c7013dbec1855fe11c523df8494fdf14d96ed1078865fc67f81c.png" />
 </div>
 </div>
 <p>基本上預測的結果都蠻相近的，沒有明顯差異。</p>
