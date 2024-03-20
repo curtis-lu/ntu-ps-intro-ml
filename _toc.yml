@@ -25,6 +25,7 @@ parts:
     - file: colab_1
     - file: colab_2
     - file: colab_3
+    - file: colab_4
   - caption: Environment setup
     chapters:
     - file: cs_1
