@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'colab_3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Shell &amp; IDE 介紹" href="cs_1.html" />
+    <link rel="next" title="Tree-based models" href="colab_4.html" />
     <link rel="prev" title="Hyperparameter Tuning Methods &amp; Cross validation" href="colab_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -198,6 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="colab_1.html">Lasso regression, Ridge regression, Elastic-Net</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_2.html">Hyperparameter Tuning Methods &amp; Cross validation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Logistic Regression &amp; classification metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab_4.html">Tree-based models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
@@ -1138,7 +1139,7 @@ Predicted 1         2        70
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print metrics</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 Score:&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
@@ -1260,11 +1261,11 @@ AUCPR: 0.9983796759737475
       </div>
     </a>
     <a class="right-next"
-       href="cs_1.html"
+       href="colab_4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Shell &amp; IDE 介紹</p>
+        <p class="prev-next-title">Tree-based models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
