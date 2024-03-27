@@ -4,11 +4,13 @@ Topics covered by this book：
 - Python basics
 - Pandas basics
 - Machine learning basics
-- useful knowledge for data scientists
+- useful tools for data scientists
     - shell
     - git & github
     - IDE & virtual environment
     - Markdown
+- useful knowledge for data scientists
+    - causal inference
     - software engineering principles in python
 
 ```{tableofcontents}

@@ -200,6 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="colab_3.html">Logistic Regression &amp; classification metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_4.html">Tree-based models</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to causal inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="causalinference.html">Introduction to Causal Inference</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cs_1.html">Shell &amp; IDE 介紹</a></li>
@@ -551,15 +555,11 @@ Intercept: 151.34560453985995
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2870.884345252129
-Coefficient (slope): [  50.02406027 -147.48215222  441.53195068  293.52652238  -36.46960317
-  -82.757691   -203.78087016  147.38209054  333.98223115  140.15163101]
-Intercept: [151.66244119]
-n of iteration: 1000
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/curtislu/Library/Caches/pypoetry/virtualenvs/ntu-ps-intro-ml-GyDE60mE-py3.11/lib/python3.11/site-packages/sklearn/linear_model/_stochastic_gradient.py:1575: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
-  warnings.warn(
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2872.838519829291
+Coefficient (slope): [  50.75401059 -142.85753545  435.86057818  290.52779155  -33.75050315
+  -79.0653124  -202.68820218  147.67365473  330.11234651  141.60034876]
+Intercept: [151.83162797]
+n of iteration: 949
 </pre></div>
 </div>
 </div>
@@ -619,11 +619,11 @@ n of iteration: 23
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.4726249711384
-Coefficients: [  42.85343477 -205.49736161  505.09026585  317.08614971 -108.39670427
-  -86.29617404 -190.44754006  151.62018752  392.26820854   79.90532291]
-Intercept: 151.45857450602819
-n of iteration: [16]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE) on test set: 2856.489031855823
+Coefficients: [  42.85492781 -205.49417741  505.08995898  317.09365457 -108.40746413
+  -86.31187563 -190.40419957  151.69668166  392.25205755   79.90891343]
+Intercept: 151.45857172710978
+n of iteration: [20]
 </pre></div>
 </div>
 </div>
@@ -696,7 +696,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/11b4eb80ae92ffad6946bed50fc64c9890b123ab61f891e67178f6fa39c26c7d.png" src="_images/11b4eb80ae92ffad6946bed50fc64c9890b123ab61f891e67178f6fa39c26c7d.png" />
+<img alt="_images/d7069deb2fd7846f76bae984498ad6ffd989e049cd2368bc2561579032a606e0.png" src="_images/d7069deb2fd7846f76bae984498ad6ffd989e049cd2368bc2561579032a606e0.png" />
 </div>
 </div>
 <p>從上面的圖可以看到Lasso regression有特徵挑選的效果，有些影響較小的特徵，迴歸係數(斜率)會整個被刪除。</p>
@@ -740,7 +740,7 @@ n of iteration: 15
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ed581e44b6ffddd69b3c991c4e130927a1f0b5e7f760f93b3a6ff71ccc2bf1a5.png" src="_images/ed581e44b6ffddd69b3c991c4e130927a1f0b5e7f760f93b3a6ff71ccc2bf1a5.png" />
+<img alt="_images/ff40907c442fb6d39c19f13a1ee6c8ad57a3d77099d17d61eefee705c20f09de.png" src="_images/ff40907c442fb6d39c19f13a1ee6c8ad57a3d77099d17d61eefee705c20f09de.png" />
 </div>
 </div>
 <p>基本上預測的結果都蠻相近的，沒有明顯差異。</p>

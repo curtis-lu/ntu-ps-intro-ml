@@ -26,6 +26,9 @@ parts:
     - file: colab_2
     - file: colab_3
     - file: colab_4
+  - caption: Intro to causal inference
+    chapters:
+    - file: causalinference
   - caption: Environment setup
     chapters:
     - file: cs_1

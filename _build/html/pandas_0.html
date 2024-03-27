@@ -200,6 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="colab_3.html">Logistic Regression &amp; classification metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab_4.html">Tree-based models</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to causal inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="causalinference.html">Introduction to Causal Inference</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Environment setup</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cs_1.html">Shell &amp; IDE 介紹</a></li>
@@ -1162,74 +1166,74 @@ memory usage: 164.2+ KB
   </thead>
   <tbody>
     <tr>
-      <th>732</th>
-      <td>0&lt;=X&lt;200</td>
-      <td>8.0</td>
-      <td>existing paid</td>
-      <td>radio/tv</td>
-      <td>760.0</td>
-      <td>&lt;100</td>
-      <td>4&lt;=X&lt;7</td>
-      <td>4.0</td>
-      <td>female div/dep/mar</td>
-      <td>guarantor</td>
-      <td>...</td>
-      <td>real estate</td>
-      <td>44.0</td>
-      <td>NaN</td>
-      <td>own</td>
-      <td>1.0</td>
-      <td>unskilled resident</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>yes</td>
-      <td>good</td>
-    </tr>
-    <tr>
-      <th>681</th>
+      <th>754</th>
       <td>no checking</td>
       <td>12.0</td>
-      <td>existing paid</td>
-      <td>radio/tv</td>
-      <td>2279.0</td>
-      <td>no known savings</td>
-      <td>1&lt;=X&lt;4</td>
+      <td>delayed previously</td>
+      <td>repairs</td>
+      <td>1555.0</td>
+      <td>&gt;=1000</td>
+      <td>&gt;=7</td>
       <td>4.0</td>
       <td>male single</td>
       <td>NaN</td>
       <td>...</td>
       <td>no known property</td>
-      <td>37.0</td>
+      <td>55.0</td>
       <td>NaN</td>
       <td>for free</td>
+      <td>2.0</td>
+      <td>skilled</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>yes</td>
+      <td>bad</td>
+    </tr>
+    <tr>
+      <th>815</th>
+      <td>0&lt;=X&lt;200</td>
+      <td>36.0</td>
+      <td>delayed previously</td>
+      <td>new car</td>
+      <td>7432.0</td>
+      <td>&lt;100</td>
+      <td>1&lt;=X&lt;4</td>
+      <td>2.0</td>
+      <td>female div/dep/mar</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>life insurance</td>
+      <td>54.0</td>
+      <td>NaN</td>
+      <td>rent</td>
       <td>1.0</td>
       <td>skilled</td>
       <td>1.0</td>
-      <td>yes</td>
+      <td>NaN</td>
       <td>yes</td>
       <td>good</td>
     </tr>
     <tr>
-      <th>940</th>
+      <th>366</th>
       <td>no checking</td>
-      <td>12.0</td>
-      <td>existing paid</td>
-      <td>new car</td>
-      <td>3527.0</td>
-      <td>no known savings</td>
-      <td>&lt;1</td>
-      <td>2.0</td>
+      <td>18.0</td>
+      <td>critical/other existing credit</td>
+      <td>used car</td>
+      <td>3850.0</td>
+      <td>&lt;100</td>
+      <td>4&lt;=X&lt;7</td>
+      <td>3.0</td>
       <td>male single</td>
       <td>NaN</td>
       <td>...</td>
-      <td>life insurance</td>
-      <td>45.0</td>
+      <td>car</td>
+      <td>27.0</td>
       <td>NaN</td>
       <td>own</td>
-      <td>1.0</td>
-      <td>high qualif/self emp/mgmt</td>
       <td>2.0</td>
-      <td>yes</td>
+      <td>skilled</td>
+      <td>1.0</td>
+      <td>NaN</td>
       <td>yes</td>
       <td>good</td>
     </tr>

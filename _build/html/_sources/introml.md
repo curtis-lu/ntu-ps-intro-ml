@@ -1,4 +1,3 @@
-
 # Introduction to machine learning
 
 以下幾份簡報介紹了：
@@ -13,5 +12,3 @@
     - Gradient boost tree
 - [Part 3](https://www.canva.com/design/DAF9JWxZL54/qYMGyu_nEtJmcHZFKvnriw/view?utm_content=DAF9JWxZL54&utm_campaign=designshare&utm_medium=link&utm_source=editor)
     - machine learning project lifecycle
-
-
